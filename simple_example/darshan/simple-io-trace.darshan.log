@@ -1,0 +1,351 @@
+# darshan log version: 3.21
+# compression method: ZLIB
+# exe: ./simple todel
+# uid: 1000
+# jobid: 16574
+# start_time: 1602864698
+# start_time_asci: Fri Oct 16 12:11:38 2020
+# end_time: 1602864698
+# end_time_asci: Fri Oct 16 12:11:38 2020
+# nprocs: 4
+# run time: 1
+# metadata: lib_ver = 3.2.1
+# metadata: h = romio_no_indep_rw=true;cb_nodes=4
+
+# log file regions
+# -------------------------------------------------------
+# header: 360 bytes (uncompressed)
+# job data: 228 bytes (compressed)
+# record table: 124 bytes (compressed)
+# POSIX module: 148 bytes (compressed), ver=4
+# MPI-IO module: 127 bytes (compressed), ver=3
+# STDIO module: 129 bytes (compressed), ver=2
+
+# mounted file systems (mount point and fs type)
+# -------------------------------------------------------
+# mount entry:	/sys/firmware/efi/efivars	efivarfs
+# mount entry:	/proc/sys/fs/binfmt_misc	autofs
+# mount entry:	/run/user/1000/gvfs	fuse.gvfsd-fuse
+# mount entry:	/sys/kernel/config	configfs
+# mount entry:	/sys/fs/pstore	pstore
+# mount entry:	/dev/mqueue	mqueue
+# mount entry:	/boot/efi	vfat
+# mount entry:	/dev	devtmpfs
+# mount entry:	/	ext4
+
+# description of columns:
+#   <module>: module responsible for this I/O record.
+#   <rank>: MPI rank.  -1 indicates that the file is shared
+#      across all processes and statistics are aggregated.
+#   <record id>: hash of the record's file path
+#   <counter name> and <counter value>: statistical counters.
+#      A value of -1 indicates that Darshan could not monitor
+#      that counter, and its value should be ignored.
+#   <file name>: full file path for the record.
+#   <mount pt>: mount point that the file resides on.
+#   <fs type>: type of file system that the file resides on.
+
+# *******************************************************
+# POSIX module data
+# *******************************************************
+
+# description of POSIX counters:
+#   POSIX_*: posix operation counts.
+#   READS,WRITES,OPENS,SEEKS,STATS,MMAPS,SYNCS,FILENOS,DUPS are types of operations.
+#   POSIX_RENAME_SOURCES/TARGETS: total count file was source or target of a rename operation
+#   POSIX_RENAMED_FROM: Darshan record ID of the first rename source, if file was a rename target
+#   POSIX_MODE: mode that file was opened in.
+#   POSIX_BYTES_*: total bytes read and written.
+#   POSIX_MAX_BYTE_*: highest offset byte read and written.
+#   POSIX_CONSEC_*: number of exactly adjacent reads and writes.
+#   POSIX_SEQ_*: number of reads and writes from increasing offsets.
+#   POSIX_RW_SWITCHES: number of times access alternated between read and write.
+#   POSIX_*_ALIGNMENT: memory and file alignment.
+#   POSIX_*_NOT_ALIGNED: number of reads and writes that were not aligned.
+#   POSIX_MAX_*_TIME_SIZE: size of the slowest read and write operations.
+#   POSIX_SIZE_*_*: histogram of read and write access sizes.
+#   POSIX_STRIDE*_STRIDE: the four most common strides detected.
+#   POSIX_STRIDE*_COUNT: count of the four most common strides.
+#   POSIX_ACCESS*_ACCESS: the four most common access sizes.
+#   POSIX_ACCESS*_COUNT: count of the four most common access sizes.
+#   POSIX_*_RANK: rank of the processes that were the fastest and slowest at I/O (for shared files).
+#   POSIX_*_RANK_BYTES: bytes transferred by the fastest and slowest ranks (for shared files).
+#   POSIX_F_*_START_TIMESTAMP: timestamp of first open/read/write/close.
+#   POSIX_F_*_END_TIMESTAMP: timestamp of last open/read/write/close.
+#   POSIX_F_READ/WRITE/META_TIME: cumulative time spent in read, write, or metadata operations.
+#   POSIX_F_MAX_*_TIME: duration of the slowest read and write operations.
+#   POSIX_F_*_RANK_TIME: fastest and slowest I/O time for a single rank (for shared files).
+#   POSIX_F_VARIANCE_RANK_*: variance of total I/O time and bytes moved for all ranks (for shared files).
+
+# WARNING: POSIX_OPENS counter includes both POSIX_FILENOS and POSIX_DUPS counts
+
+# WARNING: POSIX counters related to file offsets may be incorrect if a file is simultaneously accessed by both POSIX and STDIO (e.g., using fileno())
+# 	- Affected counters include: MAX_BYTE_{READ|WRITTEN}, CONSEC_{READS|WRITES}, SEQ_{READS|WRITES}, {MEM|FILE}_NOT_ALIGNED, STRIDE*_STRIDE
+
+#<module>	<rank>	<record id>	<counter>	<value>	<file name>	<mount pt>	<fs type>
+POSIX	-1	3072702899745546974	POSIX_OPENS	5	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_FILENOS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_DUPS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_READS	4	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_WRITES	4	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SEEKS	15	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_STATS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_MMAPS	-1	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_FSYNCS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_FDSYNCS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_RENAME_SOURCES	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_RENAME_TARGETS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_RENAMED_FROM	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_MODE	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_BYTES_READ	1600	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_BYTES_WRITTEN	1600	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_MAX_BYTE_READ	1599	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_MAX_BYTE_WRITTEN	1599	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_CONSEC_READS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_CONSEC_WRITES	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SEQ_READS	3	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SEQ_WRITES	3	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_RW_SWITCHES	4	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_MEM_NOT_ALIGNED	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_MEM_ALIGNMENT	8	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_FILE_NOT_ALIGNED	6	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_FILE_ALIGNMENT	4096	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_MAX_READ_TIME_SIZE	400	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_MAX_WRITE_TIME_SIZE	400	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_READ_0_100	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_READ_100_1K	4	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_READ_1K_10K	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_READ_10K_100K	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_READ_100K_1M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_READ_1M_4M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_READ_4M_10M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_READ_10M_100M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_READ_100M_1G	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_READ_1G_PLUS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_WRITE_0_100	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_WRITE_100_1K	4	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_WRITE_1K_10K	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_WRITE_10K_100K	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_WRITE_100K_1M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_WRITE_1M_4M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_WRITE_4M_10M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_WRITE_10M_100M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_WRITE_100M_1G	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SIZE_WRITE_1G_PLUS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_STRIDE1_STRIDE	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_STRIDE2_STRIDE	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_STRIDE3_STRIDE	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_STRIDE4_STRIDE	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_STRIDE1_COUNT	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_STRIDE2_COUNT	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_STRIDE3_COUNT	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_STRIDE4_COUNT	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_ACCESS1_ACCESS	400	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_ACCESS2_ACCESS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_ACCESS3_ACCESS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_ACCESS4_ACCESS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_ACCESS1_COUNT	8	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_ACCESS2_COUNT	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_ACCESS3_COUNT	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_ACCESS4_COUNT	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_FASTEST_RANK	1	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_FASTEST_RANK_BYTES	800	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SLOWEST_RANK	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_SLOWEST_RANK_BYTES	800	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_OPEN_START_TIMESTAMP	0.015111	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_READ_START_TIMESTAMP	0.015255	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_WRITE_START_TIMESTAMP	0.015223	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_CLOSE_START_TIMESTAMP	0.015128	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_OPEN_END_TIMESTAMP	0.015160	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_READ_END_TIMESTAMP	0.015329	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_WRITE_END_TIMESTAMP	0.015301	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_CLOSE_END_TIMESTAMP	0.015407	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_READ_TIME	0.000008	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_WRITE_TIME	0.000029	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_META_TIME	0.000037	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_MAX_READ_TIME	0.000003	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_MAX_WRITE_TIME	0.000011	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_FASTEST_RANK_TIME	0.000013	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_SLOWEST_RANK_TIME	0.000023	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_VARIANCE_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+POSIX	-1	3072702899745546974	POSIX_F_VARIANCE_RANK_BYTES	0.000000	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+
+# *******************************************************
+# MPI-IO module data
+# *******************************************************
+
+# description of MPIIO counters:
+#   MPIIO_INDEP_*: MPI independent operation counts.
+#   MPIIO_COLL_*: MPI collective operation counts.
+#   MPIIO_SPLIT_*: MPI split collective operation counts.
+#   MPIIO_NB_*: MPI non blocking operation counts.
+#   READS,WRITES,and OPENS are types of operations.
+#   MPIIO_SYNCS: MPI file sync operation counts.
+#   MPIIO_HINTS: number of times MPI hints were used.
+#   MPIIO_VIEWS: number of times MPI file views were used.
+#   MPIIO_MODE: MPI-IO access mode that file was opened with.
+#   MPIIO_BYTES_*: total bytes read and written at MPI-IO layer.
+#   MPIIO_RW_SWITCHES: number of times access alternated between read and write.
+#   MPIIO_MAX_*_TIME_SIZE: size of the slowest read and write operations.
+#   MPIIO_SIZE_*_AGG_*: histogram of MPI datatype total sizes for read and write operations.
+#   MPIIO_ACCESS*_ACCESS: the four most common total access sizes.
+#   MPIIO_ACCESS*_COUNT: count of the four most common total access sizes.
+#   MPIIO_*_RANK: rank of the processes that were the fastest and slowest at I/O (for shared files).
+#   MPIIO_*_RANK_BYTES: total bytes transferred at MPI-IO layer by the fastest and slowest ranks (for shared files).
+#   MPIIO_F_*_START_TIMESTAMP: timestamp of first MPI-IO open/read/write/close.
+#   MPIIO_F_*_END_TIMESTAMP: timestamp of last MPI-IO open/read/write/close.
+#   MPIIO_F_READ/WRITE/META_TIME: cumulative time spent in MPI-IO read, write, or metadata operations.
+#   MPIIO_F_MAX_*_TIME: duration of the slowest MPI-IO read and write operations.
+#   MPIIO_F_*_RANK_TIME: fastest and slowest I/O time for a single rank (for shared files).
+#   MPIIO_F_VARIANCE_RANK_*: variance of total I/O time and bytes moved for all ranks (for shared files).
+
+#<module>	<rank>	<record id>	<counter>	<value>	<file name>	<mount pt>	<fs type>
+MPI-IO	-1	3072702899745546974	MPIIO_INDEP_OPENS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_COLL_OPENS	4	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_INDEP_READS	4	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_INDEP_WRITES	4	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_COLL_READS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_COLL_WRITES	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SPLIT_READS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SPLIT_WRITES	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_NB_READS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_NB_WRITES	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SYNCS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_HINTS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_VIEWS	4	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_MODE	9	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_BYTES_READ	1600	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_BYTES_WRITTEN	1600	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_RW_SWITCHES	4	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_MAX_READ_TIME_SIZE	400	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_MAX_WRITE_TIME_SIZE	400	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_READ_AGG_0_100	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_READ_AGG_100_1K	4	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_READ_AGG_1K_10K	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_READ_AGG_10K_100K	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_READ_AGG_100K_1M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_READ_AGG_1M_4M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_READ_AGG_4M_10M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_READ_AGG_10M_100M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_READ_AGG_100M_1G	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_READ_AGG_1G_PLUS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_WRITE_AGG_0_100	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_WRITE_AGG_100_1K	4	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_WRITE_AGG_1K_10K	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_WRITE_AGG_10K_100K	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_WRITE_AGG_100K_1M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_WRITE_AGG_1M_4M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_WRITE_AGG_4M_10M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_WRITE_AGG_10M_100M	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_WRITE_AGG_100M_1G	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SIZE_WRITE_AGG_1G_PLUS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_ACCESS1_ACCESS	400	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_ACCESS2_ACCESS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_ACCESS3_ACCESS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_ACCESS4_ACCESS	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_ACCESS1_COUNT	8	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_ACCESS2_COUNT	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_ACCESS3_COUNT	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_ACCESS4_COUNT	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_FASTEST_RANK	0	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_FASTEST_RANK_BYTES	800	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SLOWEST_RANK	3	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_SLOWEST_RANK_BYTES	800	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_OPEN_START_TIMESTAMP	0.013199	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_READ_START_TIMESTAMP	0.015253	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_WRITE_START_TIMESTAMP	0.015220	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_CLOSE_START_TIMESTAMP	0.015345	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_OPEN_END_TIMESTAMP	0.015200	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_READ_END_TIMESTAMP	0.015330	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_WRITE_END_TIMESTAMP	0.015307	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_CLOSE_END_TIMESTAMP	0.015420	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_READ_TIME	0.000020	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_WRITE_TIME	0.000059	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_META_TIME	0.005520	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_MAX_READ_TIME	0.000006	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_MAX_WRITE_TIME	0.000018	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_FASTEST_RANK_TIME	0.000750	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_SLOWEST_RANK_TIME	0.002039	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_VARIANCE_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+MPI-IO	-1	3072702899745546974	MPIIO_F_VARIANCE_RANK_BYTES	0.000000	/home/anagainaru/work/darshan/benchmark/todel	/	ext4
+
+# *******************************************************
+# STDIO module data
+# *******************************************************
+
+# description of STDIO counters:
+#   STDIO_{OPENS|FDOPENS|WRITES|READS|SEEKS|FLUSHES} are types of operations.
+#   STDIO_BYTES_*: total bytes read and written.
+#   STDIO_MAX_BYTE_*: highest offset byte read and written.
+#   STDIO_*_RANK: rank of the processes that were the fastest and slowest at I/O (for shared files).
+#   STDIO_*_RANK_BYTES: bytes transferred by the fastest and slowest ranks (for shared files).
+#   STDIO_F_*_START_TIMESTAMP: timestamp of the first call to that type of function.
+#   STDIO_F_*_END_TIMESTAMP: timestamp of the completion of the last call to that type of function.
+#   STDIO_F_*_TIME: cumulative time spent in different types of functions.
+#   STDIO_F_*_RANK_TIME: fastest and slowest I/O time for a single rank (for shared files).
+#   STDIO_F_VARIANCE_RANK_*: variance of total I/O time and bytes moved for all ranks (for shared files).
+
+# WARNING: STDIO_OPENS counter includes STDIO_FDOPENS count
+
+# WARNING: STDIO counters related to file offsets may be incorrect if a file is simultaneously accessed by both STDIO and POSIX (e.g., using fdopen())
+# 	- Affected counters include: MAX_BYTE_{READ|WRITTEN}
+
+#<module>	<rank>	<record id>	<counter>	<value>	<file name>	<mount pt>	<fs type>
+STDIO	0	8871133129107929990	STDIO_OPENS	1	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_FDOPENS	0	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_READS	0	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_WRITES	2	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_SEEKS	0	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_FLUSHES	0	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_BYTES_WRITTEN	39	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_BYTES_READ	0	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_MAX_BYTE_READ	0	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_MAX_BYTE_WRITTEN	38	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_FASTEST_RANK	0	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_FASTEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_SLOWEST_RANK	0	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_SLOWEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_F_META_TIME	0.000089	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_F_WRITE_TIME	0.000004	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_F_READ_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_F_OPEN_START_TIMESTAMP	0.014413	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_F_CLOSE_START_TIMESTAMP	0.015346	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_F_WRITE_START_TIMESTAMP	0.015254	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_F_READ_START_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_F_OPEN_END_TIMESTAMP	0.014446	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_F_CLOSE_END_TIMESTAMP	0.015402	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_F_WRITE_END_TIMESTAMP	0.015270	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_F_READ_END_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_F_FASTEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_F_SLOWEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_F_VARIANCE_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	0	8871133129107929990	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/home/anagainaru/work/darshan/benchmark/todel_log	/	ext4
+STDIO	-1	15920181672442173319	STDIO_OPENS	4	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_FDOPENS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_READS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_WRITES	8	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_SEEKS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_FLUSHES	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_BYTES_WRITTEN	124	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_BYTES_READ	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_MAX_BYTE_READ	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_MAX_BYTE_WRITTEN	30	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_FASTEST_RANK	1	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_FASTEST_RANK_BYTES	31	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_SLOWEST_RANK	2	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_SLOWEST_RANK_BYTES	31	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_META_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_WRITE_TIME	0.000061	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_READ_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_OPEN_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_CLOSE_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_WRITE_START_TIMESTAMP	0.015241	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_READ_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_OPEN_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_CLOSE_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_WRITE_END_TIMESTAMP	0.015336	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_READ_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_FASTEST_RANK_TIME	0.000012	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_SLOWEST_RANK_TIME	0.000021	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_VARIANCE_RANK_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_VARIANCE_RANK_BYTES	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
