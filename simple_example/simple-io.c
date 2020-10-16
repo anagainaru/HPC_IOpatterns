@@ -57,7 +57,7 @@ void write_to_file_mpi(MPI_File fh, int rank, int comm_size){
   free(buff);
 }
 
-void read_to_file_mpi(MPI_File fh, int rank, int comm_size){
+void read_from_file_mpi(MPI_File fh, int rank, int comm_size){
   int i, *buff;
   MPI_Offset disp, offset;
   MPI_Datatype etype, ftype, buftype;
@@ -99,15 +99,25 @@ void read_to_file_mpi(MPI_File fh, int rank, int comm_size){
   free(buff);
 }
 
+void write_to_file_posix(FILE *fp, char *msg){
+  fprintf(fp, "%s\n", msg);
+}
+
 int main(int argc, char **argv){
-  char filename[128];
   int i, rank,  comm_size;
-  MPI_File fh;
   MPI_Offset disp, offset, file_size;
   MPI_Datatype etype, ftype, buftype;
   MPI_Info info;
   MPI_Status status;
   int result, count, differs;
+
+  MPI_File fh; // data file
+  char filename[128];
+  FILE *fptr;  // management file
+  char mfile[150];
+  mfile[0] = '\0';
+  strcat(mfile, filename);
+  strcat(mfile, "_log");
 
   if(argc < 2) {
     fprintf(stdout, "Usage: %s filename\n", argv[0]);
@@ -120,6 +130,11 @@ int main(int argc, char **argv){
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   MPI_Comm_size(MPI_COMM_WORLD, &comm_size);
 
+  /* Rank 0 will be responsible of writing the management file */
+  if (rank == 0){
+    fptr = fopen(mfile, "w");
+    if (fptr == NULL) fprintf(stderr, "Error opening the management file");
+  }
   /* Open the file on the communicator group MPI_COMM_WORLD
      for reading and writing */
   result = MPI_File_open(MPI_COMM_WORLD, filename, 
@@ -129,10 +144,11 @@ int main(int argc, char **argv){
  
   /* Write dummy buffer to the file */
   write_to_file_mpi(fh, rank, comm_size);
+  if (rank == 0) write_to_file_posix(fptr, "[log] Success write");
 
   /* Read data from the generated file */
-  read_to_file_mpi(fh, rank, comm_size);
-
+  read_from_file_mpi(fh, rank, comm_size);
+  if (rank == 0) write_to_file_posix(fptr, "[log] Success read");
 
   MPI_Barrier(MPI_COMM_WORLD);
   MPI_File_get_size(fh, &file_size);
@@ -141,6 +157,10 @@ int main(int argc, char **argv){
   if(file_size != (comm_size * NUM_INTS * sizeof(int)))
     fprintf(stderr, "File size is not equal to the write size\n");
   
+  if (rank == 0){
+ 	fclose(fptr);
+  }
+
   result = MPI_File_close(&fh);
   if(result != MPI_SUCCESS) 
     sample_error(result, "[MPI_File_close] Error closing the file");
