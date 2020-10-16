@@ -113,17 +113,17 @@ int main(int argc, char **argv){
 
   MPI_File fh; // data file
   char filename[128];
-  FILE *fptr;  // management file
-  char mfile[150];
-  mfile[0] = '\0';
-  strcat(mfile, filename);
-  strcat(mfile, "_log");
-
   if(argc < 2) {
     fprintf(stdout, "Usage: %s filename\n", argv[0]);
     exit(-1);
   }
   strcpy(filename, argv[1]);
+
+  FILE *fptr;  // management file
+  char mfile[150];
+  mfile[0] = '\0';
+  strcat(mfile, filename);
+  strcat(mfile, ".log");
 
   MPI_Init(&argc, &argv);
 
@@ -132,7 +132,7 @@ int main(int argc, char **argv){
 
   /* Rank 0 will be responsible of writing the management file */
   if (rank == 0){
-    fptr = fopen(mfile, "w");
+    fptr = fopen(mfile, "a+");
     if (fptr == NULL) fprintf(stderr, "Error opening the management file");
   }
   /* Open the file on the communicator group MPI_COMM_WORLD
