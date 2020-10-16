@@ -1,10 +1,11 @@
-## Analyzing the I/O patterns for the CORAL-2 benchmark
+## Analyzing the I/O patterns for scientific applications
 
-### CORAL-2 benchmark
+### Benchmarks
 
-The repo contains one folder for each benchmark ([CORAL-2 suite](https://asc.llnl.gov/coral-2-benchmarks)) we analyze. Details on how to install/run each benchmark and performance details can be found in each folder.
+The repo contains one folder for each benchmark we analyze (and a simple example that uses both MPI-IO and Posix).
+Details on how to install/run each benchmark and performance details can be found in each folder.
 
-We use Darshan ([Darshan website](https://www.mcs.anl.gov/research/projects/darshan/)) in order to extract I/O performance counters
+We use Darshan ([Darshan website](https://www.mcs.anl.gov/research/projects/darshan/)) in order to extract I/O patterns.
 
 ### 1. Installing and running with Darshan
 
