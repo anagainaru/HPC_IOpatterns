@@ -1,0 +1,212 @@
+# darshan log version: 3.21
+# compression method: ZLIB
+# exe: ../../../build_extra/lmp -in in.poly
+# uid: 1000
+# jobid: 25982
+# start_time: 1602871914
+# start_time_asci: Fri Oct 16 14:11:54 2020
+# end_time: 1602872062
+# end_time_asci: Fri Oct 16 14:14:22 2020
+# nprocs: 4
+# run time: 149
+# metadata: lib_ver = 3.2.1
+# metadata: h = romio_no_indep_rw=true;cb_nodes=4
+
+# log file regions
+# -------------------------------------------------------
+# header: 360 bytes (uncompressed)
+# job data: 239 bytes (compressed)
+# record table: 196 bytes (compressed)
+# STDIO module: 333 bytes (compressed), ver=2
+
+# mounted file systems (mount point and fs type)
+# -------------------------------------------------------
+# mount entry:	/sys/firmware/efi/efivars	efivarfs
+# mount entry:	/proc/sys/fs/binfmt_misc	autofs
+# mount entry:	/run/user/1000/gvfs	fuse.gvfsd-fuse
+# mount entry:	/sys/kernel/config	configfs
+# mount entry:	/sys/fs/pstore	pstore
+# mount entry:	/dev/mqueue	mqueue
+# mount entry:	/boot/efi	vfat
+# mount entry:	/dev	devtmpfs
+# mount entry:	/	ext4
+
+# description of columns:
+#   <module>: module responsible for this I/O record.
+#   <rank>: MPI rank.  -1 indicates that the file is shared
+#      across all processes and statistics are aggregated.
+#   <record id>: hash of the record's file path
+#   <counter name> and <counter value>: statistical counters.
+#      A value of -1 indicates that Darshan could not monitor
+#      that counter, and its value should be ignored.
+#   <file name>: full file path for the record.
+#   <mount pt>: mount point that the file resides on.
+#   <fs type>: type of file system that the file resides on.
+
+# *******************************************************
+# STDIO module data
+# *******************************************************
+
+# description of STDIO counters:
+#   STDIO_{OPENS|FDOPENS|WRITES|READS|SEEKS|FLUSHES} are types of operations.
+#   STDIO_BYTES_*: total bytes read and written.
+#   STDIO_MAX_BYTE_*: highest offset byte read and written.
+#   STDIO_*_RANK: rank of the processes that were the fastest and slowest at I/O (for shared files).
+#   STDIO_*_RANK_BYTES: bytes transferred by the fastest and slowest ranks (for shared files).
+#   STDIO_F_*_START_TIMESTAMP: timestamp of the first call to that type of function.
+#   STDIO_F_*_END_TIMESTAMP: timestamp of the completion of the last call to that type of function.
+#   STDIO_F_*_TIME: cumulative time spent in different types of functions.
+#   STDIO_F_*_RANK_TIME: fastest and slowest I/O time for a single rank (for shared files).
+#   STDIO_F_VARIANCE_RANK_*: variance of total I/O time and bytes moved for all ranks (for shared files).
+
+# WARNING: STDIO_OPENS counter includes STDIO_FDOPENS count
+
+# WARNING: STDIO counters related to file offsets may be incorrect if a file is simultaneously accessed by both STDIO and POSIX (e.g., using fdopen())
+# 	- Affected counters include: MAX_BYTE_{READ|WRITTEN}
+
+#<module>	<rank>	<record id>	<counter>	<value>	<file name>	<mount pt>	<fs type>
+STDIO	0	5545565049282586405	STDIO_OPENS	1	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_FDOPENS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_READS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_WRITES	162	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_SEEKS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_FLUSHES	2	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_BYTES_WRITTEN	28548	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_BYTES_READ	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_MAX_BYTE_READ	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_MAX_BYTE_WRITTEN	28547	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_FASTEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_FASTEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_SLOWEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_SLOWEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_F_META_TIME	0.000032	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_F_WRITE_TIME	0.000216	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_F_READ_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_F_OPEN_START_TIMESTAMP	0.001105	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_F_CLOSE_START_TIMESTAMP	147.906982	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_F_WRITE_START_TIMESTAMP	0.001213	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_F_READ_START_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_F_OPEN_END_TIMESTAMP	0.001131	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_F_CLOSE_END_TIMESTAMP	147.906988	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_F_WRITE_END_TIMESTAMP	147.906981	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_F_READ_END_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_F_FASTEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_F_SLOWEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_F_VARIANCE_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	5545565049282586405	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.lammps	/	ext4
+STDIO	0	9860701925006731690	STDIO_OPENS	1	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_FDOPENS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_READS	114	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_WRITES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_SEEKS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_FLUSHES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_BYTES_WRITTEN	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_BYTES_READ	2470	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_MAX_BYTE_READ	2469	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_MAX_BYTE_WRITTEN	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_FASTEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_FASTEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_SLOWEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_SLOWEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_F_META_TIME	0.000011	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_F_WRITE_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_F_READ_TIME	0.000044	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_F_OPEN_START_TIMESTAMP	0.001159	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_F_CLOSE_START_TIMESTAMP	147.906989	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_F_READ_START_TIMESTAMP	0.001952	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_F_OPEN_END_TIMESTAMP	0.001169	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_F_CLOSE_END_TIMESTAMP	147.906990	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_F_READ_END_TIMESTAMP	2.233564	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_F_FASTEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_F_SLOWEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_F_VARIANCE_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	9860701925006731690	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/in.poly	/	ext4
+STDIO	0	10721948046279404735	STDIO_OPENS	1	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_FDOPENS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_READS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_WRITES	40408	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_SEEKS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_FLUSHES	10102	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_BYTES_WRITTEN	5953652134	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_BYTES_READ	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_MAX_BYTE_READ	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_MAX_BYTE_WRITTEN	5953652133	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_FASTEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_FASTEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_SLOWEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_SLOWEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_F_META_TIME	0.000043	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_F_WRITE_TIME	12.558870	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_F_READ_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_F_OPEN_START_TIMESTAMP	0.004780	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_F_CLOSE_START_TIMESTAMP	147.906727	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_F_WRITE_START_TIMESTAMP	0.005033	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_F_READ_START_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_F_OPEN_END_TIMESTAMP	0.004815	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_F_CLOSE_END_TIMESTAMP	147.906735	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_F_WRITE_END_TIMESTAMP	147.904430	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_F_READ_END_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_F_FASTEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_F_SLOWEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_F_VARIANCE_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	10721948046279404735	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/dump.poly.equil	/	ext4
+STDIO	0	16131808456530911014	STDIO_OPENS	1	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_FDOPENS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_READS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_WRITES	2	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_SEEKS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_FLUSHES	2	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_BYTES_WRITTEN	477	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_BYTES_READ	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_MAX_BYTE_READ	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_MAX_BYTE_WRITTEN	476	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_FASTEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_FASTEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_SLOWEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_SLOWEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_F_META_TIME	0.000037	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_F_WRITE_TIME	0.000031	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_F_READ_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_F_OPEN_START_TIMESTAMP	2.233170	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_F_CLOSE_START_TIMESTAMP	147.906901	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_F_WRITE_START_TIMESTAMP	2.233215	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_F_READ_START_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_F_OPEN_END_TIMESTAMP	2.233203	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_F_CLOSE_END_TIMESTAMP	147.906905	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_F_WRITE_END_TIMESTAMP	2.233246	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_F_READ_END_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_F_FASTEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_F_SLOWEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_F_VARIANCE_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	0	16131808456530911014	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ASPHERE/poly/log.cite	/	ext4
+STDIO	-1	15920181672442173319	STDIO_OPENS	4	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_FDOPENS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_READS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_WRITES	166	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_SEEKS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_FLUSHES	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_BYTES_WRITTEN	28730	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_BYTES_READ	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_MAX_BYTE_READ	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_MAX_BYTE_WRITTEN	28729	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_FASTEST_RANK	1	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_FASTEST_RANK_BYTES	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_SLOWEST_RANK	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_SLOWEST_RANK_BYTES	28730	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_META_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_WRITE_TIME	0.011925	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_READ_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_OPEN_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_CLOSE_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_WRITE_START_TIMESTAMP	0.001195	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_READ_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_OPEN_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_CLOSE_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_WRITE_END_TIMESTAMP	147.906980	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_READ_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_FASTEST_RANK_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_SLOWEST_RANK_TIME	0.011925	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_VARIANCE_RANK_TIME	0.000027	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_VARIANCE_RANK_BYTES	154764918.750000	<STDOUT>	UNKNOWN	UNKNOWN
