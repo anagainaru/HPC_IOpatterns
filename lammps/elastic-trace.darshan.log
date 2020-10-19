@@ -1,0 +1,299 @@
+# darshan log version: 3.21
+# compression method: ZLIB
+# exe: ../../build_extra/lmp -in in.elastic
+# uid: 1000
+# jobid: 28044
+# start_time: 1602873940
+# start_time_asci: Fri Oct 16 14:45:40 2020
+# end_time: 1602873940
+# end_time_asci: Fri Oct 16 14:45:40 2020
+# nprocs: 4
+# run time: 1
+# metadata: lib_ver = 3.2.1
+# metadata: h = romio_no_indep_rw=true;cb_nodes=4
+
+# log file regions
+# -------------------------------------------------------
+# header: 360 bytes (uncompressed)
+# job data: 240 bytes (compressed)
+# record table: 257 bytes (compressed)
+# STDIO module: 518 bytes (compressed), ver=2
+
+# mounted file systems (mount point and fs type)
+# -------------------------------------------------------
+# mount entry:	/sys/firmware/efi/efivars	efivarfs
+# mount entry:	/proc/sys/fs/binfmt_misc	autofs
+# mount entry:	/run/user/1000/gvfs	fuse.gvfsd-fuse
+# mount entry:	/sys/kernel/config	configfs
+# mount entry:	/sys/fs/pstore	pstore
+# mount entry:	/dev/mqueue	mqueue
+# mount entry:	/boot/efi	vfat
+# mount entry:	/dev	devtmpfs
+# mount entry:	/	ext4
+
+# description of columns:
+#   <module>: module responsible for this I/O record.
+#   <rank>: MPI rank.  -1 indicates that the file is shared
+#      across all processes and statistics are aggregated.
+#   <record id>: hash of the record's file path
+#   <counter name> and <counter value>: statistical counters.
+#      A value of -1 indicates that Darshan could not monitor
+#      that counter, and its value should be ignored.
+#   <file name>: full file path for the record.
+#   <mount pt>: mount point that the file resides on.
+#   <fs type>: type of file system that the file resides on.
+
+# *******************************************************
+# STDIO module data
+# *******************************************************
+
+# description of STDIO counters:
+#   STDIO_{OPENS|FDOPENS|WRITES|READS|SEEKS|FLUSHES} are types of operations.
+#   STDIO_BYTES_*: total bytes read and written.
+#   STDIO_MAX_BYTE_*: highest offset byte read and written.
+#   STDIO_*_RANK: rank of the processes that were the fastest and slowest at I/O (for shared files).
+#   STDIO_*_RANK_BYTES: bytes transferred by the fastest and slowest ranks (for shared files).
+#   STDIO_F_*_START_TIMESTAMP: timestamp of the first call to that type of function.
+#   STDIO_F_*_END_TIMESTAMP: timestamp of the completion of the last call to that type of function.
+#   STDIO_F_*_TIME: cumulative time spent in different types of functions.
+#   STDIO_F_*_RANK_TIME: fastest and slowest I/O time for a single rank (for shared files).
+#   STDIO_F_VARIANCE_RANK_*: variance of total I/O time and bytes moved for all ranks (for shared files).
+
+# WARNING: STDIO_OPENS counter includes STDIO_FDOPENS count
+
+# WARNING: STDIO counters related to file offsets may be incorrect if a file is simultaneously accessed by both STDIO and POSIX (e.g., using fdopen())
+# 	- Affected counters include: MAX_BYTE_{READ|WRITTEN}
+
+#<module>	<rank>	<record id>	<counter>	<value>	<file name>	<mount pt>	<fs type>
+STDIO	0	3805699417927644041	STDIO_OPENS	13	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_FDOPENS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_READS	247	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_WRITES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_SEEKS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_FLUSHES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_BYTES_WRITTEN	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_BYTES_READ	5915	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_MAX_BYTE_READ	454	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_MAX_BYTE_WRITTEN	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_FASTEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_FASTEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_SLOWEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_SLOWEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_F_META_TIME	0.000226	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_F_WRITE_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_F_READ_TIME	0.000387	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_F_OPEN_START_TIMESTAMP	0.024275	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_F_CLOSE_START_TIMESTAMP	0.026048	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_F_READ_START_TIMESTAMP	0.024335	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_F_OPEN_END_TIMESTAMP	0.335474	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_F_CLOSE_END_TIMESTAMP	0.335736	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_F_READ_END_TIMESTAMP	0.335727	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_F_FASTEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_F_SLOWEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_F_VARIANCE_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	3805699417927644041	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/potential.mod	/	ext4
+STDIO	0	7992211379405882260	STDIO_OPENS	52	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_FDOPENS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_READS	260	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_WRITES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_SEEKS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_FLUSHES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_BYTES_WRITTEN	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_BYTES_READ	13520	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_MAX_BYTE_READ	781	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_MAX_BYTE_WRITTEN	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_FASTEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_FASTEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_SLOWEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_SLOWEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_F_META_TIME	0.000449	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_F_WRITE_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_F_READ_TIME	0.000315	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_F_OPEN_START_TIMESTAMP	0.025469	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_F_CLOSE_START_TIMESTAMP	0.025494	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_F_READ_START_TIMESTAMP	0.025509	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_F_OPEN_END_TIMESTAMP	0.335618	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_F_CLOSE_END_TIMESTAMP	0.335648	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_F_READ_END_TIMESTAMP	0.335634	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_F_FASTEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_F_SLOWEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_F_VARIANCE_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	7992211379405882260	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/Si.sw	/	ext4
+STDIO	0	8730620366723879453	STDIO_OPENS	13	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_FDOPENS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_READS	1932	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_WRITES	162	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_SEEKS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_FLUSHES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_BYTES_WRITTEN	17783	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_BYTES_READ	213204	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_MAX_BYTE_READ	17766	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_MAX_BYTE_WRITTEN	17782	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_FASTEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_FASTEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_SLOWEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_SLOWEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_F_META_TIME	0.000260	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_F_WRITE_TIME	0.000053	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_F_READ_TIME	0.000556	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_F_OPEN_START_TIMESTAMP	0.033195	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_F_CLOSE_START_TIMESTAMP	0.033392	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_F_WRITE_START_TIMESTAMP	0.033250	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_F_READ_START_TIMESTAMP	0.034366	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_F_OPEN_END_TIMESTAMP	0.334598	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_F_CLOSE_END_TIMESTAMP	0.335335	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_F_WRITE_END_TIMESTAMP	0.033387	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_F_READ_END_TIMESTAMP	0.335326	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_F_FASTEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_F_SLOWEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_F_VARIANCE_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	8730620366723879453	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/restart.equil	/	ext4
+STDIO	0	9883809480844920397	STDIO_OPENS	1	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_FDOPENS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_READS	204	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_WRITES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_SEEKS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_FLUSHES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_BYTES_WRITTEN	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_BYTES_READ	6491	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_MAX_BYTE_READ	6490	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_MAX_BYTE_WRITTEN	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_FASTEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_FASTEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_SLOWEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_SLOWEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_F_META_TIME	0.000008	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_F_WRITE_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_F_READ_TIME	0.000057	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_F_OPEN_START_TIMESTAMP	0.007560	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_F_CLOSE_START_TIMESTAMP	0.353647	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_F_READ_START_TIMESTAMP	0.017827	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_F_OPEN_END_TIMESTAMP	0.007567	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_F_CLOSE_END_TIMESTAMP	0.353648	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_F_READ_END_TIMESTAMP	0.353435	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_F_FASTEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_F_SLOWEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_F_VARIANCE_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	9883809480844920397	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/in.elastic	/	ext4
+STDIO	0	10198840919484788968	STDIO_OPENS	6	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_FDOPENS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_READS	852	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_WRITES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_SEEKS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_FLUSHES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_BYTES_WRITTEN	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_BYTES_READ	22674	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_MAX_BYTE_READ	3778	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_MAX_BYTE_WRITTEN	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_FASTEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_FASTEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_SLOWEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_SLOWEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_F_META_TIME	0.000095	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_F_WRITE_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_F_READ_TIME	0.000322	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_F_OPEN_START_TIMESTAMP	0.033419	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_F_CLOSE_START_TIMESTAMP	0.088440	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_F_READ_START_TIMESTAMP	0.033432	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_F_OPEN_END_TIMESTAMP	0.304103	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_F_CLOSE_END_TIMESTAMP	0.351408	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_F_READ_END_TIMESTAMP	0.351396	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_F_FASTEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_F_SLOWEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_F_VARIANCE_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	10198840919484788968	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/displace.mod	/	ext4
+STDIO	0	11957711921349679599	STDIO_OPENS	1	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_FDOPENS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_READS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_WRITES	986	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_SEEKS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_FLUSHES	13	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_BYTES_WRITTEN	148092	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_BYTES_READ	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_MAX_BYTE_READ	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_MAX_BYTE_WRITTEN	148091	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_FASTEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_FASTEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_SLOWEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_SLOWEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_F_META_TIME	0.000049	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_F_WRITE_TIME	0.001501	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_F_READ_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_F_OPEN_START_TIMESTAMP	0.007496	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_F_CLOSE_START_TIMESTAMP	0.353636	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_F_WRITE_START_TIMESTAMP	0.008936	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_F_READ_START_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_F_OPEN_END_TIMESTAMP	0.007535	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_F_CLOSE_END_TIMESTAMP	0.353646	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_F_WRITE_END_TIMESTAMP	0.353635	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_F_READ_END_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_F_FASTEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_F_SLOWEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_F_VARIANCE_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	11957711921349679599	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/log.lammps	/	ext4
+STDIO	0	15636748085397550158	STDIO_OPENS	1	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_FDOPENS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_READS	50	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_WRITES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_SEEKS	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_FLUSHES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_BYTES_WRITTEN	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_BYTES_READ	1291	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_MAX_BYTE_READ	1290	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_MAX_BYTE_WRITTEN	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_FASTEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_FASTEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_SLOWEST_RANK	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_SLOWEST_RANK_BYTES	0	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_F_META_TIME	0.000028	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_F_WRITE_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_F_READ_TIME	0.000142	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_F_OPEN_START_TIMESTAMP	0.018048	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_F_CLOSE_START_TIMESTAMP	0.024249	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_F_READ_START_TIMESTAMP	0.018075	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_F_OPEN_END_TIMESTAMP	0.018060	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_F_CLOSE_END_TIMESTAMP	0.024265	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_F_READ_END_TIMESTAMP	0.024228	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_F_FASTEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_F_SLOWEST_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_F_VARIANCE_RANK_TIME	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	0	15636748085397550158	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/home/anagainaru/work/darshan/benchmark/lammps/examples/ELASTIC/init.mod	/	ext4
+STDIO	-1	15920181672442173319	STDIO_OPENS	4	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_FDOPENS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_READS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_WRITES	1025	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_SEEKS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_FLUSHES	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_BYTES_WRITTEN	149145	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_BYTES_READ	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_MAX_BYTE_READ	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_MAX_BYTE_WRITTEN	149144	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_FASTEST_RANK	1	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_FASTEST_RANK_BYTES	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_SLOWEST_RANK	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_SLOWEST_RANK_BYTES	149145	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_META_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_WRITE_TIME	0.058178	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_READ_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_OPEN_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_CLOSE_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_WRITE_START_TIMESTAMP	0.008916	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_READ_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_OPEN_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_CLOSE_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_WRITE_END_TIMESTAMP	0.353635	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_READ_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_FASTEST_RANK_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_SLOWEST_RANK_TIME	0.058178	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_VARIANCE_RANK_TIME	0.000635	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	-1	15920181672442173319	STDIO_F_VARIANCE_RANK_BYTES	4170793317.187500	<STDOUT>	UNKNOWN	UNKNOWN
