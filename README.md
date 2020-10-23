@@ -2,7 +2,7 @@
 
 ### Benchmarks
 
-The repo contains one folder for each benchmark we analyze (and a simple example that uses both MPI-IO and Posix).
+The repo contains one folder for each analyzed application (and a simple example that uses both MPI-IO and Posix in addition to standard output).
 Details on how to install/run each benchmark and performance details can be found in each folder.
 
 We use Darshan ([Darshan website](https://www.mcs.anl.gov/research/projects/darshan/)) in order to extract I/O patterns.
@@ -50,3 +50,8 @@ To generate a ascii file with the information in the darshan trace file:
  # list of files opened and the amount of time spent performing IO
  darshan-parser --file-list <trace_file>.darshan
 ```
+
+### 3. Applications
+
+* **NWChem**: Open Source High-Performance Computational Chemistry ([Link](https://nwchemgit.github.io/))
+* **LAMMPS**: 
