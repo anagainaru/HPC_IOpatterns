@@ -96,3 +96,24 @@ FindZeroMQ.cmake
 
 ## Submission on Summit
 
+Example submission script:
+
+```
+#!/bin/bash -l
+#BSUB -P CSC143
+#BSUB -W 00:30
+#BSUB -nnodes {$nnodes}
+#BSUB -J name
+#BSUB -o name.o%J
+#BSUB -e name.o%J
+
+# Allow Darshan logs to be collected
+export DARSHAN_DISABLE_SHARED_REDUCTION=1
+export DXT_ENABLE_IO_TRACE=4
+
+# import all required modules
+
+jsrun -n {$nnodes} ./executable parameters
+```
+
+To submit `bsub script.sh` which will generate a `name.o{$JobID}` file with the stdout and stderr and a Darshan log file in `/gpfs/alpine/darshan/summit/year/month/day/your-job-ID`
