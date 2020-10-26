@@ -54,4 +54,4 @@ To generate a ascii file with the information in the darshan trace file:
 ### 3. Applications
 
 * **NWChem**: Open Source High-Performance Computational Chemistry ([Link](https://nwchemgit.github.io/))
-* **LAMMPS**: 
+* **LAMMPS**: Molecular Dynamics Simulator ([Link](https://lammps.sandia.gov/))
