@@ -1,0 +1,79 @@
+LAMMPS (22 Oct 2020)
+  using 4 OpenMP thread(s) per MPI task
+Lattice spacing in x,y,z = 1.6795962 1.6795962 1.6795962
+Created orthogonal box = (0.0000000 0.0000000 0.0000000) to (33.591924 33.591924 33.591924)
+  1 by 1 by 1 MPI processor grid
+Created 32000 atoms
+  create_atoms CPU = 0.003 seconds
+Neighbor list info ...
+  update every 20 steps, delay 0 steps, check no
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 2.8
+  ghost atom cutoff = 2.8
+  binsize = 1.4, bins = 24 24 24
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut, perpetual
+      attributes: half, newton on
+      pair build: half/bin/atomonly/newton
+      stencil: half/bin/3d/newton
+      bin: standard
+Setting up Verlet run ...
+  Unit style    : lj
+  Current step  : 0
+  Time step     : 0.005
+Per MPI rank memory allocation (min/avg/max) = 25.39 | 25.39 | 25.39 Mbytes
+Step Temp E_pair E_mol TotEng Press 
+       0         1.44   -6.7733681            0   -4.6134356   -5.0197073 
+     100   0.76087792   -5.7635991            0   -4.6223179   0.18609556 
+     200   0.75855439   -5.7604707            0   -4.6226747   0.22104295 
+     300   0.74906053   -5.7460411            0   -4.6224854   0.30114962 
+     400    0.7388621   -5.7306531            0   -4.6223946   0.38525863 
+     500   0.73031467   -5.7173528            0   -4.6219151   0.47791705 
+     600   0.72145894   -5.7036055            0   -4.6214509   0.55623925 
+     700   0.71191399   -5.6888989            0   -4.6210613   0.62712427 
+     800   0.70916171    -5.684285            0   -4.6205757   0.65593711 
+     900    0.7064323   -5.6803801            0   -4.6207647   0.69107669 
+    1000   0.70186204   -5.6732003            0   -4.6204401   0.72157482 
+Loop time of 23.7046 on 4 procs for 1000 steps with 32000 atoms
+
+Performance: 18224.292 tau/day, 42.186 timesteps/s
+100.0% CPU use with 1 MPI tasks x 4 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 20.144     | 20.144     | 20.144     |   0.0 | 84.98
+Neigh   | 2.9659     | 2.9659     | 2.9659     |   0.0 | 12.51
+Comm    | 0.13867    | 0.13867    | 0.13867    |   0.0 |  0.59
+Output  | 0.035412   | 0.035412   | 0.035412   |   0.0 |  0.15
+Modify  | 0.39554    | 0.39554    | 0.39554    |   0.0 |  1.67
+Other   |            | 0.02496    |            |       |  0.11
+
+Nlocal:        32000.0 ave       32000 max       32000 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:        18829.0 ave       18829 max       18829 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:    1.19942e+06 ave 1.19942e+06 max 1.19942e+06 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1199419
+Ave neighs/atom = 37.481844
+Neighbor list builds = 50
+Dangerous builds not checked
+Total wall time: 0:00:23
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch4>
+Subject: Job 438762: <lammps> in cluster <summit> Done
+
+Job <lammps> was submitted from host <login4> by user <againaru> in cluster <summit> at Sun Oct 25 12:13:06 2020
+Job was executed on host(s) <1*batch4>, in queue <batch>, as user <againaru> in cluster <summit> at Sun Oct 25 12:13:20 2020
+                            <42*h50n18>
+</ccs/home/againaru> was used as the home directory.
+</gpfs/alpine/csc143/proj-shared/againaru/lammps> was used as the working directory.
+Started at Sun Oct 25 12:13:20 2020
+Terminated at Sun Oct 25 12:13:59 2020
+Results reported at Sun Oct 25 12:13:59 2020
+
+The output (if any) is above this job summary.
+

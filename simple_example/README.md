@@ -22,3 +22,12 @@ mpirun -n 4 ./simple temp
 ```
 
 Example outputs are presented in the `darshan` folder.
+
+
+4. Execution on Summit
+
+Submit using the batch script provided in the root folder.
+
+```
+bsub batch_summit.sh
+```
