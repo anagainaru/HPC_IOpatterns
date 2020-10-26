@@ -1,0 +1,18 @@
+echo
+memory heap 512 mb stack 1024 mb global 2048 mb
+start copro
+
+md
+ system copro_md
+ equil 0 data 1000 step 0.002
+ print step 100 stat 1000
+ record rest 10000 coord 1 prop 1
+ isotherm 298.15
+ isobar
+ cells 6 6 6
+ pme grid 128 fft 8
+ cutoff 1.2
+end
+
+task md dynamics
+
