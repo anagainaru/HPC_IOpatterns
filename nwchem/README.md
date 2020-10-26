@@ -1,20 +1,25 @@
 # NWChem
 
-**ADIOS2**
-
-ADIOS2 needs to be build with Fortran enabled
-
-```
-cmake -DADIOS2_USE_Fortran=ON -DCMAKE_Fortran_COMPILER=gfortran ../ADIOS2
-make -j
-cmake -D CMAKE_INSTALL_PREFIX=/ccs/home/againaru/adios/adios2-install ../ADIOS2/
-make -j install
-```
-
 **Build NWChem**
 
-Download NWChem. Create the `runconf.nwchem` script file in the `NWCHEM_TOP` directory
-and follow the following steps:
+NWChem requires ADIOS2 to run. The follwing steps assume ADIOS-2 is builed and compiled with Fortran and python enabled (as described by the steps in the root README).
+
+Download NWChem following the following steps:
+
+```
+module load gcc
+module load cmake
+module load python
+
+source_dir=`pwd`
+git clone https://github.com/pnorbert/nwchem.git
+cd nwchem
+git checkout adios2-global
+export NWCHEM_HOME="${source_dir}/nwchem"
+cd ..
+```
+The downloaded code for the testing in this repository can be found at `/gpfs/alpine/csc143/proj-shared/againaru/nwchem`
+To build the code create the `runconf.nwchem` file with the bellow content (file also available in this repo) and follow the steps:
 
 ```
 $ cat runconf.nwchem
@@ -37,10 +42,12 @@ $ make -j
 
 The binaries will be placed in `${NWCHEM_TOP}/bin/LINUX64`
 
+The script `build_nwchem.sh` builds both ADIOS-2 and NWChem in the current directory.
+
 **Paths for Summit:**
 
 Source code compiled and build for Summit:
-`/gpfs/alpine/csc143/proj-shared/againaru/nwchem/code_with_adios`
+`/gpfs/alpine/csc143/proj-shared/againaru/nwchem`
 
 Source code compiled and built for Rhea:
 `/ccs/proj/csc143/nwchem/source/nwchem.rhea`
@@ -60,13 +67,13 @@ Input file and batch_submission scripts are in:
 
 **Batch script**
 
-`nwchem_sorting.sh` is a sample job script that couples nwchem (generate the trajectory) and sorting (sort the generated trajectory)
+`nwchem.sh` is a sample job script that couples nwchem (generate the trajectory) and sorting (sort the generated trajectory)
 
 ```
-bsub nwchem_sorting.sh
+bsub nwchem.sh
 ```
 
 **Output**
 
-The script creates an output file `nwchem-sort.o{$JOBID}` and generated Darshan files with DXT enabled.
+The script creates an output file `nwchem-sort.o{$JOBID}` with both stdout and stderr. Example output file can be found in `nwchem-sort.o` and corresponding Darshan file in `nwchem.darshan`.
 
