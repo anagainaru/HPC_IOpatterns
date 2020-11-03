@@ -127,6 +127,6 @@ To submit `bsub script.sh` which will generate a `name.o{$JobID}` file with the 
 
 ### List of Applications
 
-* **NWChem**: Open Source High-Performance Computational Chemistry ([Link](https://nwchemgit.github.io/))
 * **LAMMPS**: Molecular Dynamics Simulator ([Link](https://lammps.sandia.gov/))
 * **NWChem**: Open Source High-Performance Computational Chemistry ([Link](https://nwchemgit.github.io/))
+* **WarpX**: Advanced Electromagnetic Particle-In-Cell ([Link](https://warpx.readthedocs.io/en/latest/))
