@@ -54,6 +54,13 @@ To generate a ascii file with the information in the darshan trace file:
  darshan-parser --file-list <trace_file>.darshan
 ```
 
+On Summit Darhsan util is available to be loaded as a module.
+
+```
+$ module load darshan-util
+$ darshan-job-summary.pl <trace_file>.darshan
+```
+
 ### 3. Install ADIOS2
 
 For applications using ADIOS-2, the library needs to be installed. Instruction for Summit:
@@ -122,3 +129,4 @@ To submit `bsub script.sh` which will generate a `name.o{$JobID}` file with the 
 
 * **NWChem**: Open Source High-Performance Computational Chemistry ([Link](https://nwchemgit.github.io/))
 * **LAMMPS**: Molecular Dynamics Simulator ([Link](https://lammps.sandia.gov/))
+* **NWChem**: Open Source High-Performance Computational Chemistry ([Link](https://nwchemgit.github.io/))
