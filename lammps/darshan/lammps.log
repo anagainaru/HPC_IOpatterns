@@ -1,0 +1,886 @@
+# darshan log version: 3.10
+# compression method: ZLIB
+# exe: /ccs/home/againaru/lammps/build/lmp -in ./in.lj.simdata
+# uid: 16326
+# jobid: 438762
+# start_time: 1603642414
+# start_time_asci: Sun Oct 25 12:13:34 2020
+# end_time: 1603642438
+# end_time_asci: Sun Oct 25 12:13:58 2020
+# nprocs: 1
+# run time: 25
+# metadata: lib_ver = 3.1.7
+# metadata: h = romio_no_indep_rw=true;cb_nodes=4
+
+# log file regions
+# -------------------------------------------------------
+# header: 360 bytes (uncompressed)
+# job data: 254 bytes (compressed)
+# record table: 478 bytes (compressed)
+# POSIX module: 697 bytes (compressed), ver=4
+# STDIO module: 453 bytes (compressed), ver=2
+# DXT_POSIX module: 808 bytes (compressed), ver=1
+
+# mounted file systems (mount point and fs type)
+# -------------------------------------------------------
+# mount entry:	/proc/sys/fs/binfmt_misc	autofs
+# mount entry:	/autofs/nccs-svm1_home1	nfs
+# mount entry:	/autofs/nccs-svm1_home	nfs
+# mount entry:	/autofs/nccs-svm1_sw	nfs
+# mount entry:	/sys/kernel/config	configfs
+# mount entry:	/var/cache/fscache	xfs
+# mount entry:	/sys/fs/pstore	pstore
+# mount entry:	/gpfs/alpine	gpfs
+# mount entry:	/dev/mqueue	mqueue
+# mount entry:	/autofs	autofs
+# mount entry:	/dev	devtmpfs
+
+# description of columns:
+#   <module>: module responsible for this I/O record.
+#   <rank>: MPI rank.  -1 indicates that the file is shared
+#      across all processes and statistics are aggregated.
+#   <record id>: hash of the record's file path
+#   <counter name> and <counter value>: statistical counters.
+#      A value of -1 indicates that Darshan could not monitor
+#      that counter, and its value should be ignored.
+#   <file name>: full file path for the record.
+#   <mount pt>: mount point that the file resides on.
+#   <fs type>: type of file system that the file resides on.
+
+# *******************************************************
+# POSIX module data
+# *******************************************************
+
+# description of POSIX counters:
+#   POSIX_*: posix operation counts.
+#   READS,WRITES,OPENS,SEEKS,STATS,MMAPS,SYNCS,FILENOS,DUPS are types of operations.
+#   POSIX_RENAME_SOURCES/TARGETS: total count file was source or target of a rename operation
+#   POSIX_RENAMED_FROM: Darshan record ID of the first rename source, if file was a rename target
+#   POSIX_MODE: mode that file was opened in.
+#   POSIX_BYTES_*: total bytes read and written.
+#   POSIX_MAX_BYTE_*: highest offset byte read and written.
+#   POSIX_CONSEC_*: number of exactly adjacent reads and writes.
+#   POSIX_SEQ_*: number of reads and writes from increasing offsets.
+#   POSIX_RW_SWITCHES: number of times access alternated between read and write.
+#   POSIX_*_ALIGNMENT: memory and file alignment.
+#   POSIX_*_NOT_ALIGNED: number of reads and writes that were not aligned.
+#   POSIX_MAX_*_TIME_SIZE: size of the slowest read and write operations.
+#   POSIX_SIZE_*_*: histogram of read and write access sizes.
+#   POSIX_STRIDE*_STRIDE: the four most common strides detected.
+#   POSIX_STRIDE*_COUNT: count of the four most common strides.
+#   POSIX_ACCESS*_ACCESS: the four most common access sizes.
+#   POSIX_ACCESS*_COUNT: count of the four most common access sizes.
+#   POSIX_*_RANK: rank of the processes that were the fastest and slowest at I/O (for shared files).
+#   POSIX_*_RANK_BYTES: bytes transferred by the fastest and slowest ranks (for shared files).
+#   POSIX_F_*_START_TIMESTAMP: timestamp of first open/read/write/close.
+#   POSIX_F_*_END_TIMESTAMP: timestamp of last open/read/write/close.
+#   POSIX_F_READ/WRITE/META_TIME: cumulative time spent in read, write, or metadata operations.
+#   POSIX_F_MAX_*_TIME: duration of the slowest read and write operations.
+#   POSIX_F_*_RANK_TIME: fastest and slowest I/O time for a single rank (for shared files).
+#   POSIX_F_VARIANCE_RANK_*: variance of total I/O time and bytes moved for all ranks (for shared files).
+
+# WARNING: POSIX_OPENS counter includes both POSIX_FILENOS and POSIX_DUPS counts
+
+# WARNING: POSIX counters related to file offsets may be incorrect if a file is simultaneously accessed by both POSIX and STDIO (e.g., using fileno())
+# 	- Affected counters include: MAX_BYTE_{READ|WRITTEN}, CONSEC_{READS|WRITES}, SEQ_{READS|WRITES}, {MEM|FILE}_NOT_ALIGNED, STRIDE*_STRIDE
+
+#<module>	<rank>	<record id>	<counter>	<value>	<file name>	<mount pt>	<fs type>
+POSIX	0	13411409884731059583	POSIX_OPENS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_FILENOS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_DUPS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_READS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_WRITES	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SEEKS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_STATS	1	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_MMAPS	-1	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_FSYNCS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_FDSYNCS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_RENAME_SOURCES	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_RENAME_TARGETS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_RENAMED_FROM	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_MODE	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_BYTES_READ	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_BYTES_WRITTEN	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_MAX_BYTE_READ	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_MAX_BYTE_WRITTEN	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_CONSEC_READS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_CONSEC_WRITES	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SEQ_READS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SEQ_WRITES	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_RW_SWITCHES	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_MEM_NOT_ALIGNED	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_MEM_ALIGNMENT	8	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_FILE_NOT_ALIGNED	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_FILE_ALIGNMENT	65536	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_MAX_READ_TIME_SIZE	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_MAX_WRITE_TIME_SIZE	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_READ_0_100	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_READ_100_1K	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_READ_1K_10K	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_READ_10K_100K	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_READ_100K_1M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_READ_1M_4M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_READ_4M_10M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_READ_10M_100M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_READ_100M_1G	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_READ_1G_PLUS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_WRITE_0_100	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_WRITE_100_1K	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_WRITE_1K_10K	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_WRITE_10K_100K	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_WRITE_100K_1M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_WRITE_1M_4M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_WRITE_4M_10M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_WRITE_10M_100M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_WRITE_100M_1G	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SIZE_WRITE_1G_PLUS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_STRIDE1_STRIDE	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_STRIDE2_STRIDE	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_STRIDE3_STRIDE	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_STRIDE4_STRIDE	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_STRIDE1_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_STRIDE2_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_STRIDE3_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_STRIDE4_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_ACCESS1_ACCESS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_ACCESS2_ACCESS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_ACCESS3_ACCESS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_ACCESS4_ACCESS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_ACCESS1_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_ACCESS2_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_ACCESS3_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_ACCESS4_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_FASTEST_RANK	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_FASTEST_RANK_BYTES	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SLOWEST_RANK	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_SLOWEST_RANK_BYTES	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_OPEN_START_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_READ_START_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_WRITE_START_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_CLOSE_START_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_OPEN_END_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_READ_END_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_WRITE_END_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_CLOSE_END_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_READ_TIME	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_WRITE_TIME	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_META_TIME	0.000015	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_MAX_READ_TIME	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_MAX_WRITE_TIME	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_FASTEST_RANK_TIME	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_SLOWEST_RANK_TIME	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_VARIANCE_RANK_TIME	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	13411409884731059583	POSIX_F_VARIANCE_RANK_BYTES	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_treematch.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_OPENS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_FILENOS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_DUPS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_READS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_WRITES	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SEEKS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_STATS	1	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_MMAPS	-1	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_FSYNCS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_FDSYNCS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_RENAME_SOURCES	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_RENAME_TARGETS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_RENAMED_FROM	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_MODE	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_BYTES_READ	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_BYTES_WRITTEN	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_MAX_BYTE_READ	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_MAX_BYTE_WRITTEN	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_CONSEC_READS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_CONSEC_WRITES	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SEQ_READS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SEQ_WRITES	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_RW_SWITCHES	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_MEM_NOT_ALIGNED	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_MEM_ALIGNMENT	8	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_FILE_NOT_ALIGNED	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_FILE_ALIGNMENT	65536	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_MAX_READ_TIME_SIZE	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_MAX_WRITE_TIME_SIZE	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_READ_0_100	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_READ_100_1K	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_READ_1K_10K	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_READ_10K_100K	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_READ_100K_1M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_READ_1M_4M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_READ_4M_10M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_READ_10M_100M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_READ_100M_1G	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_READ_1G_PLUS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_WRITE_0_100	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_WRITE_100_1K	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_WRITE_1K_10K	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_WRITE_10K_100K	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_WRITE_100K_1M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_WRITE_1M_4M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_WRITE_4M_10M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_WRITE_10M_100M	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_WRITE_100M_1G	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SIZE_WRITE_1G_PLUS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_STRIDE1_STRIDE	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_STRIDE2_STRIDE	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_STRIDE3_STRIDE	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_STRIDE4_STRIDE	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_STRIDE1_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_STRIDE2_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_STRIDE3_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_STRIDE4_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_ACCESS1_ACCESS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_ACCESS2_ACCESS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_ACCESS3_ACCESS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_ACCESS4_ACCESS	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_ACCESS1_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_ACCESS2_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_ACCESS3_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_ACCESS4_COUNT	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_FASTEST_RANK	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_FASTEST_RANK_BYTES	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SLOWEST_RANK	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_SLOWEST_RANK_BYTES	0	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_OPEN_START_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_READ_START_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_WRITE_START_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_CLOSE_START_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_OPEN_END_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_READ_END_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_WRITE_END_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_CLOSE_END_TIMESTAMP	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_READ_TIME	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_WRITE_TIME	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_META_TIME	0.000010	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_MAX_READ_TIME	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_MAX_WRITE_TIME	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_FASTEST_RANK_TIME	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_SLOWEST_RANK_TIME	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_VARIANCE_RANK_TIME	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	16593465387211482248	POSIX_F_VARIANCE_RANK_BYTES	0.000000	/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-6.4.0/spectrum-mpi-10.3.1.2-20200121-awz2q5brde7wgdqqw4ugalrkukeub4eb/container/../lib/spectrum_mpi/mca_topo_basic.so	/autofs/nccs-svm1_sw	nfs
+POSIX	0	17123874527013665068	POSIX_OPENS	2	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_FILENOS	2	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_DUPS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_READS	2	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_STATS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_MMAPS	-1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_FSYNCS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_FDSYNCS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_RENAME_SOURCES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_RENAME_TARGETS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_RENAMED_FROM	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_MODE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_BYTES_READ	1436	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_MAX_BYTE_READ	1435	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_CONSEC_READS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_CONSEC_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SEQ_READS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SEQ_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_RW_SWITCHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_MEM_NOT_ALIGNED	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_MEM_ALIGNMENT	8	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_FILE_NOT_ALIGNED	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_FILE_ALIGNMENT	16777216	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_MAX_READ_TIME_SIZE	1436	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_MAX_WRITE_TIME_SIZE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_READ_0_100	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_READ_100_1K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_READ_1K_10K	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_READ_10K_100K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_READ_100K_1M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_READ_1M_4M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_READ_4M_10M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_READ_10M_100M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_READ_100M_1G	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_READ_1G_PLUS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_WRITE_0_100	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_WRITE_100_1K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_WRITE_1K_10K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_WRITE_10K_100K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_WRITE_100K_1M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_WRITE_1M_4M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_WRITE_4M_10M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_WRITE_10M_100M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_WRITE_100M_1G	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SIZE_WRITE_1G_PLUS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_STRIDE1_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_STRIDE2_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_STRIDE3_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_STRIDE4_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_STRIDE1_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_STRIDE2_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_STRIDE3_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_STRIDE4_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_ACCESS1_ACCESS	1436	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_ACCESS2_ACCESS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_ACCESS3_ACCESS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_ACCESS4_ACCESS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_ACCESS1_COUNT	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_ACCESS2_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_ACCESS3_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_ACCESS4_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_OPEN_START_TIMESTAMP	0.041176	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_READ_START_TIMESTAMP	0.041179	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_CLOSE_START_TIMESTAMP	0.122929	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_OPEN_END_TIMESTAMP	0.041223	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_READ_END_TIMESTAMP	0.041230	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_CLOSE_END_TIMESTAMP	0.128234	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_READ_TIME	0.000019	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_META_TIME	0.000003	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_MAX_READ_TIME	0.000012	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_MAX_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	17123874527013665068	POSIX_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_FILENOS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_DUPS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_WRITES	11	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_STATS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_MMAPS	-1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_FSYNCS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_FDSYNCS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_RENAME_SOURCES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_RENAME_TARGETS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_RENAMED_FROM	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_MODE	438	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_BYTES_WRITTEN	39433526	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_MAX_BYTE_WRITTEN	39433525	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_CONSEC_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_CONSEC_WRITES	10	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SEQ_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SEQ_WRITES	10	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_RW_SWITCHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_MEM_NOT_ALIGNED	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_MEM_ALIGNMENT	8	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_FILE_NOT_ALIGNED	10	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_FILE_ALIGNMENT	16777216	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_MAX_READ_TIME_SIZE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_MAX_WRITE_TIME_SIZE	3584815	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_READ_0_100	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_READ_100_1K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_READ_1K_10K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_READ_10K_100K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_READ_100K_1M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_READ_1M_4M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_READ_4M_10M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_READ_10M_100M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_READ_100M_1G	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_READ_1G_PLUS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_WRITE_0_100	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_WRITE_100_1K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_WRITE_1K_10K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_WRITE_10K_100K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_WRITE_100K_1M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_WRITE_1M_4M	11	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_WRITE_4M_10M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_WRITE_10M_100M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_WRITE_100M_1G	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SIZE_WRITE_1G_PLUS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_STRIDE1_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_STRIDE2_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_STRIDE3_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_STRIDE4_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_STRIDE1_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_STRIDE2_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_STRIDE3_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_STRIDE4_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_ACCESS1_ACCESS	3584815	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_ACCESS2_ACCESS	3584816	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_ACCESS3_ACCESS	3585374	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_ACCESS4_ACCESS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_ACCESS1_COUNT	8	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_ACCESS2_COUNT	2	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_ACCESS3_COUNT	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_ACCESS4_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_OPEN_START_TIMESTAMP	0.129754	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_WRITE_START_TIMESTAMP	0.132197	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_CLOSE_START_TIMESTAMP	23.839362	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_OPEN_END_TIMESTAMP	0.130040	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_WRITE_END_TIMESTAMP	23.837744	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_CLOSE_END_TIMESTAMP	23.839586	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_WRITE_TIME	0.004188	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_META_TIME	0.000510	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_MAX_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_MAX_WRITE_TIME	0.000603	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	7146724260063322621	POSIX_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_FILENOS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_DUPS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_WRITES	11	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_STATS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_MMAPS	-1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_FSYNCS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_FDSYNCS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_RENAME_SOURCES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_RENAME_TARGETS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_RENAMED_FROM	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_MODE	438	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_BYTES_WRITTEN	13585	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_MAX_BYTE_WRITTEN	13584	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_CONSEC_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_CONSEC_WRITES	10	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SEQ_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SEQ_WRITES	10	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_RW_SWITCHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_MEM_NOT_ALIGNED	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_MEM_ALIGNMENT	8	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_FILE_NOT_ALIGNED	10	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_FILE_ALIGNMENT	16777216	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_MAX_READ_TIME_SIZE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_MAX_WRITE_TIME_SIZE	1144	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_READ_0_100	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_READ_100_1K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_READ_1K_10K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_READ_10K_100K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_READ_100K_1M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_READ_1M_4M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_READ_4M_10M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_READ_10M_100M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_READ_100M_1G	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_READ_1G_PLUS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_WRITE_0_100	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_WRITE_100_1K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_WRITE_1K_10K	11	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_WRITE_10K_100K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_WRITE_100K_1M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_WRITE_1M_4M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_WRITE_4M_10M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_WRITE_10M_100M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_WRITE_100M_1G	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SIZE_WRITE_1G_PLUS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_STRIDE1_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_STRIDE2_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_STRIDE3_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_STRIDE4_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_STRIDE1_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_STRIDE2_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_STRIDE3_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_STRIDE4_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_ACCESS1_ACCESS	1144	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_ACCESS2_ACCESS	1145	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_ACCESS3_ACCESS	2143	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_ACCESS4_ACCESS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_ACCESS1_COUNT	8	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_ACCESS2_COUNT	2	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_ACCESS3_COUNT	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_ACCESS4_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_OPEN_START_TIMESTAMP	0.129792	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_WRITE_START_TIMESTAMP	0.133059	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_CLOSE_START_TIMESTAMP	23.840257	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_OPEN_END_TIMESTAMP	0.130570	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_WRITE_END_TIMESTAMP	23.837876	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_CLOSE_END_TIMESTAMP	23.840349	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_WRITE_TIME	0.001305	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_META_TIME	0.000870	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_MAX_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_MAX_WRITE_TIME	0.001099	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	5502123817783963810	POSIX_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_FILENOS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_DUPS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_WRITES	12	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SEEKS	2	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_STATS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_MMAPS	-1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_FSYNCS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_FDSYNCS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_RENAME_SOURCES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_RENAME_TARGETS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_RENAMED_FROM	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_MODE	438	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_BYTES_WRITTEN	769	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_MAX_BYTE_WRITTEN	767	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_CONSEC_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_CONSEC_WRITES	10	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SEQ_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SEQ_WRITES	10	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_RW_SWITCHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_MEM_NOT_ALIGNED	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_MEM_ALIGNMENT	8	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_FILE_NOT_ALIGNED	11	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_FILE_ALIGNMENT	16777216	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_MAX_READ_TIME_SIZE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_MAX_WRITE_TIME_SIZE	128	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_READ_0_100	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_READ_100_1K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_READ_1K_10K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_READ_10K_100K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_READ_100K_1M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_READ_1M_4M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_READ_4M_10M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_READ_10M_100M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_READ_100M_1G	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_READ_1G_PLUS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_WRITE_0_100	11	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_WRITE_100_1K	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_WRITE_1K_10K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_WRITE_10K_100K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_WRITE_100K_1M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_WRITE_1M_4M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_WRITE_4M_10M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_WRITE_10M_100M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_WRITE_100M_1G	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SIZE_WRITE_1G_PLUS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_STRIDE1_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_STRIDE2_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_STRIDE3_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_STRIDE4_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_STRIDE1_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_STRIDE2_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_STRIDE3_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_STRIDE4_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_ACCESS1_ACCESS	64	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_ACCESS2_ACCESS	128	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_ACCESS3_ACCESS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_ACCESS4_ACCESS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_ACCESS1_COUNT	10	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_ACCESS2_COUNT	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_ACCESS3_COUNT	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_ACCESS4_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_OPEN_START_TIMESTAMP	0.129839	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_WRITE_START_TIMESTAMP	0.133145	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_CLOSE_START_TIMESTAMP	23.840350	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_OPEN_END_TIMESTAMP	0.130806	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_WRITE_END_TIMESTAMP	23.840241	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_CLOSE_END_TIMESTAMP	23.840356	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_WRITE_TIME	0.000174	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_META_TIME	0.000985	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_MAX_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_MAX_WRITE_TIME	0.000069	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	13653163262776447042	POSIX_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_FILENOS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_DUPS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_WRITES	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_STATS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_MMAPS	-1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_FSYNCS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_FDSYNCS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_RENAME_SOURCES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_RENAME_TARGETS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_RENAMED_FROM	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_MODE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_BYTES_WRITTEN	408	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_MAX_BYTE_WRITTEN	407	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_CONSEC_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_CONSEC_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SEQ_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SEQ_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_RW_SWITCHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_MEM_NOT_ALIGNED	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_MEM_ALIGNMENT	8	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_FILE_NOT_ALIGNED	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_FILE_ALIGNMENT	16777216	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_MAX_READ_TIME_SIZE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_MAX_WRITE_TIME_SIZE	408	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_READ_0_100	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_READ_100_1K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_READ_1K_10K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_READ_10K_100K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_READ_100K_1M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_READ_1M_4M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_READ_4M_10M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_READ_10M_100M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_READ_100M_1G	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_READ_1G_PLUS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_WRITE_0_100	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_WRITE_100_1K	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_WRITE_1K_10K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_WRITE_10K_100K	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_WRITE_100K_1M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_WRITE_1M_4M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_WRITE_4M_10M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_WRITE_10M_100M	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_WRITE_100M_1G	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SIZE_WRITE_1G_PLUS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_STRIDE1_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_STRIDE2_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_STRIDE3_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_STRIDE4_STRIDE	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_STRIDE1_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_STRIDE2_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_STRIDE3_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_STRIDE4_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_ACCESS1_ACCESS	408	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_ACCESS2_ACCESS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_ACCESS3_ACCESS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_ACCESS4_ACCESS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_ACCESS1_COUNT	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_ACCESS2_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_ACCESS3_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_ACCESS4_COUNT	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_OPEN_START_TIMESTAMP	23.840139	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_WRITE_START_TIMESTAMP	23.840143	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_CLOSE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_OPEN_END_TIMESTAMP	23.840139	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_WRITE_END_TIMESTAMP	23.840198	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_CLOSE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_WRITE_TIME	0.000055	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_META_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_MAX_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_MAX_WRITE_TIME	0.000055	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+POSIX	0	4235786146825260429	POSIX_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+
+# *******************************************************
+# STDIO module data
+# *******************************************************
+
+# description of STDIO counters:
+#   STDIO_{OPENS|FDOPENS|WRITES|READS|SEEKS|FLUSHES} are types of operations.
+#   STDIO_BYTES_*: total bytes read and written.
+#   STDIO_MAX_BYTE_*: highest offset byte read and written.
+#   STDIO_*_RANK: rank of the processes that were the fastest and slowest at I/O (for shared files).
+#   STDIO_*_RANK_BYTES: bytes transferred by the fastest and slowest ranks (for shared files).
+#   STDIO_F_*_START_TIMESTAMP: timestamp of the first call to that type of function.
+#   STDIO_F_*_END_TIMESTAMP: timestamp of the completion of the last call to that type of function.
+#   STDIO_F_*_TIME: cumulative time spent in different types of functions.
+#   STDIO_F_*_RANK_TIME: fastest and slowest I/O time for a single rank (for shared files).
+#   STDIO_F_VARIANCE_RANK_*: variance of total I/O time and bytes moved for all ranks (for shared files).
+
+# WARNING: STDIO_OPENS counter includes STDIO_FDOPENS count
+
+# WARNING: STDIO counters related to file offsets may be incorrect if a file is simultaneously accessed by both STDIO and POSIX (e.g., using fdopen())
+# 	- Affected counters include: MAX_BYTE_{READ|WRITTEN}
+
+#<module>	<rank>	<record id>	<counter>	<value>	<file name>	<mount pt>	<fs type>
+STDIO	0	15920181672442173319	STDIO_OPENS	1	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_FDOPENS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_READS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_WRITES	36	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_SEEKS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_FLUSHES	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_BYTES_WRITTEN	2867	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_BYTES_READ	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_MAX_BYTE_READ	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_MAX_BYTE_WRITTEN	2866	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_FASTEST_RANK	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_FASTEST_RANK_BYTES	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_SLOWEST_RANK	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_SLOWEST_RANK_BYTES	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_META_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_WRITE_TIME	0.000032	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_READ_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_OPEN_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_CLOSE_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_WRITE_START_TIMESTAMP	0.011979	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_READ_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_OPEN_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_CLOSE_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_WRITE_END_TIMESTAMP	23.841519	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_READ_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_FASTEST_RANK_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_SLOWEST_RANK_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_VARIANCE_RANK_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_VARIANCE_RANK_BYTES	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	12694337540567086368	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_WRITES	44	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_BYTES_WRITTEN	1055	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_MAX_BYTE_WRITTEN	1054	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_F_META_TIME	0.002946	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_F_WRITE_TIME	0.000028	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_F_OPEN_START_TIMESTAMP	0.006629	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_F_CLOSE_START_TIMESTAMP	0.041396	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_F_WRITE_START_TIMESTAMP	0.011996	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_F_OPEN_END_TIMESTAMP	0.009453	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_F_CLOSE_END_TIMESTAMP	0.041518	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_F_WRITE_END_TIMESTAMP	0.041393	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	12694337540567086368	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_READS	35	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_BYTES_READ	646	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_MAX_BYTE_READ	645	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_F_META_TIME	0.002480	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_F_READ_TIME	0.000047	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_F_OPEN_START_TIMESTAMP	0.009492	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_F_CLOSE_START_TIMESTAMP	23.841561	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_F_READ_START_TIMESTAMP	0.012583	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_F_OPEN_END_TIMESTAMP	0.011956	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_F_CLOSE_END_TIMESTAMP	23.841577	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_F_READ_END_TIMESTAMP	0.041749	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	13909447268670792264	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/in.lj.simdata	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_F_META_TIME	0.000184	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_F_OPEN_START_TIMESTAMP	0.040980	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_F_CLOSE_START_TIMESTAMP	0.041236	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_F_OPEN_END_TIMESTAMP	0.041154	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_F_CLOSE_END_TIMESTAMP	0.041247	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	17123874527013665068	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_WRITES	31	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_FLUSHES	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_BYTES_WRITTEN	2509	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_MAX_BYTE_WRITTEN	2508	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_F_META_TIME	0.000251	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_F_WRITE_TIME	0.000177	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_F_OPEN_START_TIMESTAMP	0.041518	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_F_CLOSE_START_TIMESTAMP	23.841520	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_F_WRITE_START_TIMESTAMP	0.041736	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_F_OPEN_END_TIMESTAMP	0.041729	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_F_CLOSE_END_TIMESTAMP	23.841560	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_F_WRITE_END_TIMESTAMP	23.841519	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	1490675969299864441	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/log.lj	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_F_META_TIME	0.000410	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_F_OPEN_START_TIMESTAMP	23.839687	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_F_CLOSE_START_TIMESTAMP	23.840203	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_F_OPEN_END_TIMESTAMP	23.840087	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_F_CLOSE_END_TIMESTAMP	23.840213	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
+STDIO	0	4235786146825260429	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json	/gpfs/alpine	gpfs
