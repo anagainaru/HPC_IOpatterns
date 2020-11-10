@@ -1,6 +1,33 @@
 # NWChem
 
-**Build NWChem**
+**Files in this folder**
+
+* `batch_summit.sh` script file to submit NWChem on summit
+* `darshan` folder with darshan logs
+* `runconf.nwchem` script that sets all modules necessary for building NWChem
+* `build_nwchem.sh`  builds both ADIOS-2 and NWChem in the current directory  
+* Input files
+    * `copro.nw` is the configuration file and the parameter to run nwchem
+    * `copro.top` is the topology file
+    * `copro_md.rst` is the restart file
+    * `adios2.xml` is the configuration file for ADIOS
+* `nwchem.o` example output file 
+
+Source code compiled and build for Summit:
+`/gpfs/alpine/csc143/proj-shared/againaru/nwchem`
+
+Source code compiled and built for Rhea:
+`/ccs/proj/csc143/nwchem/source/nwchem.rhea`
+
+The code generates as output  the trajectory in a global array.
+
+Input file and batch_submission scripts are in:
+`/gpfs/alpine/csc143/proj-shared/againaru/nwchem/summit_submit`
+
+Darshan files are generated in:
+`/gpfs/alpine/darshan/summit/year/month/day/{username}_{exec}_id{proc_id}*`
+
+## Build NWChem
 
 NWChem requires ADIOS2 to run. The follwing steps assume ADIOS-2 is builed and compiled with Fortran and python enabled (as described by the steps in the root README).
 
@@ -44,36 +71,16 @@ The binaries will be placed in `${NWCHEM_TOP}/bin/LINUX64`
 
 The script `build_nwchem.sh` builds both ADIOS-2 and NWChem in the current directory.
 
-**Paths for Summit:**
 
-Source code compiled and build for Summit:
-`/gpfs/alpine/csc143/proj-shared/againaru/nwchem`
+## Submisstions on Summit
 
-Source code compiled and built for Rhea:
-`/ccs/proj/csc143/nwchem/source/nwchem.rhea`
-
-The code with ADIOS outputs the trajectory in a global array.
-
-Input file and batch_submission scripts are in:
-`/gpfs/alpine/csc143/proj-shared/againaru/nwchem/summit_submit`
-
-
-**Input files**
-
-* `copro.nw` is the configuration file and the parameter to run nwchem
-* `copro.top` is the topology file
-* `copro_md.rst` is the restart file
-* `adios2.xml` is the configuration file for ADIOS
-
-**Batch script**
-
-`nwchem.sh` is a sample job script that couples nwchem (generate the trajectory) and sorting (sort the generated trajectory)
+`batch_summit.sh` is a sample job script that couples nwchem (generate the trajectory) and sorting (sort the generated trajectory)
 
 ```
-bsub nwchem.sh
+bsub batch_summit.sh
 ```
 
 **Output**
 
-The script creates an output file `nwchem-sort.o{$JOBID}` with both stdout and stderr. Example output file can be found in `nwchem-sort.o` and corresponding Darshan file in `nwchem.darshan`.
+The script creates an output file `nwchem.o{$JOBID}` with both stdout and stderr. Example output file can be found in `nwchem.o` and corresponding Darshan file in `darshan/nwchem.darshan`.
 

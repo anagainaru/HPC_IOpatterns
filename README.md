@@ -72,6 +72,8 @@ cd build/
 
 module load cmake
 module load gcc
+module load python
+module load cuda
 
 cmake -DADIOS2_USE_Fortran=ON -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_Fortran_COMPILER=gfortran ..
 make -j
@@ -124,7 +126,18 @@ jsrun -n {$nnodes} ./executable parameters
 
 To submit `bsub script.sh` which will generate a `name.o{$JobID}` file with the stdout and stderr and a Darshan log file in `/gpfs/alpine/darshan/summit/year/month/day/your-job-ID`
 
-### List of Applications
+### Modules version
+
+Versions used when testing all the script.
+
+```
+cuda/10.1.243 (D)
+cmake/3.18.2 (D)
+gcc/6.4.0 (D)
+python/3.6.6-anaconda3-5.3.0 
+```
+
+## List of Applications
 
 * **LAMMPS**: Molecular Dynamics Simulator ([Link](https://lammps.sandia.gov/))
 * **NWChem**: Open Source High-Performance Computational Chemistry ([Link](https://nwchemgit.github.io/))

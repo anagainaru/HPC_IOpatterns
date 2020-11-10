@@ -1,5 +1,20 @@
 # LAMMPS
 
+**Files in this folder**
+
+* `batch_summit.sh` script file to submit warpx on summit
+* `darshan` folder with darshan logs
+* `in.lj.simdata` is the input file for the LAMMPS application
+* The `adios2_config.xml` file is the ADIOS-2 configuration file
+* `lammps.o` is an example output file obtained after running LAMMPS 
+* `small_examples` is a folder with small scale results for other input files
+
+Root folder for LAMMPS where the experiments have been done:
+`/gpfs/alpine/csc143/proj-shared/againaru/lammps`
+
+Darshan files are generated in:
+`/gpfs/alpine/darshan/summit/year/month/day/{username}_{exec}_id{proc_id}*`
+
 ## Build LAMMPS on Summit
 
 The instructions assume ADIOS2 is compiled and build on Summit.
