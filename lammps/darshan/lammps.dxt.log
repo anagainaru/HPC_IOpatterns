@@ -43,65 +43,65 @@
 # DXT, rank: 0, hostname: h50n18
 # DXT, write_count: 0, read_count: 2
 # DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
-# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
- X_POSIX       0   read        0               0            1436      0.0412      0.0412
- X_POSIX       0   read        1            1436               0      0.0412      0.0412
+# Module	Rank	Wt/Rd	Segment	Offset	Length	Start(s)	End(s)
+ X_POSIX	0	read	0	0	1436	0.0412	0.0412
+ X_POSIX	0	read	1	1436	0	0.0412	0.0412
 
 # DXT, file_id: 7146724260063322621, file_name: /gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0
 # DXT, rank: 0, hostname: h50n18
 # DXT, write_count: 11, read_count: 0
 # DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
-# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
- X_POSIX       0  write        0               0         3585374      0.1322      0.1327
- X_POSIX       0  write        1         3585374         3584815      2.4680      2.4683
- X_POSIX       0  write        2         7170189         3584815      4.8286      4.8290
- X_POSIX       0  write        3        10755004         3584815      7.1912      7.1915
- X_POSIX       0  write        4        14339819         3584815      9.5582      9.5588
- X_POSIX       0  write        5        17924634         3584815     11.9274     11.9277
- X_POSIX       0  write        6        21509449         3584815     14.2976     14.2979
- X_POSIX       0  write        7        25094264         3584815     16.6747     16.6750
- X_POSIX       0  write        8        28679079         3584815     19.0555     19.0558
- X_POSIX       0  write        9        32263894         3584816     21.4459     21.4464
- X_POSIX       0  write       10        35848710         3584816     23.8375     23.8377
+# Module	Rank	Wt/Rd	Segment	Offset	Length	Start(s)	End(s)
+ X_POSIX	0	write	0	0	3585374	0.1322	0.1327
+ X_POSIX	0	write	1	3585374	3584815	2.4680	2.4683
+ X_POSIX	0	write	2	7170189	3584815	4.8286	4.8290
+ X_POSIX	0	write	3	10755004	3584815	7.1912	7.1915
+ X_POSIX	0	write	4	14339819	3584815	9.5582	9.5588
+ X_POSIX	0	write	5	17924634	3584815	11.9274	11.9277
+ X_POSIX	0	write	6	21509449	3584815	14.2976	14.2979
+ X_POSIX	0	write	7	25094264	3584815	16.6747	16.6750
+ X_POSIX	0	write	8	28679079	3584815	19.0555	19.0558
+ X_POSIX	0	write	9	32263894	3584816	21.4459	21.4464
+ X_POSIX	0	write	10	35848710	3584816	23.8375	23.8377
 
 # DXT, file_id: 5502123817783963810, file_name: /gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.0
 # DXT, rank: 0, hostname: h50n18
 # DXT, write_count: 11, read_count: 0
 # DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
-# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
- X_POSIX       0  write        0               0            2143      0.1331      0.1331
- X_POSIX       0  write        1            2143            1144      2.4685      2.4685
- X_POSIX       0  write        2            3287            1144      4.8291      4.8302
- X_POSIX       0  write        3            4431            1144      7.1916      7.1916
- X_POSIX       0  write        4            5575            1144      9.5589      9.5589
- X_POSIX       0  write        5            6719            1144     11.9278     11.9279
- X_POSIX       0  write        6            7863            1144     14.2980     14.2980
- X_POSIX       0  write        7            9007            1144     16.6751     16.6752
- X_POSIX       0  write        8           10151            1144     19.0559     19.0560
- X_POSIX       0  write        9           11295            1145     21.4466     21.4466
- X_POSIX       0  write       10           12440            1145     23.8379     23.8379
+# Module	Rank	Wt/Rd	Segment	Offset	Length	Start(s)	End(s)
+ X_POSIX	0	write	0	0	2143	0.1331	0.1331
+ X_POSIX	0	write	1	2143	1144	2.4685	2.4685
+ X_POSIX	0	write	2	3287	1144	4.8291	4.8302
+ X_POSIX	0	write	3	4431	1144	7.1916	7.1916
+ X_POSIX	0	write	4	5575	1144	9.5589	9.5589
+ X_POSIX	0	write	5	6719	1144	11.9278	11.9279
+ X_POSIX	0	write	6	7863	1144	14.2980	14.2980
+ X_POSIX	0	write	7	9007	1144	16.6751	16.6752
+ X_POSIX	0	write	8	10151	1144	19.0559	19.0560
+ X_POSIX	0	write	9	11295	1145	21.4466	21.4466
+ X_POSIX	0	write	10	12440	1145	23.8379	23.8379
 
 # DXT, file_id: 13653163262776447042, file_name: /gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/md.idx
 # DXT, rank: 0, hostname: h50n18
 # DXT, write_count: 12, read_count: 0
 # DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
-# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
- X_POSIX       0  write        0               0             128      0.1331      0.1332
- X_POSIX       0  write        1             128              64      2.4685      2.4685
- X_POSIX       0  write        2             192              64      4.8302      4.8302
- X_POSIX       0  write        3             256              64      7.1916      7.1916
- X_POSIX       0  write        4             320              64      9.5589      9.5589
- X_POSIX       0  write        5             384              64     11.9279     11.9279
- X_POSIX       0  write        6             448              64     14.2980     14.2980
- X_POSIX       0  write        7             512              64     16.6752     16.6752
- X_POSIX       0  write        8             576              64     19.0560     19.0560
- X_POSIX       0  write        9             640              64     21.4466     21.4466
- X_POSIX       0  write       10             704              64     23.8379     23.8379
- X_POSIX       0  write       11              38               1     23.8402     23.8402
+# Module	Rank	Wt/Rd	Segment	Offset	Length	Start(s)	End(s)
+ X_POSIX	0	write	0	0	128	0.1331	0.1332
+ X_POSIX	0	write	1	128	64	2.4685	2.4685
+ X_POSIX	0	write	2	192	64	4.8302	4.8302
+ X_POSIX	0	write	3	256	64	7.1916	7.1916
+ X_POSIX	0	write	4	320	64	9.5589	9.5589
+ X_POSIX	0	write	5	384	64	11.9279	11.9279
+ X_POSIX	0	write	6	448	64	14.2980	14.2980
+ X_POSIX	0	write	7	512	64	16.6752	16.6752
+ X_POSIX	0	write	8	576	64	19.0560	19.0560
+ X_POSIX	0	write	9	640	64	21.4466	21.4466
+ X_POSIX	0	write	10	704	64	23.8379	23.8379
+ X_POSIX	0	write	11	38	1	23.8402	23.8402
 
 # DXT, file_id: 4235786146825260429, file_name: /gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/profiling.json
 # DXT, rank: 0, hostname: h50n18
 # DXT, write_count: 1, read_count: 0
 # DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
-# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
- X_POSIX       0  write        0               0             408     23.8401     23.8402
+# Module	Rank	Wt/Rd	Segment	Offset	Length	Start(s)	End(s)
+ X_POSIX	0	write	0	0	408	23.8401	23.8402
