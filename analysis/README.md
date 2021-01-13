@@ -1,28 +1,24 @@
-# Darshan DTX
+# Analyzing the IO logs
 
-Info for LAMMPS / NWChem / WarpX / XCG
+### 1. Extract the list of applications
 
-## Brief Statistics
+List of applications that generated the Darshan logs we will analyze. The list of application will be annotated by the field it is part of (example XGC is fusion, CANDLE is AI etc).
 
-|  | LAMMPS  | NWChem | WarpX | XCG | GTC |
-|---|---|---|---|---|---|
-| Total ranks  | 224  | 224  | 12  | | |
-| # ranks involved  | 42  | 224  |  12 | | |
-| # files accesses |  8 | 468  |  Depending on test <br/> (see bellow) | | |
-| IO types | POSIX | POSIX / STDIO  | POSIX / STDIO  | | |
-| FS type | NFS / GPFS / Unknown  | GPFS / Unknown  | GPFS / Unknown  | | |
-| Access size (bytes) | POSIX: 17888 | POSIX: 37034 <br/> STDIO: 414 | Depending on test <br/> (see bellow)  |  | |
+For Summit application, the `extract_job_info.sh` script is used to extract the list of applications.
 
-## WarpX different tests
+### 2. Parse all the darshan logs
 
-|  | Collision  | Laser Acc | Plasma Acc | Uniform Plasma |
-|---|---|---|---|---|
-| # files accesses |  530 | 62  |  1272 | 482  |
-| Access size (bytes) | POSIX: 12491 <br/> STDIO: 27254 | POSIX: 6261 <br/> STDIO: 3607 | POSIX: 74286<br/>  STDIO: 58546 | POSIX: 35118<br/> STDIO: 24874 |
+And create a log that follows the format needed by the python scripts used to extract features.
+For Summit, we use the `extract_logs.sh` script to extract all the darshan logs in a given timeframe and containing a keyword (either application name or user or none).
 
-## Amount of I/O per rank
+The darshan files need to be parsed with the `--file` option followed by the default option in order to be usable by the python scripts:
 
-![lammps](iotype_rank.png)
+```bash
+darshan-parser --file ${darshan_log} > logs/${filename}.log
+darshan-parser ${darshan_log} >> logs/${filename}.log
+```
 
-WarpX
-![warpx](warpx_iotype_rank.png)
+### 3. Extract the list features
+
+From each darshan log.
+
