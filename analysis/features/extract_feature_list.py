@@ -15,7 +15,12 @@ def log_scale_metrics(feature_list, small_value=10 ** -5):
     number_columns = list(feature_list.keys())
     columns = [x for x in number_columns if "perc" not in x.lower()]
     print("Applying log10() to the columns {}".format(columns))
-    for c in columns: 
+    for c in columns:
+        # skip entries that are not float
+        try:
+            float(feature_list[c])
+        except:
+            continue
         if c == 'RAW_runtime' or c == 'RAW_nprocs':
             feature_list[c.replace("RAW", "LOG10")] = np.log10(
                     feature_list[c] + small_value)
@@ -46,7 +51,8 @@ if __name__ == "__main__":
 
     darshan_file = "%s" %(sys.argv[1])
     # extract the features from the metadata information
-    feature_list = metadata_features(darshan_file)
+    feature_list = {}
+    feature_list.update(metadata_features(darshan_file))
 
     # extract features from the  aggregated logs
     features = aggregated_features(darshan_file)
