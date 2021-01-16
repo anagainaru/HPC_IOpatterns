@@ -1,3 +1,6 @@
+
+<img src="logo.png" align="right" alt="Logo" width="350"/>
+
 ## Analyzing the I/O patterns for scientific applications
 
 The repo contains one folder for each application we analyze (and the `simple_example` folder for a simple example that uses both MPI-IO and Posix in addition to standard output).
