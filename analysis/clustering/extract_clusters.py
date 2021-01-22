@@ -73,7 +73,8 @@ def filter_dataset(df, left_cl_idx, right_cl_idx, left_count, right_count):
     assert(len(result) == len(cluster_labels)), \
             "ERR! Cluster size and labels mismatch" \
             "at distance %f" %(distance)
-    return result, cluster_labels
+    result["Cluster"] = cluster_labels
+    return result
 
 # check if the right and left clusters detected at this level
 # are consistent with the ones returned by the single_linkage_tree function
@@ -89,10 +90,10 @@ def check_cluster_goodness(cluster, distance, left_cl_idx, right_cl_idx):
     assert (len(set([cl[i] for i in right_cl_idx])) == 1), \
             "Error at the right cluster for distance %f" %(distance)
 
-def save_clusters(distance, df, cluster_labels):
+def save_clusters(distance, df, cluster_labels=[]):
     global path
-    df["Cluster"] = cluster_labels
-    print("Saving ", path + "cluster.%.3f" %(distance) + ".csv")
+    if len(df) == len(cluster_labels):
+        df["Cluster"] = cluster_labels
     df.to_csv(path + "cluster.%.3f" %(distance) + ".csv", index=False)
 
 def analyze_cluster_formation(dataset, df, cluster, split_distances):
@@ -105,8 +106,6 @@ def analyze_cluster_formation(dataset, df, cluster, split_distances):
                                                "right_child")
         # identify the left and right cluster ids
         print("Split at distance %f" %(distance))
-        print("Left cluster (%d): %d apps" %(left_id, left_count))
-        print("Right cluster (%d): %d apps" %(right_id, right_count))
 
         # get the index of the entries from the dataframe that have been split
         # at this level and dump the rest of the entries
@@ -121,12 +120,18 @@ def analyze_cluster_formation(dataset, df, cluster, split_distances):
 
         # only keep the entries of the entries that were split
         # in two clusters at this level
-        filtered_df, cluster_labels = filter_dataset(
+        filtered_df = filter_dataset(
                 dataset, left_cl_idx, right_cl_idx, left_count, right_count)
+        print("Left cluster (%d): %d runs %s" %(
+            left_id, left_count,
+            filtered_df[filtered_df.Cluster==0]["apps"].unique()))
+        print("Right cluster (%d): %d runs %s" %(
+            right_id, right_count,
+            filtered_df[filtered_df.Cluster==1]["apps"].unique()))
 
         # make sure the clusters are correct
         check_cluster_goodness(cluster, distance, left_cl_idx, right_cl_idx)
-        save_clusters(distance, filtered_df, cluster_labels)
+        save_clusters(distance, filtered_df)
 
 def main(top_apps=6, jobs_per_app=16):
     global classification, path
