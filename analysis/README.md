@@ -4,6 +4,17 @@ Two step analysis:
   - Extract the list of features from the raw Darshan logs
   - Create clusters with applications with similar patterns
 
+**Required packages to test the scripts in this repo**
+
+ - For plotting: python package `seaborn`
+ - For feature extraction: python package `lightgbm`
+ - For extracting the distance matrix: python packages `sklearn`, `dataset`, `hdbscan`
+ - For the feature importance list: `libomp` and python package `xgboost`
+ 
+All the dependencies with their versions are written in `requirements.txt`.
+To install them, you will need `pip`. Run `pip install -r requirements.txt`.
+It is recommended that you do this inside a virtual environment like `virtualenv` though.
+
 ## Extract the feature list
 
 ### 1. Extract the list of applications
