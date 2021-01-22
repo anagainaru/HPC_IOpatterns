@@ -141,6 +141,8 @@ def main(top_apps=6, jobs_per_app=16):
 
     # read the data and extract the clusters
     df, cluster = default_dataset(paths=[sys.argv[1]])
+    # save the cluster with all the labes
+    save_clusters(0, df, cluster.labels_)
 
     # extract the hierarchy of binary splits
     tree = cluster.single_linkage_tree_.to_pandas()
