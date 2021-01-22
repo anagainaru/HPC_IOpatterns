@@ -56,3 +56,7 @@ done
 
 Scripts available in folder `clustering`.
 
+![Hierarchical clustering](docs/cluster_tree.png)
+
+`extract_clusters.py` saves the main division in `*.0.csv` with labels from 0 to n-1
+and saves each split into different files, one for each split distance (binary labels only for the dataset involved in the split)
