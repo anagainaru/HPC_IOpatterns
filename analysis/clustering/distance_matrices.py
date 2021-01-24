@@ -5,6 +5,7 @@ import seaborn as sns
 from sklearn.metrics.pairwise import euclidean_distances, manhattan_distances
 import matplotlib.pyplot as plt
 import hdbscan
+import os
 
 sns.set()
 
@@ -33,10 +34,11 @@ def main(top_apps=6, jobs_per_app=16):
     for app in top_applications:
         new_df = new_df.append(df[df.apps_short == app].sample(jobs_per_app))
 
-    print(top_applications)
+    mapping = {'simple': "Simple", 'warpx': "WarpX",
+               'nwchem': "NWChem", 'lmp': "LAMMPS"}
     # Rename app names to preserve anonymity
-    mapping = {top_applications[0]: "Climate",        top_applications[1]: "Materials",   top_applications[2]: "Cosmology",
-               top_applications[3]: "Fluid dynamics"}#, top_applications[4]: "Benchmark 1", top_applications[5]: "Benchmark 2"}
+    #mapping = {top_applications[0]: "Climate",        top_applications[1]: "Materials",   top_applications[2]: "Cosmology",
+     #          top_applications[3]: "Fluid dynamics"}#, top_applications[4]: "Benchmark 1", top_applications[5]: "Benchmark 2"}
 
     new_df.apps_short = new_df.apps_short.map(mapping)
     top_applications = [mapping[x] for x in top_applications]
@@ -71,16 +73,20 @@ def main(top_apps=6, jobs_per_app=16):
     # Hide the dendrogram - this will also kill the legend, so we should generate two graphs and then stitch them
     # together
     cg1.ax_row_dendrogram.set_visible(False)
-    cg1.ax_col_dendrogram.set_visible(False)
+    cg1.ax_col_dendrogram.set_visible(True)
     cg2.ax_row_dendrogram.set_visible(False)
-    cg2.ax_col_dendrogram.set_visible(False)
+    cg2.ax_col_dendrogram.set_visible(True)
 
+    # create the folder to save clustering results (if it doesn't exist)
+    index = sys.argv[1].rfind(".")
+    path = sys.argv[1][:index]+".clusters"
+    if not os.path.exists(path):
+        os.mkdir(path)
     # Save figures
-    # cg1.savefig('pdfs/l1_distance.pdf', bbox_inches='tight')
-    # cg2.savefig('pdfs/l2_distance.pdf', bbox_inches='tight')
-    
-    plt.show()
-
+    cg1.savefig('%s/distance_matrix_manhattan.png' %(path), bbox_inches='tight')
+    cg2.savefig('%s/distance_matrix_euclidean.png' %(path), bbox_inches='tight')
+    #plt.show()
+    print("Distance matrices succesfully generated in %s/distance_matrix_{distance type}.png" %(path))
 
 if __name__ == "__main__":
     main()
