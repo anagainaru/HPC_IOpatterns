@@ -77,6 +77,7 @@ The script also saves information about the two clusters created at each split, 
 
 ### 2. Create the distance matrix
 
-The script in `extract_clusters.py` creates the figure on the right. It creates the clusters using hdbscan, identifies the 6 more frequently ran applications and computes the manhatten and euclidean distances between all these application runs. The script output the figure.
+The script in `extract_clusters.py` creates the figure on the right. The code is based on the one implemented [here](https://github.com/MihailoIsakov/SC2020).
+It creates the clusters using hdbscan, identifies the 6 more frequently ran applications and computes the manhattan and euclidean distances between all these application runs. The script output the figure.
 
 ### 3. Feature importance
