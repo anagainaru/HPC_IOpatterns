@@ -45,7 +45,46 @@ def create_empty_dict():
     with open("./features.header") as f:
         for line in f:
             feature_list[line[:-1]] = 0
-    print(len(feature_list))
+    return feature_list
+
+def update_allIO_metrics(feature_list, IOtype_used):
+    # flags for using burst buffers, alpine or adios
+    for IOtype in IOtype_used:
+        feature_list["is_" + IOtype] = 1
+    
+    feature_list["IO_runtime_perc"] = 0
+    feature_list["Read_runtime_perc"] = 0
+    feature_list["Write_runtime_perc"] = 0
+    feature_list["Metadata_runtime_perc"] = 0
+    # the list of IOtypes captured by darshan: POSIX, MPIIO, HDF5
+    for IOtype in IOtype_list:
+        # sum the runtime_perc for each type of IO
+        feature_list["IO_runtime_perc"] += \
+                feature_list["%s_IO_runtime_perc" %(IOtype)]
+        feature_list["Read_runtime_perc"] += \
+                feature_list["%s_read_runtime_perc" %(IOtype)]
+        feature_list["Write_runtime_perc"] += \
+                feature_list["%s_write_runtime_perc" %(IOtype)]
+        feature_list["Metadata_runtime_perc"] += \
+                feature_list["%s_metadata_runtime_perc" %(IOtype)]
+        # once the information is no longer needed, normalize it
+        feature_list["%s_read_runtime_perc" %(IOtype)] /= \
+                feature_list["%s_IO_runtime_perc" %(IOtype)]
+        feature_list["%s_write_runtime_perc" %(IOtype)] /= \
+                feature_list["%s_IO_runtime_perc" %(IOtype)]
+        feature_list["%s_metadata_runtime_perc" %(IOtype)] /= \
+                feature_list["%s_IO_runtime_perc" %(IOtype)]
+        feature_list["%s_IO_runtime_perc" %(IOtype)] /= \
+                feature_list["Total_runtime"]
+
+    # normalize the overall metrics
+    feature_list["Read_runtime_perc"] /= feature_list["IO_runtime_perc"]
+    feature_list["Write_runtime_perc"] /= feature_list["IO_runtime_perc"]
+    feature_list["Metadata_runtime_perc"] /= feature_list["IO_runtime_perc"]
+    feature_list["IO_runtime_perc"] /= feature_list["Total_runtime"]
+
+    feature_list["IO_ranks_perc"] = feature_list["IO_ranks"] /\
+            feature_list["Total_procs"]
     return feature_list
 
 if __name__ == "__main__":
@@ -54,7 +93,7 @@ if __name__ == "__main__":
             sys.argv[0]))
         exit()
     
-    save_name = 'features.csv'
+    save_name = 'list_of_features.csv'
     if len(sys.argv) > 3:
         save_name = sys.argv[3]
 
@@ -63,37 +102,23 @@ if __name__ == "__main__":
 
     # extract the features from the metadata information
     feature_list = create_empty_dict()
-    metadata_features, IOtype_list = metadata_features(
-            darshan_file, system_procs)
-    #print(metadata_features)
-    print(len(feature_list))
+    print("Default features:", len(feature_list))
 
-    feature_list.update(metadata_features)
+    features, IOtype_list = metadata_features(
+            darshan_file, system_procs)
+    feature_list.update(features)
+    print("Metadata features:", len(feature_list))
+
     # extract features from the  aggregated logs
     features, IOtype_used= aggregated_features(
-            darshan_file, IOtype_list, metadata_features["Total_runtime"])
-    for IOtype in IOtype_used:
-        feature_list["is_" + IOtype] = 1
+            darshan_file, IOtype_list, feature_list["Total_runtime"])
     #print(set(features) - set(feature_list.keys()))
     feature_list.update(features)
-    print(len(feature_list))
+    print("Aggregated features:", len(feature_list))
 
-    feature_list["IO_runtime"] = 0
-    feature_list["Read_runtime"] = 0
-    feature_list["Write_runtime"] = 0
-    feature_list["Metadata_runtime"] = 0
-    for IOtype in IOtype_list:
-        feature_list["IO_runtime"] += feature_list["%s_IO_runtime" %(IOtype)]
-        feature_list["Read_runtime"] += \
-                feature_list["%s_read_runtime" %(IOtype)]
-        feature_list["Write_runtime"] += \
-                feature_list["%s_write_runtime" %(IOtype)]
-        feature_list["Metadata_runtime"] += \
-                feature_list["%s_metadata_runtime" %(IOtype)]
-    feature_list["IO_ranks_perc"] = feature_list["IO_ranks"] /\
-            feature_list["Total_procs"]
-    # add LOG10 metrics to be consistent with Mihailo Isakov's study
-    #feature_list = log_scale_metrics(feature_list)
+    # fill in overall information and normalize the remaining data
+    feature_list = update_allIO_metrics(feature_list, IOtype_used)
+    print("Overall features:", len(feature_list))
 
     # if DXT logs are available add dxt_features(df)
     #if os.path.isfile(darshan_file + ".dxt"):

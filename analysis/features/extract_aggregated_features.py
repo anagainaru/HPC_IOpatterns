@@ -45,9 +45,9 @@ def _convert(df, IOtype, op_list, total_access):
     feature_list = {}
     for op in op_list:
         total_access_type = total_access
-        if "READ" in op:
+        if "SIZE_READ" in op:
             total_access_type = total_accesses(df, IOtype, type_op=['READS'])
-        if "WRITE" in op:
+        if "SIZE_WRITE" in op:
             total_access_type = total_accesses(df, IOtype, type_op=['WRITES'])
         feature_list[op+"_PERC"] = df[df.Counter == op]["Value"].sum() /\
                                 total_access_type
@@ -157,25 +157,22 @@ def overall_features(df, IOtype, total_runtime):
     feature_list["%s_IO_total_bytes" %(IOtype)] = \
             df[df.Counter.str.contains("%s_BYTES_" %(IOtype))]["Value"].sum()
     feature_list["%s_IO_total_accesses" %(IOtype)] = total_accesses(df, IOtype)
-    feature_list["%s_IO_runtime" %(IOtype)] = \
-            df[df.Counter == "%s_F_READ_TIME" %(IOtype)]["Value"].sum() + \
+    feature_list["%s_read_runtime_perc" %(IOtype)] = \
+            df[df.Counter == "%s_F_READ_TIME" %(IOtype)]["Value"].sum()
+    feature_list["%s_write_runtime_perc" %(IOtype)] = \
             df[df.Counter == "%s_F_WRITE_TIME" %(IOtype)]["Value"].sum()
-    feature_list["%s_read_runtime" %(IOtype)] = \
-            df[df.Counter == "%s_F_READ_TIME" %(IOtype)]["Value"].sum() /\
-            feature_list["%s_IO_runtime" %(IOtype)]
-    feature_list["%s_write_runtime" %(IOtype)] = \
-            df[df.Counter == "%s_F_WRITE_TIME" %(IOtype)]["Value"].sum() /\
-            feature_list["%s_IO_runtime" %(IOtype)]
-    feature_list["%s_metadata_runtime" %(IOtype)] = \
-            df[df.Counter == "%s_F_META_TIME" %(IOtype)]["Value"].sum() /\
-            feature_list["%s_IO_runtime" %(IOtype)]
+    feature_list["%s_metadata_runtime_perc" %(IOtype)] = \
+            df[df.Counter == "%s_F_META_TIME" %(IOtype)]["Value"].sum()
+    feature_list["%s_IO_runtime_perc" %(IOtype)] = \
+            feature_list["%s_read_runtime_perc" %(IOtype)] + \
+            feature_list["%s_write_runtime_perc" %(IOtype)] + \
+            feature_list["%s_metadata_runtime_perc" %(IOtype)]
 
     # normalize the total runtime
-    feature_list["%s_IO_runtime" %(IOtype)] /= total_runtime
-    feature_list["%s_IO_window" %(IOtype)] = \
+    feature_list["%s_IO_window_perc" %(IOtype)] = \
             df[df.Counter == "%s_F_CLOSE_END_TIMESTAMP" %(IOtype)]["Value"].max() -\
             df[df.Counter == "%s_F_OPEN_START_TIMESTAMP" %(IOtype)]["Value"].min()
-    feature_list["%s_IO_window" %(IOtype)] /= total_runtime
+    feature_list["%s_IO_window_perc" %(IOtype)] /= total_runtime
     return feature_list
 
 def additional_MPIIO_features(df, total_files):
