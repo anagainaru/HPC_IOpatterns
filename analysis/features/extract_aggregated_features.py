@@ -1,15 +1,17 @@
+#  Created on: Feb 9, 2021
+#      Author: Ana Gainaru gainarua@ornl.gov
 # Script to extract and gather features from the aggregated darshan log
-# -- only for POSIX --
+# -- only for POSIX, HDF5 and MPI-IO --
 
 import pandas as pd
 
-def performance_features(df):
+def performance_features(df, IOtype):
     type_op = ["READ", "WRITE"]
     minperf = {}
     for op in type_op:
-        df_time = df[(df.Counter == "POSIX_F_MAX_%s_TIME" %(op)) &\
+        df_time = df[(df.Counter == "%s_F_MAX_%s_TIME" %(IOtype, op)) &\
                      (df.Value > 0)]
-        df_size = df[(df.Counter == "POSIX_MAX_%s_TIME_SIZE" %(op)) &\
+        df_size = df[(df.Counter == "%s_MAX_%s_TIME_SIZE" %(IOtype, op)) &\
                      (df.Value > 0)]
 
         fast_recordid = df_time['RecordID'].unique()
@@ -29,89 +31,112 @@ def performance_features(df):
     # Return the minimum across all I/O operations
     return min(minperf[i] for i in minperf)
 
-def file_features(df):
+def file_features(df, IOtype):
     feature_list = {}
-    feature_list["POSIX_RAW_total_files"] = len(df["File"].unique())
-    feature_list["POSIX_RAW_OPENS"] = \
-            df[df.Counter == "POSIX_OPENS"]["Value"].sum()
-
-    # if this information was not provided in the metadata
-    if "POSIX_unique_files_perc" not in feature_list: 
-        # Shared files are the ones accessed by more than one rank
-        temp = []
-        for _, group in df[(df.Counter == "POSIX_READS") | \
-                           (df.Counter == "POSIX_WRITES")].groupby("File"):
-            temp.append(len(group.Rank.unique()))
-        feature_list["POSIX_unique_files_perc"] = \
-                len([i for i in temp if i == 1]) /\
-                feature_list["POSIX_RAW_total_files"]
-        feature_list["POSIX_shared_files_perc"] = \
-                len([i for i in temp if i > 1]) /\
-                feature_list["POSIX_RAW_total_files"]
-
-    if "POSIX_read_write_files_perc" not in feature_list:
-        # Read only files are the ones that appear in only READ operations
-        write_set = set(df[df.Counter.str.contains("WRITE|WRITTEN")]
-                          ["File"].unique())
-        read_set = set(df[df.Counter.str.contains("READ")]["File"].unique())
-        feature_list["POSIX_read_only_files_perc"] = \
-                len(read_set - write_set) / len(read_set | write_set)
-        feature_list["POSIX_read_write_files_perc"] = \
-                len(write_set & read_set) / len(read_set | write_set)
-        feature_list["POSIX_write_only_files_perc"] = \
-                len(write_set - read_set) / len(read_set | write_set)
+    feature_list["%s_IO_total_files" %(IOtype)] = len(
+            df[df.Counter.str.contains(IOtype)]["File"].unique())
+    feature_list["%s_opens_per_file" %(IOtype)] = \
+            df[(df.Counter.str.contains("OPENS")) & \
+            (df.Counter.str.contains(IOtype))]["Value"].sum() /\
+            feature_list["%s_IO_total_files" %(IOtype)]
     return feature_list
 
-def convert_counters_in_perc(df, total_access):
+def _convert(df, IOtype, op_list, total_access):
     feature_list = {}
-    # Percentage is defined as sum of each counter over total number of accesses
-    type_op = ["POSIX_WRITES_PERC",
-            "POSIX_RW_SWITCHES_PERC", "POSIX_READS_PERC",
-            "POSIX_FILE_NOT_ALIGNED_PERC", "POSIX_MEM_NOT_ALIGNED_PERC",
-            "POSIX_SIZE_READ_0_100_PERC", "POSIX_SIZE_READ_100_1K_PERC",
-            "POSIX_SIZE_READ_1K_10K_PERC", "POSIX_SIZE_READ_10K_100K_PERC",
-            "POSIX_SIZE_READ_100K_1M_PERC", "POSIX_SIZE_READ_1M_4M_PERC",
-            "POSIX_SIZE_READ_4M_10M_PERC", "POSIX_SIZE_READ_10M_100M_PERC",
-            "POSIX_SIZE_READ_100M_1G_PERC", "POSIX_SIZE_READ_1G_PLUS_PERC",
-            "POSIX_SIZE_WRITE_0_100_PERC", "POSIX_SIZE_WRITE_100_1K_PERC",
-            "POSIX_SIZE_WRITE_1K_10K_PERC", "POSIX_SIZE_WRITE_10K_100K_PERC",
-            "POSIX_SIZE_WRITE_100K_1M_PERC", "POSIX_SIZE_WRITE_1M_4M_PERC",
-            "POSIX_SIZE_WRITE_4M_10M_PERC", "POSIX_SIZE_WRITE_10M_100M_PERC",
-            "POSIX_SIZE_WRITE_100M_1G_PERC", "POSIX_SIZE_WRITE_1G_PLUS_PERC",
-            "POSIX_ACCESS1_COUNT_PERC", "POSIX_ACCESS2_COUNT_PERC",
-            "POSIX_ACCESS3_COUNT_PERC", "POSIX_ACCESS4_COUNT_PERC"]
-    for op_perc in type_op:
-        op = op_perc[:-5]
-        feature_list[op_perc] = df[df.Counter == op]["Value"].sum() /\
-                                total_access
-
-    # Percentage is defined by sum of each conter over total writes/reads
-    type_op = ["POSIX_SEQ_READS_PERC", "POSIX_SEQ_WRITES_PERC",
-               "POSIX_CONSEC_READS_PERC", "POSIX_CONSEC_WRITES_PERC"]
-    for op_perc in type_op:
-        op = op_perc[:-5]
-        total_access_type = df[df.Counter == "POSIX_WRITES"]["Value"].sum()
-        if "READ" in op:
-            total_access_type = df[df.Counter == "POSIX_READS"]["Value"].sum()
-        feature_list[op_perc] = df[df.Counter == op]["Value"].sum() /\
+    for op in op_list:
+        total_access_type = total_access
+        if "SIZE_READ" in op:
+            total_access_type = total_accesses(df, IOtype, type_op=['READS'])
+        if "SIZE_WRITE" in op:
+            total_access_type = total_accesses(df, IOtype, type_op=['WRITES'])
+        feature_list[op+"_PERC"] = df[df.Counter == op]["Value"].sum() /\
                                 total_access_type
     return feature_list
 
-def RW_features(df, total_bytes):
+def convert_counters_in_perc(df, total_access, IOtype, agg="AGG_"):
+    feature_list = {}
+    specific_counters = {}
+    specific_counters["POSIX"] = ["POSIX_WRITES", "POSIX_READS",
+                                  "POSIX_FILE_NOT_ALIGNED",
+                                  "POSIX_MEM_NOT_ALIGNED",
+                                  "POSIX_SEQ_READS",
+                                  "POSIX_SEQ_WRITES",
+                                  "POSIX_CONSEC_READS",
+                                  "POSIX_CONSEC_WRITES"]
+    specific_counters["MPIIO"] = ["MPIIO_INDEP_READS",
+                                 "MPIIO_INDEP_WRITES",
+                                 "MPIIO_COLL_READS",
+                                 "MPIIO_COLL_WRITES",
+                                 "MPIIO_SPLIT_READS",
+                                 "MPIIO_SPLIT_WRITES",
+                                 "MPIIO_NB_READS",
+                                 "MPIIO_NB_WRITES"]
+    specific_counters["HDF5"] = ["H5D_REGULAR_HYPERSLAB_SELECTS",
+                                 "H5D_IRREGULAR_HYPERSLAB_SELECTS",
+                                 "H5D_POINT_SELECTS"]
+    feature_list.update(
+            _convert(df, IOtype, specific_counters[IOtype], total_access))
+
+    type_op = ["%s_RW_SWITCHES" %(IOtype),
+            "%s_SIZE_READ_%s0_100" %(IOtype, agg),
+            "%s_SIZE_READ_%s100_1K" %(IOtype, agg),
+            "%s_SIZE_READ_%s1K_10K" %(IOtype, agg),
+            "%s_SIZE_READ_%s10K_100K" %(IOtype, agg),
+            "%s_SIZE_READ_%s100K_1M" %(IOtype, agg),
+            "%s_SIZE_READ_%s1M_4M" %(IOtype, agg),
+            "%s_SIZE_READ_%s4M_10M" %(IOtype, agg),
+            "%s_SIZE_READ_%s10M_100M" %(IOtype, agg),
+            "%s_SIZE_READ_%s100M_1G" %(IOtype, agg),
+            "%s_SIZE_READ_%s1G_PLUS" %(IOtype, agg),
+            "%s_SIZE_WRITE_%s0_100" %(IOtype, agg),
+            "%s_SIZE_WRITE_%s100_1K" %(IOtype, agg),
+            "%s_SIZE_WRITE_%s1K_10K" %(IOtype, agg),
+            "%s_SIZE_WRITE_%s10K_100K" %(IOtype, agg),
+            "%s_SIZE_WRITE_%s100K_1M" %(IOtype, agg),
+            "%s_SIZE_WRITE_%s1M_4M" %(IOtype, agg),
+            "%s_SIZE_WRITE_%s4M_10M" %(IOtype, agg),
+            "%s_SIZE_WRITE_%s10M_100M" %(IOtype, agg),
+            "%s_SIZE_WRITE_%s100M_1G" %(IOtype, agg),
+            "%s_SIZE_WRITE_%s1G_PLUS" %(IOtype, agg),
+            "%s_ACCESS1_COUNT" %(IOtype), "%s_ACCESS2_COUNT" %(IOtype),
+            "%s_ACCESS3_COUNT" %(IOtype), "%s_ACCESS4_COUNT" %(IOtype)]
+    feature_list.update(
+            _convert(df, IOtype, type_op, total_access))
+
+    # raw counters
+    type_op_raw = ["%s_F_VARIANCE_RANK_TIME" %(IOtype),
+                   "%s_F_VARIANCE_RANK_BYTES" %(IOtype)]
+    for op_raw in type_op_raw:
+        feature_list[op_raw] = df[df.Counter == op_raw]["Value"].max()
+
+    return feature_list
+
+def RW_features(df, total_bytes, IOtype):
     feature_list = {}
     type_ops = ["READ", "WRITTEN"]
     for op in type_ops:
-        feature_list["POSIX_BYTES_%s_PERC" %(op)] = \
-                df[df.Counter == "POSIX_BYTES_%s" %(op)]["Value"].sum() /\
+        feature_list["%s_BYTES_%s_PERC" %(IOtype, op)] = \
+                df[df.Counter == "%s_BYTES_%s" %(IOtype, op)]["Value"].sum() /\
                 total_bytes
     return feature_list
 
-def total_accesses(df):
-    type_op = ['READS', 'WRITES']
+def total_other_accesses(df, IOtype, type_op):
     total_ops = 0
     for op in type_op:
-        total_ops += df[(df.Counter == "POSIX_" + op)]["Value"].sum()
+        total_ops += df[(df.Counter == "%s_%s" %(IOtype, op))]["Value"].sum()
     return total_ops
+
+def total_MPIIO_accesses(df, type_op):
+    total_ops = 0
+    for op in type_op:
+        total_ops += df[(df.Counter.str.contains("MPIIO")) & \
+                (df.Counter.str.contains(op))]["Value"].sum()
+    return total_ops
+
+def total_accesses(df, IOtype, type_op=['READS', 'WRITES']):
+    if IOtype == "MPIIO":
+        return total_MPIIO_accesses(df, type_op)
+    return total_other_accesses(df, IOtype, type_op)
 
 def read_aggregated_log(darshan_file):
     # Darshan files have the following format:
@@ -121,26 +146,71 @@ def read_aggregated_log(darshan_file):
                      names=['IOType', 'Rank', 'RecordID', 'Counter', 'Value',
                             'File', 'MountPt', 'FSType'])
     # Remove entries that don't have values or are invalid
-    df = df[df.Value > 0]
+    #df = df[df.Value > 0]
+    df["Rank"] = pd.to_numeric(df["Rank"])
     #df = df[not np.isnan(df.Value)]
-
-    # only keep POSIX entries
-    df = df[df.IOType.str.contains("POSIX")]
+    #df = df[(df.IOType.str.contains("POSIX")) || (df.IOType.str.contains("MPIIO"))]
     return df
 
-def aggregated_features(darshan_file):
-    df = read_aggregated_log(darshan_file)
-    print("Agg", total_accesses(df),  len(df[(df.Counter == "POSIX_READS") | \
-                           (df.Counter == "POSIX_WRITES")]["Rank"].unique()))
+def overall_features(df, IOtype, total_runtime):
     feature_list = {}
-    feature_list["POSIX_RAW_total_bytes"] = \
-            df[df.Counter.str.contains("POSIX_BYTES_")]["Value"].sum()
-    feature_list["POSIX_RAW_total_accesses"] = total_accesses(df)
-    
-    feature_list.update(file_features(df))
-    feature_list.update(RW_features(df, feature_list["POSIX_RAW_total_bytes"]))
-    
-    feature_list["POSIX_RAW_agg_perf_by_slowest"] = performance_features(df)
-    feature_list.update(convert_counters_in_perc(
-        df, feature_list["POSIX_RAW_total_accesses"]))
+    feature_list["%s_IO_total_bytes" %(IOtype)] = \
+            df[df.Counter.str.contains("%s_BYTES_" %(IOtype))]["Value"].sum()
+    feature_list["%s_IO_total_accesses" %(IOtype)] = total_accesses(df, IOtype)
+    feature_list["%s_read_runtime_perc" %(IOtype)] = \
+            df[df.Counter == "%s_F_READ_TIME" %(IOtype)]["Value"].sum()
+    feature_list["%s_write_runtime_perc" %(IOtype)] = \
+            df[df.Counter == "%s_F_WRITE_TIME" %(IOtype)]["Value"].sum()
+    feature_list["%s_metadata_runtime_perc" %(IOtype)] = \
+            df[df.Counter == "%s_F_META_TIME" %(IOtype)]["Value"].sum()
+    feature_list["%s_IO_runtime_perc" %(IOtype)] = \
+            feature_list["%s_read_runtime_perc" %(IOtype)] + \
+            feature_list["%s_write_runtime_perc" %(IOtype)] + \
+            feature_list["%s_metadata_runtime_perc" %(IOtype)]
+
+    # normalize the total runtime
+    feature_list["%s_IO_window_perc" %(IOtype)] = \
+            df[df.Counter == "%s_F_CLOSE_END_TIMESTAMP" %(IOtype)]["Value"].max() -\
+            df[df.Counter == "%s_F_OPEN_START_TIMESTAMP" %(IOtype)]["Value"].min()
+    feature_list["%s_IO_window_perc" %(IOtype)] /= total_runtime
     return feature_list
+
+def additional_MPIIO_features(df, total_files):
+    feature_list = {}
+    feature_list["MPIIO_HINTS"] = \
+            df[df.Counter=="MPIIO_HINTS"]["Value"].sum() / total_files
+    feature_list["MPIIO_VIEWS"] = \
+            df[df.Counter=="MPIIO_VIEWS"]["Value"].sum() / total_files
+    return feature_list
+
+def aggregated_features(darshan_file, IOtype_list, total_runtime):
+    df = read_aggregated_log(darshan_file)
+    feature_list = {}
+    feature_list["IO_ranks"] = len(df[df.Rank >= 0]["Rank"].unique())
+    for IOtype in IOtype_list:
+        feature_list.update(overall_features(df, IOtype, total_runtime))
+        feature_list.update(file_features(df, IOtype))
+        feature_list.update(RW_features(
+            df, feature_list["%s_IO_total_bytes" %(IOtype)], IOtype))
+
+        feature_list["%s_IO_agg_perf_by_slowest" %(IOtype)] = performance_features(
+                df, IOtype)
+
+        agg = "AGG_"
+        if IOtype == "POSIX":
+            agg = ""
+        feature_list.update(convert_counters_in_perc(
+            df, feature_list["%s_IO_total_accesses" %(IOtype)], IOtype, agg=agg))
+
+    if "MPIIO" in IOtype_list:
+        feature_list.update(additional_MPIIO_features(
+            df, feature_list["MPIIO_IO_total_files"]))
+    # complete the IOtype list, the metadata only knows about MPIIO and HDF5
+    IOtype_used = []
+    if len(df[df.File.str.startswith("/gpfs/alpine")]) > 0:
+        IOtype_used.append("ALPINE")
+    if len(df[df.File.str.startswith("/bb")]) > 0:
+        IOtype_used.append("BB")
+    if len(df[df.File.str.endswith("/md.0")]) > 0:
+        IOtype_used.append("ADIOS")
+    return feature_list, IOtype_used
