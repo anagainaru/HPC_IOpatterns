@@ -1,6 +1,6 @@
+#  Created on: Feb 9, 2021
+#      Author: Ana Gainaru gainarua@ornl.gov
 # Script to extract and gather features from darshan logs into a data frame
-# -- only for POSIX --
-# The format of the output data frame is: Rank File Metric Value
 
 import numpy as np
 import csv
@@ -21,7 +21,7 @@ def log_scale_metrics(feature_list, small_value=10 ** -5):
             float(feature_list[c])
         except:
             continue
-        if c == 'RAW_runtime' or c == 'RAW_nprocs':
+        if c == 'IO_runtime' or c == 'RAW_nprocs':
             feature_list[c.replace("RAW", "LOG10")] = np.log10(
                     feature_list[c] + small_value)
         else:
@@ -40,31 +40,65 @@ def write_features_to_file(feature_list, filename):
             writer.writeheader()
         writer.writerows([feature_list])
 
+def create_empty_dict():
+    feature_list = {}
+    with open("./features.header") as f:
+        for line in f:
+            feature_list[line[:-1]] = 0
+    print(len(feature_list))
+    return feature_list
+
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python %s darshan_file [save_name]" %(sys.argv[0]))
+    if len(sys.argv) < 3:
+        print("Usage: python %s darshan_file system_procs [save_name]" %(
+            sys.argv[0]))
         exit()
     
     save_name = 'features.csv'
-    if len(sys.argv) > 2:
-        save_name = sys.argv[2]
+    if len(sys.argv) > 3:
+        save_name = sys.argv[3]
 
     darshan_file = "%s" %(sys.argv[1])
-    # extract the features from the metadata information
-    feature_list = {}
-    feature_list.update(metadata_features(darshan_file))
+    system_procs = int(sys.argv[2])
 
+    # extract the features from the metadata information
+    feature_list = create_empty_dict()
+    metadata_features, IOtype_list = metadata_features(
+            darshan_file, system_procs)
+    #print(metadata_features)
+    print(len(feature_list))
+
+    feature_list.update(metadata_features)
     # extract features from the  aggregated logs
-    features = aggregated_features(darshan_file)
+    features, IOtype_used= aggregated_features(
+            darshan_file, IOtype_list, metadata_features["Total_runtime"])
+    for IOtype in IOtype_used:
+        feature_list["is_" + IOtype] = 1
+    #print(set(features) - set(feature_list.keys()))
     feature_list.update(features)
-    
+    print(len(feature_list))
+
+    feature_list["IO_runtime"] = 0
+    feature_list["Read_runtime"] = 0
+    feature_list["Write_runtime"] = 0
+    feature_list["Metadata_runtime"] = 0
+    for IOtype in IOtype_list:
+        feature_list["IO_runtime"] += feature_list["%s_IO_runtime" %(IOtype)]
+        feature_list["Read_runtime"] += \
+                feature_list["%s_read_runtime" %(IOtype)]
+        feature_list["Write_runtime"] += \
+                feature_list["%s_write_runtime" %(IOtype)]
+        feature_list["Metadata_runtime"] += \
+                feature_list["%s_metadata_runtime" %(IOtype)]
+    feature_list["IO_ranks_perc"] = feature_list["IO_ranks"] /\
+            feature_list["Total_procs"]
     # add LOG10 metrics to be consistent with Mihailo Isakov's study
-    feature_list = log_scale_metrics(feature_list)
+    #feature_list = log_scale_metrics(feature_list)
 
     # if DXT logs are available add dxt_features(df)
-    if os.path.isfile(darshan_file + ".dxt"):
-        features = dxt_features(darshan_file + ".dxt")
-        feature_list.update(features)
+    #if os.path.isfile(darshan_file + ".dxt"):
+    #    features = dxt_features(darshan_file + ".dxt")
+    #    feature_list.update(features)
 
     write_features_to_file(feature_list, save_name)
     print("Features saved in file %s" %(save_name))
