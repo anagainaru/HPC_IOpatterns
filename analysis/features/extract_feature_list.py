@@ -11,24 +11,6 @@ from extract_metadata_features import metadata_features
 from extract_aggregated_features import aggregated_features
 from extract_dxt_features import dxt_features
 
-def log_scale_metrics(feature_list, small_value=10 ** -5):
-    number_columns = list(feature_list.keys())
-    columns = [x for x in number_columns if "perc" not in x.lower()]
-    print("Applying log10() to the columns {}".format(columns))
-    for c in columns:
-        # skip entries that are not float
-        try:
-            float(feature_list[c])
-        except:
-            continue
-        if c == 'IO_runtime' or c == 'RAW_nprocs':
-            feature_list[c.replace("RAW", "LOG10")] = np.log10(
-                    feature_list[c] + small_value)
-        else:
-            feature_list[c.replace("POSIX", "POSIX_LOG10")] = np.log10(
-                    feature_list[c] + small_value)
-    return feature_list
-
 def write_features_to_file(feature_list, filename):
     # write the feature list in a csv file
     write_header = True
