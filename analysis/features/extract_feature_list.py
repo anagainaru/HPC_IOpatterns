@@ -29,7 +29,26 @@ def create_empty_dict():
             feature_list[line[:-1]] = 0
     return feature_list
 
-def update_allIO_metrics(feature_list, IOtype_used):
+def update_allRank_metrics(feature_list, IOtype_list, total_IO_ranks):
+    feature_list["IO_ranks_perc"] = feature_list["IO_ranks"] /\
+            feature_list["Total_procs"]
+    feature_list["Total_read_ranks_perc"] = 0
+    feature_list["Total_write_ranks_perc"] = 0
+    for IOtype in IOtype_list:
+        feature_list["Total_read_ranks_perc"] += \
+                feature_list[IOtype + "_read_ranks_perc"]
+        feature_list["Total_write_ranks_perc"] += \
+                feature_list[IOtype + "_write_ranks_perc"]
+        print(IOtype, feature_list[IOtype + "_read_ranks_perc"], feature_list[IOtype + "_write_ranks_perc"], total_IO_ranks)
+        # normalize the features for each IOtype
+        feature_list[IOtype + "_read_ranks_perc"] /= total_IO_ranks
+        feature_list[IOtype + "_write_ranks_perc"] /= total_IO_ranks
+    # normalize the overall metrics
+    feature_list["Total_read_ranks_perc"] /= total_IO_ranks
+    feature_list["Total_write_ranks_perc"] /= total_IO_ranks
+    return feature_list
+
+def update_allIO_metrics(feature_list, IOtype_list, IOtype_used):
     # flags for using burst buffers, alpine or adios
     for IOtype in IOtype_used:
         feature_list["is_" + IOtype] = 1
@@ -65,9 +84,8 @@ def update_allIO_metrics(feature_list, IOtype_used):
     feature_list["Metadata_runtime_perc"] /= feature_list["IO_runtime_perc"]
     feature_list["IO_runtime_perc"] /= feature_list["Total_runtime"]
 
-    feature_list["IO_ranks_perc"] = feature_list["IO_ranks"] /\
-            feature_list["Total_procs"]
-    return feature_list
+    return update_allRank_metrics(
+            feature_list, IOtype_list, feature_list["IO_ranks"])
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
@@ -99,7 +117,7 @@ if __name__ == "__main__":
     print("Aggregated features:", len(feature_list))
 
     # fill in overall information and normalize the remaining data
-    feature_list = update_allIO_metrics(feature_list, IOtype_used)
+    feature_list = update_allIO_metrics(feature_list, IOtype_list, IOtype_used)
     print("Overall features:", len(feature_list))
 
     # if DXT logs are available add dxt_features(df)

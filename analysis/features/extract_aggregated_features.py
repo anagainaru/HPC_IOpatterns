@@ -183,6 +183,16 @@ def additional_MPIIO_features(df, total_files):
             df[df.Counter=="MPIIO_VIEWS"]["Value"].sum() / total_files
     return feature_list
 
+def rank_features(df, IOtype):
+    feature_list = {}
+    IOtypeREAD = df[(df.Counter.str.contains(IOtype)) &
+                    (df.Counter.str.contains("READ"))]["Rank"].unique()
+    IOtypeWRITE = df[(df.Counter.str.contains(IOtype)) &
+                     (df.Counter.str.contains("WRITE"))]["Rank"].unique()
+    feature_list[IOtype + "_read_ranks_perc"] = len(IOtypeREAD)
+    feature_list[IOtype + "_write_ranks_perc"] = len(IOtypeWRITE)
+    return feature_list
+
 def aggregated_features(darshan_file, IOtype_list, total_runtime):
     df = read_aggregated_log(darshan_file)
     feature_list = {}
@@ -201,6 +211,8 @@ def aggregated_features(darshan_file, IOtype_list, total_runtime):
             agg = ""
         feature_list.update(convert_counters_in_perc(
             df, feature_list["%s_IO_total_accesses" %(IOtype)], IOtype, agg=agg))
+
+        feature_list.update(rank_features(df, IOtype))
 
     if "MPIIO" in IOtype_list:
         feature_list.update(additional_MPIIO_features(
