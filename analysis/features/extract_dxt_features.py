@@ -38,71 +38,81 @@ def consecutive_RW(df):
             (df['IOType'].shift(1) == "read") & \
             (df['File'] == df['File'].shift(1))
     allReads = len(df[df.IOType == "read"])
-    feature_list["READ_after_WRITE"] = len(df[df.group == True]) / allReads
+    feature_list["READ_after_WRITE_PERC"] = \
+            len(df[df.group == True]) / allReads
 
     # Read after read
     df['group'] = (df['IOType'] == "read") & \
             (df['IOType'].shift(1) == "read") & \
             (df['File'] == df['File'].shift(1))
-    feature_list["READ_after_READ"] = len(df[df.group == True]) / allReads
+    feature_list["READ_after_READ_PERC"] = \
+            len(df[df.group == True]) / allReads
 
     # Write after read
     df['group'] = (df['IOType'] == "read") & \
             (df['IOType'].shift(1) == "write") & \
             (df['File'] == df['File'].shift(1))
     allWrites = len(df[df.IOType == "write"])
-    feature_list["WRITE_after_READ"] = len(df[df.group == True]) / allWrites
+    feature_list["WRITE_after_READ_PERC"] = \
+            len(df[df.group == True]) / allWrites
 
     # Write after write
     df['group'] = (df['IOType'] == "write") & \
             (df['IOType'].shift(1) == "write") & \
             (df['File'] == df['File'].shift(1))
-    feature_list["WRITE_after_WRITE"] = len(df[df.group == True]) / allWrites
+    feature_list["WRITE_after_WRITE_PERC"] = \
+            len(df[df.group == True]) / allWrites
 
     # RAW + RAR is not equal to 1 because the first read of each file 
     #   are not counted toward either
     return feature_list
 
-def rank_features(total_rw, total_procs):
+def rank_features(total_rw, total_IO_ranks, total_files, total_accesses):
     feature_list = {}
     # consecutive memory accesses to the same file by the same rank
     df['group'] = (df['Rank'] == df['Rank'].shift(1)) & \
             (df['File'] == df['File'].shift(1))
-    feature_list["Sequential_rank_RAW"] = len(df[df.group == True]) / total_rw
+    feature_list["Rank_consecutive_perc"] = \
+            len(df[df.group == True]) / total_accesses
 
     # consecutive memory accesses to the same file by the different ranks
     df['group'] = (df['Rank'] != df['Rank'].shift(1)) & \
             (df['File'] == df['File'].shift(1))
-    feature_list["Switch_rank_RAW"] = len(df[df.group == True]) / total_rw
-
-    feature_list["Perc_ranks_READS"] = \
-            len(df[df.IOType == "read"]["Rank"].unique()) / \
-            total_procs
-    feature_list["Perc_ranks_WRITES"] = \
-            len(df[df.IOType == "write"]["Rank"].unique()) / \
-            total_procs
+    feature_list["Rank_switches_perc"] = \
+            len(df[df.group == True]) / total_accesses
 
     # ranks doing only read, only write
     temp = df.groupby('Rank')['IOType'].unique()
-    feature_list["Ranks_read_write"] = len([i for i in temp if len(i)==2])
-    feature_list["Ranks_read_only"] = len([i for i in temp if len(i)==1
+    feature_list["Ranks_read_write_perc"] = len([i for i in temp if len(i)==2])
+    feature_list["Ranks_read_only_perc"] = len([i for i in temp if len(i)==1
                                            and i[0]=="read"])
-    feature_list["Ranks_write_only"] = len([i for i in temp if len(i)==1
+    feature_list["Ranks_write_only_perc"] = len([i for i in temp if len(i)==1
                                             and i[0]=="write"])
+    # normalize the metrics
+    feature_list["Ranks_read_write_perc"] /= total_IO_ranks
+    feature_list["Ranks_read_only_perc"] /= total_IO_ranks
+    feature_list["Ranks_write_only_perc"] /= total_IO_ranks
 
     # percentage files accessed  by ony one rank
     temp = df.groupby('File')['Rank'].unique()
-    feature_list["File_one_rank"] = len([i for i in temp if len(i)==1])
-    feature_list["File_multiple_ranks"] = len([i for i in temp if len(i)>1])
+    feature_list["File_one_rank_perc"] = len([i for i in temp if len(i)==1])
+    feature_list["File_multiple_ranks_perc"] = \
+            len([i for i in temp if len(i)>1])
+    # normalize features
+    feature_list["File_one_rank_perc"] /= total_files
+    feature_list["File_multiple_ranks_perc"] /= total_files
     return feature_list
 
 def dxt_features(darshan_file):
     df = read_dxt_logs(darshan_file)
-    total_read_write = len(df)
-    feature_list = {}
 
-    print("DXT", len(df),  len(df["Rank"].unique()))
+    total_IO_ranks = len(df["Rank"].unique())
+    total_files = len(df["File"].unique())
+    total_accesses = len(df)
+
+    feature_list = {}
+    print("DXT", total_accesses, total_IO_ranks, total_files)
     # add RAW/WAR/.. information
     feature_list.update(consecutive_RW(df))
-
+    feature_list.update(rank_features(df, total_IO_ranks, total_files, total_accesses))
     return feature_list
