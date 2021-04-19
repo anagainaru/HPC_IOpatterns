@@ -15,6 +15,8 @@ def performance_features(df, IOtype):
                      (df.Value > 0)]
 
         fast_recordid = df_time['RecordID'].unique()
+        if len(fast_recordid) == 0:
+            return 0
         perf = {}
         # For each record find the slowest I/O and compute bandwidth
         #   (one entry for the amount of bytes and time to transfer)
