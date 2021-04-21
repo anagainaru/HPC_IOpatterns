@@ -116,6 +116,9 @@ if __name__ == "__main__":
     feature_list.update(features)
     print("Aggregated features:", len(feature_list))
 
+    if feature_list["IO_ranks"] == 0:
+        print("The application does no IO, no output generated")
+        exit()
     # fill in overall information and normalize the remaining data
     feature_list = update_allIO_metrics(feature_list, IOtype_list, IOtype_used)
     print("Overall features:", len(feature_list))

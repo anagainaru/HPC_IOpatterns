@@ -58,6 +58,8 @@ def metadata_rw_bytes(metadata, ioIndex):
         rw_bytes = [int(i) for i in
                     metadata["read_write"][ioIndex[IOtype]].split(" ")]
         total_bytes = ro_bytes[1] + wo_bytes[1] + rw_bytes[1]
+        if total_bytes == 0:
+            continue
         feature_list["%s_read_write_bytes_perc" %(IOtype)] = rw_bytes[1] / total_bytes
         feature_list["%s_read_only_bytes_perc" %(IOtype)] = ro_bytes[1] / total_bytes
         feature_list["%s_write_only_bytes_perc" %(IOtype)] = wo_bytes[1] / total_bytes
@@ -78,6 +80,8 @@ def metadata_unique_bytes(metadata, ioIndex):
         shared_bytes = [int(i) for i in
                         metadata["shared"][ioIndex[IOtype]].split(" ")]
         total_bytes = unique_bytes[1] + shared_bytes[1]
+        if total_bytes == 0:
+            continue
         feature_list["%s_unique_bytes_perc" %(IOtype)] = unique_bytes[1] / total_bytes
         feature_list["%s_shared_bytes_perc" %(IOtype)] = shared_bytes[1] / total_bytes
     return feature_list
@@ -99,6 +103,8 @@ def metadata_rw_files(metadata, ioIndex):
                        metadata["total"][ioIndex[IOtype]].split(" ")][0]
         if total_bytes != ro_bytes[0] + wo_bytes[0] + rw_bytes[0]:
             continue
+        if total_bytes == 0:
+            continue
         feature_list["%s_read_write_files_perc" %(IOtype)] = rw_bytes[0] / total_bytes
         feature_list["%s_read_only_files_perc" %(IOtype)] = ro_bytes[0] / total_bytes
         feature_list["%s_write_only_files_perc" %(IOtype)] = wo_bytes[0] / total_bytes
@@ -118,6 +124,8 @@ def metadata_unique_files(metadata, ioIndex):
         total_bytes = [int(i) for i in
                        metadata["total"][ioIndex[IOtype]].split(" ")][0]
         if total_bytes != unique_bytes[0] + shared_bytes[0]:
+            continue
+        if total_bytes == 0:
             continue
         feature_list["%s_unique_files_perc" %(IOtype)] = unique_bytes[0] / total_bytes
         feature_list["%s_shared_files_perc" %(IOtype)] = shared_bytes[0] / total_bytes
@@ -169,7 +177,10 @@ def metadata_features(darshan_file, system_procs, log_count=1):
     feature_list["Total_procs_perc"] = float(metadata["nprocs"][0]) \
             / system_procs
     feature_list["Total_runtime"] = int(metadata["run time"][0])
-    feature_list["input_param"] = metadata["exe"][0].split(' ', 1)[1]
+    if len(metadata["exe"][0].split(' ', 1)) > 1:
+        feature_list["input_param"] = metadata["exe"][0].split(' ', 1)[1]
+    else:
+        feature_list["input_param"] = ''
     feature_list["job_id"] = int(metadata["jobid"][0])
     feature_list["log_count"] = log_count
 
