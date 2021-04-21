@@ -1,18 +1,19 @@
 #!/bin/bash
 module load darshan-util
 
-mkdir logs_againaru
-for j in {9..12}; do 
+app=$1
+mkdir logs_${app}
+for j in {1..12}; do 
 	echo "/gpfs/alpine/darshan/summit/2020/$j"
 	echo "---"
-	for i in /gpfs/alpine/darshan/summit/2020/${j}/*/*againaru*; do
+	for i in /gpfs/alpine/darshan/summit/2020/${j}/*/*${app}*; do
 		ls $i
 		if [ $? -eq 0 ]; then
 			filename=$(basename -- "$i")
 			extension="${filename##*.}"
 			filename="${filename%.*}"
-			darshan-parser --file $i > logs_againaru/${filename}.log
-			darshan-parser $i >> logs_againaru/${filename}.log
+			darshan-parser --file $i > logs_${app}/${filename}.log
+			darshan-parser $i >> logs_${app}/${filename}.log
 		else
     			continue
 		fi
