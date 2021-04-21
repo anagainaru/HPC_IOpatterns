@@ -23,12 +23,20 @@ def performance_features(df, IOtype):
         for record in fast_recordid:
             # time / size
             time = df_time[(df_time.RecordID == record)]["Value"].values[0]
-            size = df_size[(df_size.RecordID == record)]["Value"].values[0]
+            try:
+                size = df_size[(df_size.RecordID == record)]["Value"].values[0]
+            except:
+                size = 0
+            if time == 0:
+                continue
             if record not in perf:
                 perf[record] = size / time
             if size / time < perf[record]:
                 perf[record] = size / time
         # Only keep the minimum across all recors
+        if len(perf) == 0:
+            minperf[op] = 0
+            continue
         minperf[op] = min([perf[i] for i in perf])
     # Return the minimum across all I/O operations
     return min(minperf[i] for i in minperf)
@@ -51,6 +59,8 @@ def _convert(df, IOtype, op_list, total_access):
             total_access_type = total_accesses(df, IOtype, type_op=['READS'])
         if "SIZE_WRITE" in op:
             total_access_type = total_accesses(df, IOtype, type_op=['WRITES'])
+        if total_access_type == 0:
+            total_access_type = 1
         feature_list[op+"_PERC"] = df[df.Counter == op]["Value"].sum() /\
                                 total_access_type
     return feature_list

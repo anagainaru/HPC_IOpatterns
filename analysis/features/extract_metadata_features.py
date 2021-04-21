@@ -177,7 +177,10 @@ def metadata_features(darshan_file, system_procs, log_count=1):
     feature_list["Total_procs_perc"] = float(metadata["nprocs"][0]) \
             / system_procs
     feature_list["Total_runtime"] = int(metadata["run time"][0])
-    feature_list["input_param"] = metadata["exe"][0].split(' ', 1)[1]
+    if len(metadata["exe"][0].split(' ', 1)) > 1:
+        feature_list["input_param"] = metadata["exe"][0].split(' ', 1)[1]
+    else:
+        feature_list["input_param"] = ''
     feature_list["job_id"] = int(metadata["jobid"][0])
     feature_list["log_count"] = log_count
 
