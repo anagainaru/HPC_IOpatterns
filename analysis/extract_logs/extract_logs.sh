@@ -6,7 +6,7 @@ mkdir logs_${app}
 for j in {1..12}; do 
 	echo "/gpfs/alpine/darshan/summit/2020/$j"
 	echo "---"
-	for i in /gpfs/alpine/darshan/summit/2020/${j}/*/*${app}*; do
+	for i in /gpfs/alpine/darshan/summit/2020/${j}/*/*_${app}_*; do
 		ls $i
 		if [ $? -eq 0 ]; then
 			filename=$(basename -- "$i")

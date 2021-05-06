@@ -125,6 +125,8 @@ def convert_counters_in_perc(df, total_access, IOtype, agg="AGG_"):
 
 def RW_features(df, total_bytes, IOtype):
     feature_list = {}
+    if total_bytes == 0:
+        total_bytes = 1
     type_ops = ["READ", "WRITTEN"]
     for op in type_ops:
         feature_list["%s_BYTES_%s_PERC" %(IOtype, op)] = \
