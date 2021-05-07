@@ -197,20 +197,39 @@ def additional_MPIIO_features(df, total_files):
             df[df.Counter=="MPIIO_VIEWS"]["Value"].sum() / total_files
     return feature_list
 
-def rank_features(df, IOtype):
+def rank_features(df, IOtype, IOranks):
     feature_list = {}
-    IOtypeREAD = df[(df.Counter.str.contains(IOtype)) &
-                    (df.Counter.str.contains("READ"))]["Rank"].unique()
-    IOtypeWRITE = df[(df.Counter.str.contains(IOtype)) &
-                     (df.Counter.str.contains("WRITE"))]["Rank"].unique()
-    feature_list[IOtype + "_read_ranks_perc"] = len(IOtypeREAD)
-    feature_list[IOtype + "_write_ranks_perc"] = len(IOtypeWRITE)
+    rankList = df[(df.Counter.str.contains(IOtype)) &
+                  (df.Counter.str.contains("READ"))]["Rank"].unique()
+    feature_list[IOtype + "_read_ranks_perc"] = len(rankList)
+    # collective operations
+    if -1 in rankList:
+        feature_list[IOtype + "_read_ranks_perc"] = IOranks
+    rankList = df[(df.Counter.str.contains(IOtype)) &
+                  (df.Counter.str.contains("WRITE"))]["Rank"].unique()
+    feature_list[IOtype + "_write_ranks_perc"] = len(rankList)
+    # collective operations
+    if -1 in rankList:
+        feature_list[IOtype + "_write_ranks_perc"] = IOranks
+    rankList = df[df.Counter.str.contains("READ")]["Rank"].unique()
+    feature_list["Total_read_ranks_perc"] = len(rankList)
+    if -1 in rankList:
+        feature_list["Total_read_ranks_perc"] = IOranks
+    rankList = df[df.Counter.str.contains("WRITE")]["Rank"].unique()
+    feature_list["Total_write_ranks_perc"] = len(rankList)
+    if -1 in rankList:
+        feature_list["Total_write_ranks_perc"] = IOranks
     return feature_list
 
-def aggregated_features(darshan_file, IOtype_list, total_runtime):
+def aggregated_features(darshan_file, IOtype_list,
+                        total_runtime, total_ranks):
     df = read_aggregated_log(darshan_file)
     feature_list = {}
-    feature_list["IO_ranks"] = len(df[df.Rank >= 0]["Rank"].unique())
+    # if the application does IO collective opperations
+    if -1 in df.Rank.unique():
+        feature_list["IO_ranks"] = total_ranks
+    else:
+        feature_list["IO_ranks"] = len(df[df.Rank >= 0]["Rank"].unique())
     for IOtype in IOtype_list:
         feature_list.update(overall_features(df, IOtype, total_runtime))
         feature_list.update(file_features(df, IOtype))
@@ -224,9 +243,11 @@ def aggregated_features(darshan_file, IOtype_list, total_runtime):
         if IOtype == "POSIX":
             agg = ""
         feature_list.update(convert_counters_in_perc(
-            df, feature_list["%s_IO_total_accesses" %(IOtype)], IOtype, agg=agg))
+            df, feature_list["%s_IO_total_accesses" %(IOtype)],
+            IOtype, agg=agg))
 
-        feature_list.update(rank_features(df, IOtype))
+        feature_list.update(rank_features(
+            df, IOtype, feature_list["IO_ranks"]))
 
     if "MPIIO" in IOtype_list:
         feature_list.update(additional_MPIIO_features(
