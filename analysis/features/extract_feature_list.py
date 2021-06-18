@@ -32,14 +32,9 @@ def create_empty_dict():
 def update_allRank_metrics(feature_list, IOtype_list, total_IO_ranks):
     feature_list["IO_ranks_perc"] = feature_list["IO_ranks"] /\
             feature_list["Total_procs"]
-    feature_list["Total_read_ranks_perc"] = 0
-    feature_list["Total_write_ranks_perc"] = 0
     for IOtype in IOtype_list:
-        feature_list["Total_read_ranks_perc"] += \
-                feature_list[IOtype + "_read_ranks_perc"]
-        feature_list["Total_write_ranks_perc"] += \
-                feature_list[IOtype + "_write_ranks_perc"]
-        print(IOtype, feature_list[IOtype + "_read_ranks_perc"], feature_list[IOtype + "_write_ranks_perc"], total_IO_ranks)
+        print(IOtype, feature_list[IOtype + "_read_ranks_perc"],
+              feature_list[IOtype + "_write_ranks_perc"], total_IO_ranks)
         # normalize the features for each IOtype
         feature_list[IOtype + "_read_ranks_perc"] /= total_IO_ranks
         feature_list[IOtype + "_write_ranks_perc"] /= total_IO_ranks
@@ -68,7 +63,8 @@ def update_allIO_metrics(feature_list, IOtype_list, IOtype_used):
                 feature_list["%s_write_runtime_perc" %(IOtype)]
         feature_list["Metadata_runtime_perc"] += \
                 feature_list["%s_metadata_runtime_perc" %(IOtype)]
-        # once the information is no longer needed, normalize it
+    for IOtype in IOtype_list:
+        # normalize all the entries
         feature_list["%s_read_runtime_perc" %(IOtype)] /= \
                 feature_list["%s_IO_runtime_perc" %(IOtype)]
         feature_list["%s_write_runtime_perc" %(IOtype)] /= \
@@ -111,7 +107,8 @@ if __name__ == "__main__":
 
     # extract features from the  aggregated logs
     features, IOtype_used= aggregated_features(
-            darshan_file, IOtype_list, feature_list["Total_runtime"])
+            darshan_file, IOtype_list, feature_list["Total_runtime"],
+            feature_list["Total_procs"])
     #print(set(features) - set(feature_list.keys()))
     feature_list.update(features)
     print("Aggregated features:", len(feature_list))

@@ -18,13 +18,35 @@ classification = {}
 # default path to save the cluster information
 path = "./test.clusters/"
 
-def default_dataset(paths):
-    df = pd.read_csv(paths[0])
-    # Use HDBSCAN
+def get_clustering_columns(df):
     log_columns = set([c for c in df.columns if 'perc' in c.lower()
                        or 'log10' in c.lower()])
-    log_columns -= set(['Total_procs', 'RAW_runtime', 'users',
-                        'apps', 'apps_short'])
+    feature_list = set()
+    with open("../features.filter.header") as f:
+        for line in f:
+            feature_list.add(line[:-1])
+    log_columns = log_columns - feature_list
+    return log_columns
+
+# filter all entries that do very little IO (time or amount)
+def fileter_entries(df):
+    df = df.fillna(0)
+    df["IO_runtime"] = df.Total_runtime * df.IO_runtime_perc
+    df["IO_total_bytes"] = df.POSIX_IO_total_bytes + df.MPIIO_IO_total_bytes +\
+                           df.HDF5_IO_total_bytes
+    df = df[df.IO_runtime > 60]
+    df = df[df.IO_total_bytes > 1024]
+    return df
+
+def default_dataset(paths):
+    df = pd.read_csv(paths[0])
+    print("Before filter:", len(df))
+    df = fileter_entries(df)
+    print("After filter:", len(df))
+    log_columns = get_clustering_columns(df)
+    print("Total columns %d, clustering columns %d" %(
+        len(df.columns), len(log_columns)))
+    # Use HDBSCAN
     clusterer = hdbscan.HDBSCAN(min_samples=10, cluster_selection_epsilon=5,
                                 metric='manhattan', gen_min_span_tree=True,
                                 core_dist_n_jobs=8)
@@ -35,6 +57,8 @@ def default_dataset(paths):
 # for the child described by the column in the dataframe
 def get_child_info(df, distance, column_name):
     child_id = int(df[df.distance == distance][column_name].values[0])
+    if len(df[df.parent == child_id]) == 0:
+        return child_id, 0
     count = int(df[df.parent == child_id]["size"].values[0])
     return child_id, count
 
@@ -104,17 +128,21 @@ def analyze_cluster_formation(dataset, df, cluster, split_distances):
                                              "left_child")
         right_id, right_count = get_child_info(df, distance,
                                                "right_child")
+        if left_count == 0 or right_count == 0:
+            # print("Noisy point, skip distance %f" %(distance))
+            continue
         # identify the left and right cluster ids
         print("Split at distance %f" %(distance))
 
         # get the index of the entries from the dataframe that have been split
         # at this level and dump the rest of the entries
         left_cl_idx = [i for i in range(len(dataset))
-                       if left_id in classification[i]]
+                       if i in classification and left_id in classification[i]]
         assert(len(left_cl_idx) == left_count), \
                 "Error identifying the clusters at distance %f" %(distance)
         right_cl_idx = [i for i in range(len(dataset))
-                        if right_id in classification[i]]
+                        if i in classification and
+                        right_id in classification[i]]
         assert(len(right_cl_idx) == right_count), \
                 "Error identifying the clusters at distance %f" %(distance)
 
@@ -124,10 +152,10 @@ def analyze_cluster_formation(dataset, df, cluster, split_distances):
                 dataset, left_cl_idx, right_cl_idx, left_count, right_count)
         print("Left cluster (%d): %d runs %s" %(
             left_id, left_count,
-            filtered_df[filtered_df.Cluster==0]["apps"].unique()))
+            filtered_df[filtered_df.Cluster==0]["app_name"].unique()))
         print("Right cluster (%d): %d runs %s" %(
             right_id, right_count,
-            filtered_df[filtered_df.Cluster==1]["apps"].unique()))
+            filtered_df[filtered_df.Cluster==1]["app_name"].unique()))
 
         # make sure the clusters are correct
         check_cluster_goodness(cluster, distance, left_cl_idx, right_cl_idx)
@@ -148,6 +176,8 @@ def main(top_apps=6, jobs_per_app=16):
     df, cluster = default_dataset(paths=[sys.argv[1]])
     # save the cluster with all the labes
     save_clusters(0, df, cluster.labels_)
+    print("Optimal number of clusters:", max(cluster.labels_)+1)
+    print("Number of noisy points:", len([i for i in cluster.labels_ if i<0]))
 
     # extract the hierarchy of binary splits
     tree = cluster.single_linkage_tree_.to_pandas()
