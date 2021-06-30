@@ -3,6 +3,8 @@
 
 ## Analyzing the I/O patterns for scientific applications
 
+Code and scripts are stored on Summit in `/gpfs/alpine/csc143/proj-shared/againaru/olcf`.
+
 The repo contains one folder for each application we analyze (and the `simple_example` folder for a simple example that uses both MPI-IO and Posix in addition to standard output).
 Details on how to install/run each benchmark and performance details can be found in each folder.
 
