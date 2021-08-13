@@ -10,6 +10,7 @@ tau_exec -T mpi {options} app_exec app_param
 ```
 The options include:
 - `optTrackIO`	Wrap POSIX I/O call and calculate vol/bw of I/O operations
+- io (track io)
 
 Once the execution is done, the files can be analyzed with `pprof`.
 ```
@@ -65,8 +66,43 @@ export TAU_TRACE=1
 tau_convert -dumpname <.trc file> <edf file> 
 ```
 
-Alternatively, the trace can be viewd with Vampire.
+Example output
 ```
+#=NO= ==TIME [us]= =NODE= =THRD= ==PARAMETER= =======================EVENT==
+ 1502 1628710611659481    160      0            1 "IO::Open "
+ 1554 1628710611948365    160      0            0 "Message size received in wait : IO::Open => BP4Writer::Open => MPI_Wait()  "
+ 1575 1628710611949522    160      0           -1 "BP4Writer::Open "
+ 1577 1628710611949573    160      0            1 "BP4Writer::BeginStep "
+ 1578 1628710611949578    160      0           -1 "BP4Writer::BeginStep "
+ 1579 1628710611949612    160      0            1 "IO::InquireVariable "
+ 1589 1628710612092069    160      0            1 "BP4Writer::EndStep "
+ 1590 1628710612092076    160      0            1 "BP4Writer::PerformPuts "
+ 1628 1628710612092280    160      0            1 "BP4Writer::Flush "
+ 1629 1628710612092289    160      0            1 "BP4Writer::AggregateWriteData "
+ 259941 1628710612524381    160      0            1 "BP4Writer::Close "
+ 1628 1628710612092280    160      0            1 "BP4Writer::Flush "
+ 2105 1628710612110480    160      0            1 "BP4Writer::WriteCollectiveMetadataFile "
+260200 1628710612527160    160      0            1 "BP4Writer::WriteProfilingJSONFile "
+259956 1628710612524414    160      0            0 "Message size received in wait : BP4Writer::Close => BP4Writer::AggregateWriteData => MPI_Wait()  "
+ 1649 1628710612092396    160      0            0 "Message size received in wait : BP4Writer::EndStep => BP4Writer::Flush => BP4Writer::AggregateWriteData => MPI_Wait()  "
+  983 1628710611655952    160      0            1 "IO::DefineAttribute "
+ 1001 1628710611656147    160      0            1 "IO::DefineVariable "
+ 1579 1628710611949612    160      0            1 "IO::InquireVariable "
+ 1596 1628710612092199    160      0            1 "IO::InquireAttribute "
+ 1592 1628710612092105    160      0           -1 "IO::other "
+
+260402 1628710612607793    160      0            0 "TAU_TRACK_IO_PARAMS | off"
+```
+
+### Visual inspection
+
+Alternatively, the trace can be viewd with Vampire by activating tracing and declaring the data format to OTF2. OTF2 format is supported only by MPI and OpenSHMEM applications.
+
+```
+export TAU_TRACE=1
 export TAU_TRACE_FORMAT=OTF2
 vampir traces.otf2 &
 ```
+
+
+
