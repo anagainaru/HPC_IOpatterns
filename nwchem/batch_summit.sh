@@ -8,7 +8,7 @@
 
 N_NWCHEM=224
 N=224
-NNODES= 15
+NNODES=15
 
 HOME=/gpfs/alpine/csc143/proj-shared/againaru/nwchem/summit_submit
 NWCHEM=/gpfs/alpine/csc143/proj-shared/againaru/nwchem
