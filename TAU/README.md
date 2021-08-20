@@ -3,6 +3,29 @@
 Info on running TAU on Summit [github link](https://github.com/UO-OACISS/tau2/wiki/Using-TAU-to-Profile-and-or-Trace-ADIOS)
 and [olcf webpage](https://docs.olcf.ornl.gov/software/profiling/TAU.html).
 
+## Installing TAU
+
+They have fixed some issues with multi-threaded I/O libraries and the version Summit is using is old (2.29.1)
+
+In order to install a newer version that tracks timestamp information:
+
+```
+wget http://tau.uoregon.edu/tau2.tgz
+tar xzvf tau2.tgz
+```
+or
+```
+git clone https://github.com/UO-OACISS/tau2.git tau2
+```
+and configure it with:
+```
+./configure -mpi -c++=mpicxx -cc=mpicc -fortran=mpif90 -bfd=download -iowrapper -pthread 
+make install 
+export PATH=/gpfs/alpine/csc143/proj-shared/againaru/tau2/ibm64linux/bin:$PATH
+```
+
+## Using TAU on Summit
+
 In order to get summary information.
 ```
 module load tau
