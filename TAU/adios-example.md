@@ -2,7 +2,7 @@
 
 Gathering TAU traces for IO operations (Write / Read) and the metadata operations associated with it (Open / Seek).
 
-### Example for Open/Close 
+### Example for Open/Close for Write
 
 Code
 ```c++
@@ -38,3 +38,59 @@ TAU logs created with `-io -skel`
 {"ts": 1630435888980720, "dur": 8, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "close", "args": {"fd": 23}, "pathname": "input_file/md.idx", "return": 0},
 ```
 
+**With a Put**
+
+Code that is added between the open/close sequence.
+```c++
+const std::string myString("Hello Variable String");
+adios2::Variable<std::string> bpString =
+            bpIO.DefineVariable<std::string>("bpString");
+bpFileWriter.Put(bpString, myString);
+```
+
+The logs show the same patterns for all files, the amount of data written for `md.idx` remains the same. The others write more data.
+
+```
+{"ts": 1630445604556460, "dur": 92, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "write", "args": {"fd": 20, "buf": "0x28890050", "count": 197 }, "pathname": "input_file/data.0", "return": 197},
+{"ts": 1630445604556924, "dur": 89, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "write", "args": {"fd": 23, "buf": "0x280319b0", "count": 227 }, "pathname": "input_file/md.0", "return": 227},
+
+{"ts": 1630445604558647, "dur": 66, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "write", "args": {"fd": 20, "buf": "0x289d0050", "count": 393 }, "pathname": "input_file/profiling.json", "return": 393},
+```
+
+### Open/Close for Read
+
+Code
+```c++
+    adios2::ADIOS adios(MPI_COMM_WORLD);
+    adios2::IO bpIO = adios.DeclareIO("WriteBP");
+    adios2::Engine bpReader = bpIO.Open("input_file", adios2::Mode::Read);
+    bpReader.Close();
+```
+
+TAU logs created with `-io -skel`
+```
+{"ts": 1630448893932662, "dur": 28422, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "open", "args": {"pathname": "input_file/.bpversion", "flags": 0, "mode": 511}, "return": 19},
+{"ts": 1630448893961130, "dur": 4, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "lseek", "args": {"fd": 19, "offset": 0, "whence": 0}, "pathname": "input_file/.bpversion", "return": 0},
+{"ts": 1630448893961137, "dur": 41, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "read", "args": {"fd": 19, "buf": 0x7ffff581f1c0, "count": 1}, "pathname": "input_file/.bpversion", "return": 1},
+{"ts": 1630448893961181, "dur": 16, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "close", "args": {"fd": 19}, "pathname": "input_file/.bpversion", "return": 0},
+{"ts": 1630448893961269, "dur": 1050, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "open", "args": {"pathname": "input_file/md.idx", "flags": 0, "mode": 511}, "return": 19},
+{"ts": 1630448893962338, "dur": 952, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "open", "args": {"pathname": "input_file/md.0", "flags": 0, "mode": 511}, "return": 20},
+{"ts": 1630448893963380, "dur": 4, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "lseek", "args": {"fd": 19, "offset": 0, "whence": 0}, "pathname": "input_file/md.idx", "return": 0},
+{"ts": 1630448893963387, "dur": 33, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "read", "args": {"fd": 19, "buf": 0x216007a0, "count": 128}, "pathname": "input_file/md.idx", "return": 128},
+{"ts": 1630448893963426, "dur": 2, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "lseek", "args": {"fd": 20, "offset": 0, "whence": 0}, "pathname": "input_file/md.0", "return": 0},
+{"ts": 1630448893963431, "dur": 22, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "read", "args": {"fd": 20, "buf": 0x21986e90, "count": 227}, "pathname": "input_file/md.0", "return": 227},
+{"ts": 1630448893963601, "dur": 9, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "close", "args": {"fd": 20}, "pathname": "input_file/md.0", "return": 0},
+{"ts": 1630448893963823, "dur": 9, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "close", "args": {"fd": 19}, "pathname": "input_file/md.idx", "return": 0},
+```
+
+**With a Get**
+
+Code that is added between the open/close sequence.
+```c++
+    std::string myString;
+    adios2::Variable<std::string> bpString =
+             bpIO.InquireVariable<std::string>("bpString");
+    bpReader.Get<std::string>(bpString, myString);
+```
+
+TAU logs are the same.
