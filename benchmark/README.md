@@ -1,6 +1,6 @@
 # IO benchmark
 
-[benchmark design](./docs/benchmark.png)
+![benchmark design](./docs/benchmark.png)
 
 ## Workflow generator
 
@@ -18,17 +18,31 @@ Based on the 2D behavior and input from the user
 
 ## Methodology 
 
+![Methodology](docs/methodology.png)
+
 1. Extract I/O patterns
-- Run application (default Darshan) `i`
+- Use historic logs for each application of interest (Darshan logs)
 - Create a list of features
-- Detect if application `i` is using ML or not
-- Create clusters of behavior for all runs of application `i`
+- Extract clusters of behavior for each application
 
-2. Analyze 
-- Place application `i` in a class. 
-- Analyze the patterns of each class in relation to the others
+2. Create clusters of I/O patterns
+- Identify representative runs
+- Run applications with DTX enabled
+- Extract DTX features
+- Create overall clusters of behavior between all applications
 
-3. Time series analysis
-- TAU
+3. Analyze the clusters
+- Detect if application i is using ML or not
+- Identify science domain and computational motifs for each
+- Analyze the patterns of each cluster in relation to the identified classes
+
+4. Analyze shifts in behavior 
+- Based on ML / non-ML
+- Based on computational motifs
+- Within each science domain
+
+
+## Time series analysis
 - Darshan limitations
-- Include more features in the analysis
+- Include TAU / Recorder
+- Plot time series behavior for cluster with each
