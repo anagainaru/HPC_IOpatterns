@@ -93,4 +93,4 @@ Code that is added between the open/close sequence.
     bpReader.Get<std::string>(bpString, myString);
 ```
 
-TAU logs are the same.
+TAU logs are the same. This is because the file is read on open, in which case Get will only move data to buffers but will not touch the file.
