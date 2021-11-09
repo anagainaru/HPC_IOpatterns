@@ -1,0 +1,349 @@
+# darshan log version: 3.21
+# compression method: ZLIB
+# exe: /gpfs/alpine/csc143/proj-shared/againaru/lammps/build_andes/lmp -in ./input.lammps
+# uid: 16326
+# jobid: 3600336
+# start_time: 1636316254
+# start_time_asci: Sun Nov  7 15:17:34 2021
+# end_time: 1636317788
+# end_time_asci: Sun Nov  7 15:43:08 2021
+# nprocs: 10
+# run time: 1535
+# metadata: lib_ver = 3.2.1
+# metadata: h = romio_no_indep_rw=true;cb_nodes=4
+
+# log file regions
+# -------------------------------------------------------
+# header: 360 bytes (uncompressed)
+# job data: 406 bytes (compressed)
+# record table: 226 bytes (compressed)
+# STDIO module: 516 bytes (compressed), ver=2
+
+# mounted file systems (mount point and fs type)
+# -------------------------------------------------------
+# mount entry:	/autofs/nccs-svm1_compilers	autofs
+# mount entry:	/autofs/nccs-svm1_compilers	nfs
+# mount entry:	/autofs/nccs-svm1_packages	autofs
+# mount entry:	/autofs/nccs-svm1_packages	nfs
+# mount entry:	/autofs/nccs-svm1_techint	autofs
+# mount entry:	/autofs/nccs-svm1_keytabs	autofs
+# mount entry:	/autofs/nccs-svm1_techint	nfs
+# mount entry:	/sys/kernel/debug/tracing	tracefs
+# mount entry:	/sys/firmware/efi/efivars	efivarfs
+# mount entry:	/autofs/nccs-svm1_keytabs	nfs
+# mount entry:	/proc/sys/fs/binfmt_misc	autofs
+# mount entry:	/autofs/nccs-svm1_home1	nfs
+# mount entry:	/autofs/nccs-svm1_home2	autofs
+# mount entry:	/autofs/nccs-svm1_home1	autofs
+# mount entry:	/autofs/nccs-svm1_home2	nfs
+# mount entry:	/autofs/nccs-svm1_proj	nfs
+# mount entry:	/autofs/nccs-svm1_home	autofs
+# mount entry:	/autofs/nccs-svm1_prod	autofs
+# mount entry:	/autofs/nccs-svm1_proj	autofs
+# mount entry:	/autofs/nccs-svm1_home	nfs
+# mount entry:	/autofs/nccs-svm1_prod	nfs
+# mount entry:	/autofs/nccs-svm1_sys	nfs
+# mount entry:	/autofs/nccs-svm1_usw	autofs
+# mount entry:	/autofs/nccs-svm1_usw	nfs
+# mount entry:	/autofs/nccs-svm1_sys	autofs
+# mount entry:	/autofs/nccs-svm1_sw	autofs
+# mount entry:	/autofs/nccs-svm1_sw	nfs
+# mount entry:	/sys/kernel/config	configfs
+# mount entry:	/sys/fs/pstore	pstore
+# mount entry:	/ccs/wwwusers	autofs
+# mount entry:	/gpfs/alpine	gpfs
+# mount entry:	/ccs/wwwproj	autofs
+# mount entry:	/dev/mqueue	mqueue
+# mount entry:	/sys/fs/bpf	bpf
+# mount entry:	/root	nfs
+# mount entry:	/dev	devtmpfs
+# mount entry:	/	overlay
+
+# *******************************************************
+# STDIO module data
+# *******************************************************
+
+# Per-file summary of I/O activity.
+# -----
+# <record_id>: darshan record id for this file
+# <file_name>: full file name
+# <nprocs>: number of processes that opened the file
+# <slowest>: (estimated) time in seconds consumed in IO by slowest process
+# <avg>: average time in seconds consumed in IO per process
+
+# <record_id>	<file_name>	<nprocs>	<slowest>	<avg>
+15920181672442173319	<STDOUT>	1	0.000304	0.000304
+6588959337326453445	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	1	0.075390	0.075390
+14643953617984675388	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	1	0.001279	0.001279
+7099161079496594551	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	1	0.036036	0.036036
+11239228050569414019	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	1	0.008212	0.008212
+2262740576239705970	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	1	0.008267	0.008267
+# darshan log version: 3.21
+# compression method: ZLIB
+# exe: /gpfs/alpine/csc143/proj-shared/againaru/lammps/build_andes/lmp -in ./input.lammps
+# uid: 16326
+# jobid: 3600336
+# start_time: 1636316254
+# start_time_asci: Sun Nov  7 15:17:34 2021
+# end_time: 1636317788
+# end_time_asci: Sun Nov  7 15:43:08 2021
+# nprocs: 10
+# run time: 1535
+# metadata: lib_ver = 3.2.1
+# metadata: h = romio_no_indep_rw=true;cb_nodes=4
+
+# log file regions
+# -------------------------------------------------------
+# header: 360 bytes (uncompressed)
+# job data: 406 bytes (compressed)
+# record table: 226 bytes (compressed)
+# STDIO module: 516 bytes (compressed), ver=2
+
+# mounted file systems (mount point and fs type)
+# -------------------------------------------------------
+# mount entry:	/autofs/nccs-svm1_compilers	autofs
+# mount entry:	/autofs/nccs-svm1_compilers	nfs
+# mount entry:	/autofs/nccs-svm1_packages	autofs
+# mount entry:	/autofs/nccs-svm1_packages	nfs
+# mount entry:	/autofs/nccs-svm1_techint	autofs
+# mount entry:	/autofs/nccs-svm1_keytabs	autofs
+# mount entry:	/autofs/nccs-svm1_techint	nfs
+# mount entry:	/sys/kernel/debug/tracing	tracefs
+# mount entry:	/sys/firmware/efi/efivars	efivarfs
+# mount entry:	/autofs/nccs-svm1_keytabs	nfs
+# mount entry:	/proc/sys/fs/binfmt_misc	autofs
+# mount entry:	/autofs/nccs-svm1_home1	nfs
+# mount entry:	/autofs/nccs-svm1_home2	autofs
+# mount entry:	/autofs/nccs-svm1_home1	autofs
+# mount entry:	/autofs/nccs-svm1_home2	nfs
+# mount entry:	/autofs/nccs-svm1_proj	nfs
+# mount entry:	/autofs/nccs-svm1_home	autofs
+# mount entry:	/autofs/nccs-svm1_prod	autofs
+# mount entry:	/autofs/nccs-svm1_proj	autofs
+# mount entry:	/autofs/nccs-svm1_home	nfs
+# mount entry:	/autofs/nccs-svm1_prod	nfs
+# mount entry:	/autofs/nccs-svm1_sys	nfs
+# mount entry:	/autofs/nccs-svm1_usw	autofs
+# mount entry:	/autofs/nccs-svm1_usw	nfs
+# mount entry:	/autofs/nccs-svm1_sys	autofs
+# mount entry:	/autofs/nccs-svm1_sw	autofs
+# mount entry:	/autofs/nccs-svm1_sw	nfs
+# mount entry:	/sys/kernel/config	configfs
+# mount entry:	/sys/fs/pstore	pstore
+# mount entry:	/ccs/wwwusers	autofs
+# mount entry:	/gpfs/alpine	gpfs
+# mount entry:	/ccs/wwwproj	autofs
+# mount entry:	/dev/mqueue	mqueue
+# mount entry:	/sys/fs/bpf	bpf
+# mount entry:	/root	nfs
+# mount entry:	/dev	devtmpfs
+# mount entry:	/	overlay
+
+# description of columns:
+#   <module>: module responsible for this I/O record.
+#   <rank>: MPI rank.  -1 indicates that the file is shared
+#      across all processes and statistics are aggregated.
+#   <record id>: hash of the record's file path
+#   <counter name> and <counter value>: statistical counters.
+#      A value of -1 indicates that Darshan could not monitor
+#      that counter, and its value should be ignored.
+#   <file name>: full file path for the record.
+#   <mount pt>: mount point that the file resides on.
+#   <fs type>: type of file system that the file resides on.
+
+# *******************************************************
+# STDIO module data
+# *******************************************************
+
+# description of STDIO counters:
+#   STDIO_{OPENS|FDOPENS|WRITES|READS|SEEKS|FLUSHES} are types of operations.
+#   STDIO_BYTES_*: total bytes read and written.
+#   STDIO_MAX_BYTE_*: highest offset byte read and written.
+#   STDIO_*_RANK: rank of the processes that were the fastest and slowest at I/O (for shared files).
+#   STDIO_*_RANK_BYTES: bytes transferred by the fastest and slowest ranks (for shared files).
+#   STDIO_F_*_START_TIMESTAMP: timestamp of the first call to that type of function.
+#   STDIO_F_*_END_TIMESTAMP: timestamp of the completion of the last call to that type of function.
+#   STDIO_F_*_TIME: cumulative time spent in different types of functions.
+#   STDIO_F_*_RANK_TIME: fastest and slowest I/O time for a single rank (for shared files).
+#   STDIO_F_VARIANCE_RANK_*: variance of total I/O time and bytes moved for all ranks (for shared files).
+
+# WARNING: STDIO_OPENS counter includes STDIO_FDOPENS count
+
+# WARNING: STDIO counters related to file offsets may be incorrect if a file is simultaneously accessed by both STDIO and POSIX (e.g., using fdopen())
+# 	- Affected counters include: MAX_BYTE_{READ|WRITTEN}
+
+#<module>	<rank>	<record id>	<counter>	<value>	<file name>	<mount pt>	<fs type>
+STDIO	0	15920181672442173319	STDIO_OPENS	1	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_FDOPENS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_READS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_WRITES	259	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_SEEKS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_FLUSHES	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_BYTES_WRITTEN	20634	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_BYTES_READ	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_MAX_BYTE_READ	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_MAX_BYTE_WRITTEN	20633	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_FASTEST_RANK	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_FASTEST_RANK_BYTES	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_SLOWEST_RANK	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_SLOWEST_RANK_BYTES	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_META_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_WRITE_TIME	0.000304	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_READ_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_OPEN_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_CLOSE_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_WRITE_START_TIMESTAMP	0.058458	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_READ_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_OPEN_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_CLOSE_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_WRITE_END_TIMESTAMP	1534.795071	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_READ_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_FASTEST_RANK_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_SLOWEST_RANK_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_VARIANCE_RANK_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_VARIANCE_RANK_BYTES	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	6588959337326453445	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_WRITES	292	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_FLUSHES	6	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_BYTES_WRITTEN	21042	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_MAX_BYTE_WRITTEN	21041	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_F_META_TIME	0.001259	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_F_WRITE_TIME	0.074131	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_F_OPEN_START_TIMESTAMP	0.055944	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_F_CLOSE_START_TIMESTAMP	1534.795073	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_F_WRITE_START_TIMESTAMP	0.058463	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_F_OPEN_END_TIMESTAMP	0.057158	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_F_CLOSE_END_TIMESTAMP	1534.795119	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_F_WRITE_END_TIMESTAMP	1534.795072	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	6588959337326453445	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_READS	46	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_BYTES_READ	1049	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_MAX_BYTE_READ	1048	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_F_META_TIME	0.001235	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_F_READ_TIME	0.000044	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_F_OPEN_START_TIMESTAMP	0.057192	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_F_CLOSE_START_TIMESTAMP	1534.795119	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_F_READ_START_TIMESTAMP	0.059050	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_F_OPEN_END_TIMESTAMP	0.058423	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_F_CLOSE_END_TIMESTAMP	1534.795123	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_F_READ_END_TIMESTAMP	1534.773889	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	14643953617984675388	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_OPENS	4	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_READS	37597	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_BYTES_READ	926957	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_MAX_BYTE_READ	926692	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_F_META_TIME	0.000879	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_F_READ_TIME	0.035156	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_F_OPEN_START_TIMESTAMP	0.339457	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_F_CLOSE_START_TIMESTAMP	0.340308	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_F_READ_START_TIMESTAMP	0.340342	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_F_OPEN_END_TIMESTAMP	0.372372	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_F_CLOSE_END_TIMESTAMP	0.394746	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_F_READ_END_TIMESTAMP	0.394743	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	7099161079496594551	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/../../CH.airebo	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_WRITES	247	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_FLUSHES	13	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_BYTES_WRITTEN	2198510	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_MAX_BYTE_WRITTEN	2198509	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_F_META_TIME	0.002793	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_F_WRITE_TIME	0.005419	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_F_OPEN_START_TIMESTAMP	2.163259	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_F_CLOSE_START_TIMESTAMP	1534.794923	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_F_WRITE_START_TIMESTAMP	2.206061	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_F_OPEN_END_TIMESTAMP	2.166020	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_F_CLOSE_END_TIMESTAMP	1534.794956	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_F_WRITE_END_TIMESTAMP	1524.225314	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	11239228050569414019	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_WRITES	65007	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_BYTES_WRITTEN	678515	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_MAX_BYTE_WRITTEN	678514	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_F_META_TIME	0.001762	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_F_WRITE_TIME	0.006505	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_F_OPEN_START_TIMESTAMP	1534.774325	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_F_CLOSE_START_TIMESTAMP	1534.794532	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_F_WRITE_START_TIMESTAMP	1534.775946	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_F_OPEN_END_TIMESTAMP	1534.775922	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_F_CLOSE_END_TIMESTAMP	1534.794698	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_F_WRITE_END_TIMESTAMP	1534.794531	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	2262740576239705970	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-amorphous-carbon/darshan/data.lammps	/gpfs/alpine	gpfs
