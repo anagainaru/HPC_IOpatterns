@@ -1,0 +1,640 @@
+# darshan log version: 3.21
+# compression method: ZLIB
+# exe: /gpfs/alpine/csc143/proj-shared/againaru/lammps/build_andes/lmp -in ./input.lammps
+# uid: 16326
+# jobid: 2163220
+# start_time: 1636311379
+# start_time_asci: Sun Nov  7 13:56:19 2021
+# end_time: 1636312814
+# end_time_asci: Sun Nov  7 14:20:14 2021
+# nprocs: 10
+# run time: 1436
+# metadata: lib_ver = 3.2.1
+# metadata: h = romio_no_indep_rw=true;cb_nodes=4
+
+# log file regions
+# -------------------------------------------------------
+# header: 360 bytes (uncompressed)
+# job data: 403 bytes (compressed)
+# record table: 242 bytes (compressed)
+# STDIO module: 1254 bytes (compressed), ver=2
+
+# mounted file systems (mount point and fs type)
+# -------------------------------------------------------
+# mount entry:	/autofs/nccs-svm1_compilers	autofs
+# mount entry:	/autofs/nccs-svm1_compilers	nfs
+# mount entry:	/autofs/nccs-svm1_packages	nfs
+# mount entry:	/autofs/nccs-svm1_packages	autofs
+# mount entry:	/sys/kernel/debug/tracing	tracefs
+# mount entry:	/sys/firmware/efi/efivars	efivarfs
+# mount entry:	/autofs/nccs-svm1_keytabs	autofs
+# mount entry:	/autofs/nccs-svm1_techint	autofs
+# mount entry:	/autofs/nccs-svm1_keytabs	nfs
+# mount entry:	/autofs/nccs-svm1_techint	nfs
+# mount entry:	/proc/sys/fs/binfmt_misc	autofs
+# mount entry:	/autofs/nccs-svm1_home2	autofs
+# mount entry:	/autofs/nccs-svm1_home2	nfs
+# mount entry:	/autofs/nccs-svm1_home1	autofs
+# mount entry:	/autofs/nccs-svm1_home1	nfs
+# mount entry:	/autofs/nccs-svm1_proj	nfs
+# mount entry:	/autofs/nccs-svm1_prod	nfs
+# mount entry:	/autofs/nccs-svm1_prod	autofs
+# mount entry:	/autofs/nccs-svm1_home	nfs
+# mount entry:	/autofs/nccs-svm1_home	autofs
+# mount entry:	/autofs/nccs-svm1_proj	autofs
+# mount entry:	/autofs/nccs-svm1_usw	nfs
+# mount entry:	/autofs/nccs-svm1_sys	nfs
+# mount entry:	/autofs/nccs-svm1_usw	autofs
+# mount entry:	/autofs/nccs-svm1_sys	autofs
+# mount entry:	/autofs/nccs-svm1_sw	nfs
+# mount entry:	/autofs/nccs-svm1_sw	autofs
+# mount entry:	/sys/kernel/config	configfs
+# mount entry:	/sys/fs/pstore	pstore
+# mount entry:	/ccs/wwwusers	autofs
+# mount entry:	/gpfs/alpine	gpfs
+# mount entry:	/ccs/wwwproj	autofs
+# mount entry:	/dev/mqueue	mqueue
+# mount entry:	/sys/fs/bpf	bpf
+# mount entry:	/root	nfs
+# mount entry:	/dev	devtmpfs
+# mount entry:	/	overlay
+
+# *******************************************************
+# STDIO module data
+# *******************************************************
+
+# Per-file summary of I/O activity.
+# -----
+# <record_id>: darshan record id for this file
+# <file_name>: full file name
+# <nprocs>: number of processes that opened the file
+# <slowest>: (estimated) time in seconds consumed in IO by slowest process
+# <avg>: average time in seconds consumed in IO per process
+
+# <record_id>	<file_name>	<nprocs>	<slowest>	<avg>
+15920181672442173319	<STDOUT>	1	0.000160	0.000160
+10017851533875116337	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	1	0.005845	0.005845
+5783677409256942995	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	1	0.001420	0.001420
+17475532748728784575	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	10	0.026268	0.023691
+1734033729912599783	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	1	0.001296	0.001296
+8659980864069871968	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	1	0.014359	0.014359
+15580685827414950585	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	1	0.007568	0.007568
+# darshan log version: 3.21
+# compression method: ZLIB
+# exe: /gpfs/alpine/csc143/proj-shared/againaru/lammps/build_andes/lmp -in ./input.lammps
+# uid: 16326
+# jobid: 2163220
+# start_time: 1636311379
+# start_time_asci: Sun Nov  7 13:56:19 2021
+# end_time: 1636312814
+# end_time_asci: Sun Nov  7 14:20:14 2021
+# nprocs: 10
+# run time: 1436
+# metadata: lib_ver = 3.2.1
+# metadata: h = romio_no_indep_rw=true;cb_nodes=4
+
+# log file regions
+# -------------------------------------------------------
+# header: 360 bytes (uncompressed)
+# job data: 403 bytes (compressed)
+# record table: 242 bytes (compressed)
+# STDIO module: 1254 bytes (compressed), ver=2
+
+# mounted file systems (mount point and fs type)
+# -------------------------------------------------------
+# mount entry:	/autofs/nccs-svm1_compilers	autofs
+# mount entry:	/autofs/nccs-svm1_compilers	nfs
+# mount entry:	/autofs/nccs-svm1_packages	nfs
+# mount entry:	/autofs/nccs-svm1_packages	autofs
+# mount entry:	/sys/kernel/debug/tracing	tracefs
+# mount entry:	/sys/firmware/efi/efivars	efivarfs
+# mount entry:	/autofs/nccs-svm1_keytabs	autofs
+# mount entry:	/autofs/nccs-svm1_techint	autofs
+# mount entry:	/autofs/nccs-svm1_keytabs	nfs
+# mount entry:	/autofs/nccs-svm1_techint	nfs
+# mount entry:	/proc/sys/fs/binfmt_misc	autofs
+# mount entry:	/autofs/nccs-svm1_home2	autofs
+# mount entry:	/autofs/nccs-svm1_home2	nfs
+# mount entry:	/autofs/nccs-svm1_home1	autofs
+# mount entry:	/autofs/nccs-svm1_home1	nfs
+# mount entry:	/autofs/nccs-svm1_proj	nfs
+# mount entry:	/autofs/nccs-svm1_prod	nfs
+# mount entry:	/autofs/nccs-svm1_prod	autofs
+# mount entry:	/autofs/nccs-svm1_home	nfs
+# mount entry:	/autofs/nccs-svm1_home	autofs
+# mount entry:	/autofs/nccs-svm1_proj	autofs
+# mount entry:	/autofs/nccs-svm1_usw	nfs
+# mount entry:	/autofs/nccs-svm1_sys	nfs
+# mount entry:	/autofs/nccs-svm1_usw	autofs
+# mount entry:	/autofs/nccs-svm1_sys	autofs
+# mount entry:	/autofs/nccs-svm1_sw	nfs
+# mount entry:	/autofs/nccs-svm1_sw	autofs
+# mount entry:	/sys/kernel/config	configfs
+# mount entry:	/sys/fs/pstore	pstore
+# mount entry:	/ccs/wwwusers	autofs
+# mount entry:	/gpfs/alpine	gpfs
+# mount entry:	/ccs/wwwproj	autofs
+# mount entry:	/dev/mqueue	mqueue
+# mount entry:	/sys/fs/bpf	bpf
+# mount entry:	/root	nfs
+# mount entry:	/dev	devtmpfs
+# mount entry:	/	overlay
+
+# description of columns:
+#   <module>: module responsible for this I/O record.
+#   <rank>: MPI rank.  -1 indicates that the file is shared
+#      across all processes and statistics are aggregated.
+#   <record id>: hash of the record's file path
+#   <counter name> and <counter value>: statistical counters.
+#      A value of -1 indicates that Darshan could not monitor
+#      that counter, and its value should be ignored.
+#   <file name>: full file path for the record.
+#   <mount pt>: mount point that the file resides on.
+#   <fs type>: type of file system that the file resides on.
+
+# *******************************************************
+# STDIO module data
+# *******************************************************
+
+# description of STDIO counters:
+#   STDIO_{OPENS|FDOPENS|WRITES|READS|SEEKS|FLUSHES} are types of operations.
+#   STDIO_BYTES_*: total bytes read and written.
+#   STDIO_MAX_BYTE_*: highest offset byte read and written.
+#   STDIO_*_RANK: rank of the processes that were the fastest and slowest at I/O (for shared files).
+#   STDIO_*_RANK_BYTES: bytes transferred by the fastest and slowest ranks (for shared files).
+#   STDIO_F_*_START_TIMESTAMP: timestamp of the first call to that type of function.
+#   STDIO_F_*_END_TIMESTAMP: timestamp of the completion of the last call to that type of function.
+#   STDIO_F_*_TIME: cumulative time spent in different types of functions.
+#   STDIO_F_*_RANK_TIME: fastest and slowest I/O time for a single rank (for shared files).
+#   STDIO_F_VARIANCE_RANK_*: variance of total I/O time and bytes moved for all ranks (for shared files).
+
+# WARNING: STDIO_OPENS counter includes STDIO_FDOPENS count
+
+# WARNING: STDIO counters related to file offsets may be incorrect if a file is simultaneously accessed by both STDIO and POSIX (e.g., using fdopen())
+# 	- Affected counters include: MAX_BYTE_{READ|WRITTEN}
+
+#<module>	<rank>	<record id>	<counter>	<value>	<file name>	<mount pt>	<fs type>
+STDIO	0	15920181672442173319	STDIO_OPENS	1	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_FDOPENS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_READS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_WRITES	202	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_SEEKS	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_FLUSHES	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_BYTES_WRITTEN	14280	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_BYTES_READ	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_MAX_BYTE_READ	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_MAX_BYTE_WRITTEN	14279	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_FASTEST_RANK	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_FASTEST_RANK_BYTES	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_SLOWEST_RANK	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_SLOWEST_RANK_BYTES	0	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_META_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_WRITE_TIME	0.000160	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_READ_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_OPEN_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_CLOSE_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_WRITE_START_TIMESTAMP	0.057532	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_READ_START_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_OPEN_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_CLOSE_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_WRITE_END_TIMESTAMP	1435.476392	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_READ_END_TIMESTAMP	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_FASTEST_RANK_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_SLOWEST_RANK_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_VARIANCE_RANK_TIME	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	15920181672442173319	STDIO_F_VARIANCE_RANK_BYTES	0.000000	<STDOUT>	UNKNOWN	UNKNOWN
+STDIO	0	10017851533875116337	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_WRITES	262	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_FLUSHES	2	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_BYTES_WRITTEN	15455	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_MAX_BYTE_WRITTEN	15454	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_F_META_TIME	0.002360	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_F_WRITE_TIME	0.003485	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_F_OPEN_START_TIMESTAMP	0.053781	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_F_CLOSE_START_TIMESTAMP	1435.476394	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_F_WRITE_START_TIMESTAMP	0.057536	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_F_OPEN_END_TIMESTAMP	0.056097	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_F_CLOSE_END_TIMESTAMP	1435.476438	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_F_WRITE_END_TIMESTAMP	1435.476392	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	10017851533875116337	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/log.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_READS	43	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_BYTES_READ	1015	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_MAX_BYTE_READ	1014	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_F_META_TIME	0.001366	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_F_READ_TIME	0.000053	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_F_OPEN_START_TIMESTAMP	0.056135	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_F_CLOSE_START_TIMESTAMP	1435.476439	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_F_READ_START_TIMESTAMP	0.058151	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_F_OPEN_END_TIMESTAMP	0.057499	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_F_CLOSE_END_TIMESTAMP	1435.476442	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_F_READ_END_TIMESTAMP	35.862877	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	5783677409256942995	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/input.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_OPENS	3	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_READS	3934	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_BYTES_READ	98980	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_MAX_BYTE_READ	49489	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_F_META_TIME	0.001510	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_F_READ_TIME	0.024758	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_F_OPEN_START_TIMESTAMP	0.063818	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_F_CLOSE_START_TIMESTAMP	0.065284	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_F_READ_START_TIMESTAMP	0.065326	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_F_OPEN_END_TIMESTAMP	0.096849	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_F_CLOSE_END_TIMESTAMP	0.097703	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_F_READ_END_TIMESTAMP	0.097564	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	17475532748728784575	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_READS	20	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_BYTES_READ	244	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_MAX_BYTE_READ	243	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_F_META_TIME	0.001285	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_F_READ_TIME	0.000010	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_F_OPEN_START_TIMESTAMP	0.100894	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_F_CLOSE_START_TIMESTAMP	0.102306	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_F_READ_START_TIMESTAMP	0.102181	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_F_OPEN_END_TIMESTAMP	0.102174	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_F_CLOSE_END_TIMESTAMP	0.102311	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_F_READ_END_TIMESTAMP	0.102298	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	1734033729912599783	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/PARM.lammps	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_WRITES	334	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_FLUSHES	110	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_BYTES_WRITTEN	1588	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_MAX_BYTE_WRITTEN	1587	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_F_META_TIME	0.003158	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_F_WRITE_TIME	0.011201	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_F_OPEN_START_TIMESTAMP	0.103342	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_F_CLOSE_START_TIMESTAMP	1435.475903	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_F_WRITE_START_TIMESTAMP	0.106515	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_F_OPEN_END_TIMESTAMP	0.106491	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_F_CLOSE_END_TIMESTAMP	1435.475911	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_F_WRITE_END_TIMESTAMP	1435.468155	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	8659980864069871968	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/temp.profile.dat	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_WRITES	178	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_FLUSHES	11	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_BYTES_WRITTEN	1439688	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_MAX_BYTE_WRITTEN	1439687	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_F_META_TIME	0.004133	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_F_WRITE_TIME	0.003436	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_F_OPEN_START_TIMESTAMP	35.864086	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_F_CLOSE_START_TIMESTAMP	1435.474584	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_F_WRITE_START_TIMESTAMP	35.893934	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_F_OPEN_END_TIMESTAMP	35.866913	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_F_CLOSE_END_TIMESTAMP	1435.475890	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_F_WRITE_END_TIMESTAMP	1435.471617	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	0	15580685827414950585	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/dump.lammpstrj	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_F_META_TIME	0.023130	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_F_OPEN_START_TIMESTAMP	0.066068	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_F_CLOSE_START_TIMESTAMP	0.089218	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_F_OPEN_END_TIMESTAMP	0.089187	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_F_CLOSE_END_TIMESTAMP	0.089229	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	1	17475532748728784575	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_F_META_TIME	0.023618	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_F_OPEN_START_TIMESTAMP	0.065338	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_F_CLOSE_START_TIMESTAMP	0.088975	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_F_OPEN_END_TIMESTAMP	0.088945	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_F_CLOSE_END_TIMESTAMP	0.088985	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	2	17475532748728784575	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_F_META_TIME	0.022923	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_F_OPEN_START_TIMESTAMP	0.066060	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_F_CLOSE_START_TIMESTAMP	0.089002	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_F_OPEN_END_TIMESTAMP	0.088974	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_F_CLOSE_END_TIMESTAMP	0.089011	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	3	17475532748728784575	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_F_META_TIME	0.023612	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_F_OPEN_START_TIMESTAMP	0.065330	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_F_CLOSE_START_TIMESTAMP	0.089114	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_F_OPEN_END_TIMESTAMP	0.088933	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_F_CLOSE_END_TIMESTAMP	0.089123	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	4	17475532748728784575	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_F_META_TIME	0.023709	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_F_OPEN_START_TIMESTAMP	0.065210	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_F_CLOSE_START_TIMESTAMP	0.088939	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_F_OPEN_END_TIMESTAMP	0.088910	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_F_CLOSE_END_TIMESTAMP	0.088948	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	5	17475532748728784575	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_F_META_TIME	0.023841	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_F_OPEN_START_TIMESTAMP	0.065337	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_F_CLOSE_START_TIMESTAMP	0.089199	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_F_OPEN_END_TIMESTAMP	0.089169	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_F_CLOSE_END_TIMESTAMP	0.089207	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	6	17475532748728784575	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_F_META_TIME	0.023151	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_F_OPEN_START_TIMESTAMP	0.066060	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_F_CLOSE_START_TIMESTAMP	0.089231	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_F_OPEN_END_TIMESTAMP	0.089202	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_F_CLOSE_END_TIMESTAMP	0.089240	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	7	17475532748728784575	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_F_META_TIME	0.023672	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_F_OPEN_START_TIMESTAMP	0.065333	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_F_CLOSE_START_TIMESTAMP	0.089034	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_F_OPEN_END_TIMESTAMP	0.088995	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_F_CLOSE_END_TIMESTAMP	0.089043	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	8	17475532748728784575	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_OPENS	1	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_FDOPENS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_READS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_WRITES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_SEEKS	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_FLUSHES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_BYTES_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_BYTES_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_MAX_BYTE_READ	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_MAX_BYTE_WRITTEN	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_FASTEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_FASTEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_SLOWEST_RANK	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_SLOWEST_RANK_BYTES	0	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_F_META_TIME	0.022988	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_F_WRITE_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_F_READ_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_F_OPEN_START_TIMESTAMP	0.066061	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_F_CLOSE_START_TIMESTAMP	0.089074	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_F_WRITE_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_F_READ_START_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_F_OPEN_END_TIMESTAMP	0.089040	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_F_CLOSE_END_TIMESTAMP	0.089082	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_F_WRITE_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_F_READ_END_TIMESTAMP	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_F_FASTEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_F_SLOWEST_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_F_VARIANCE_RANK_TIME	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs
+STDIO	9	17475532748728784575	STDIO_F_VARIANCE_RANK_BYTES	0.000000	/gpfs/alpine/csc143/proj-shared/againaru/lammps/input-file-WaterVapour/darshan/data.lammps	/gpfs/alpine	gpfs

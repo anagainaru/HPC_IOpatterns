@@ -1,0 +1,62 @@
+# darshan log version: 3.21
+# compression method: ZLIB
+# exe: /gpfs/alpine/csc143/proj-shared/againaru/lammps/build_andes/lmp -in ./input.lammps
+# uid: 16326
+# jobid: 2163220
+# start_time: 1636311379
+# start_time_asci: Sun Nov  7 13:56:19 2021
+# end_time: 1636312814
+# end_time_asci: Sun Nov  7 14:20:14 2021
+# nprocs: 10
+# run time: 1436
+# metadata: lib_ver = 3.2.1
+# metadata: h = romio_no_indep_rw=true;cb_nodes=4
+
+# log file regions
+# -------------------------------------------------------
+# header: 360 bytes (uncompressed)
+# job data: 403 bytes (compressed)
+# record table: 242 bytes (compressed)
+# STDIO module: 1254 bytes (compressed), ver=2
+
+# mounted file systems (mount point and fs type)
+# -------------------------------------------------------
+# mount entry:	/autofs/nccs-svm1_compilers	autofs
+# mount entry:	/autofs/nccs-svm1_compilers	nfs
+# mount entry:	/autofs/nccs-svm1_packages	nfs
+# mount entry:	/autofs/nccs-svm1_packages	autofs
+# mount entry:	/sys/kernel/debug/tracing	tracefs
+# mount entry:	/sys/firmware/efi/efivars	efivarfs
+# mount entry:	/autofs/nccs-svm1_keytabs	autofs
+# mount entry:	/autofs/nccs-svm1_techint	autofs
+# mount entry:	/autofs/nccs-svm1_keytabs	nfs
+# mount entry:	/autofs/nccs-svm1_techint	nfs
+# mount entry:	/proc/sys/fs/binfmt_misc	autofs
+# mount entry:	/autofs/nccs-svm1_home2	autofs
+# mount entry:	/autofs/nccs-svm1_home2	nfs
+# mount entry:	/autofs/nccs-svm1_home1	autofs
+# mount entry:	/autofs/nccs-svm1_home1	nfs
+# mount entry:	/autofs/nccs-svm1_proj	nfs
+# mount entry:	/autofs/nccs-svm1_prod	nfs
+# mount entry:	/autofs/nccs-svm1_prod	autofs
+# mount entry:	/autofs/nccs-svm1_home	nfs
+# mount entry:	/autofs/nccs-svm1_home	autofs
+# mount entry:	/autofs/nccs-svm1_proj	autofs
+# mount entry:	/autofs/nccs-svm1_usw	nfs
+# mount entry:	/autofs/nccs-svm1_sys	nfs
+# mount entry:	/autofs/nccs-svm1_usw	autofs
+# mount entry:	/autofs/nccs-svm1_sys	autofs
+# mount entry:	/autofs/nccs-svm1_sw	nfs
+# mount entry:	/autofs/nccs-svm1_sw	autofs
+# mount entry:	/sys/kernel/config	configfs
+# mount entry:	/sys/fs/pstore	pstore
+# mount entry:	/ccs/wwwusers	autofs
+# mount entry:	/gpfs/alpine	gpfs
+# mount entry:	/ccs/wwwproj	autofs
+# mount entry:	/dev/mqueue	mqueue
+# mount entry:	/sys/fs/bpf	bpf
+# mount entry:	/root	nfs
+# mount entry:	/dev	devtmpfs
+# mount entry:	/	overlay
+
+# no DXT module data available for this Darshan log.
