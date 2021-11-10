@@ -1,5 +1,10 @@
 # LAMMPS
 
+[Build LAMMPS on Summit](#build-lammps-on-summit) <br/>
+[Run LAMMPS on Summit](#running-lammps-on-summit) <br/>
+[Small scale experiments](#small-scale-experiments) <br/>
+[Large scale experiments](#large-scale-experiments) <br/>
+
 **Files in this folder**
 
 * `batch_summit.sh` script file to submit warpx on summit
@@ -34,6 +39,11 @@ cmake -D PKG_GPU=yes -D GPU_API=cuda -D GPU_ARCH=sm_70 -D PKG_USER-ADIOS=yes -DA
 cmake --build . 
 ```
 
+For ANDES, the ADIOS and LAMMPS builds are not using Cuda.
+```
+cmake -D PKG_USER-ADIOS=yes -DADIOS2_DIR=/ccs/home/againaru/adios/install/lib64/cmake/adios2 -D PKG_MANYBODY=yes -D PKG_KSPACE=yes -D PKG_MOLECULE=yes -D PKG_OPT=yes -DPKG_RIGID=yes ../lammps/cmake
+```
+
 ## Running LAMMPS on Summit
 
 LAMMPS will be run from `/gpfs/alpine/csc143/proj-shared/againaru/lammps`.
@@ -50,7 +60,7 @@ jsrun -n1 /ccs/home/againaru/lammps/build/lmp -in ./in.lj.simdata
 
 Example output file and darshan logs are presented in the `lammps.o` and `lamps.darshan` files respectively. 
 
-## Small scale experiments on laptop
+## Small scale experiments
 
 Using input files from the examples folder inside lammps. Experiments were done on the following applications:
 
@@ -61,3 +71,4 @@ And it's variant, **ELASTIC_T** computes elastic constants at finite temperature
 
 **HEAT** implements heat exchange algorithms (e.g. used for establishing a thermal gradient).
 
+## Large scale experiments

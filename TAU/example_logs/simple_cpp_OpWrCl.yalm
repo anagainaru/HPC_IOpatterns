@@ -1,0 +1,6 @@
+[
+{"ts": 1629992369114072, "dur": 206, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "fopen64", "args": {"path": "input_file.txt", "mode": "w"}, "return": "0x19c996f0"},
+{"ts": 1629992369114288, "dur": 113, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "write", "args": {"fd": 19, "buf": "0x1a6b0050", "count": 45 }, "pathname": "input_file.txt", "return": 45},
+{"ts": 1629992369114406, "dur": 12, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "fclose", "args": {"fp": "0x19c996f0"}, "return": 0, "pathname": "input_file.txt"},
+{"ts": 1629992369114444, "dur": 1, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "TAU", "name": "program exit"}
+]
