@@ -1,0 +1,7 @@
+[
+{"ts": 1630008383153526, "dur": 548, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "fopen64", "args": {"path": "input_file.txt", "mode": "rb"}, "return": "0x3ba99ba0"},
+{"ts": 1630008383154085, "dur": 28, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "read", "args": {"fd": 19, "buf": 0x3c235fe0, "count": 8191}, "pathname": "input_file.txt", "return": 13},
+{"ts": 1630008383154118, "dur": 24, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "fwrite", "args": {"ptr": "0x3c1fd3e0", "size": 1, "nmemb": 12, "stream": "0x200001241790"}, "pathname": "stdout", "return": 12},
+{"ts": 1630008383154158, "dur": 11, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "fclose", "args": {"fp": "0x3ba99ba0"}, "return": 0, "pathname": "input_file.txt"},
+{"ts": 1630008383154197, "dur": 1, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "TAU", "name": "program exit"}
+]

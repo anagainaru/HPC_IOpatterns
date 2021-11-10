@@ -1,0 +1,19 @@
+[
+{"ts": 1630450147464598, "dur": 39, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "open", "args": {"pathname": "/dev/shm/job1-16326-OMPI_COLL_IBM-0-collshm-comm4-master0", "flags": 557250, "mode": 384}, "return": 19},
+{"ts": 1630450147464649, "dur": 3, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "close", "args": {"fd": 19}, "pathname": "/dev/shm/job1-16326-OMPI_COLL_IBM-0-collshm-comm4-master0", "return": 0},
+{"ts": 1630450147465159, "dur": 36, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "open", "args": {"pathname": "/dev/shm/job1-16326-OMPI_COLL_IBM-0-collshm-comm5-master0", "flags": 557250, "mode": 384}, "return": 19},
+{"ts": 1630450147465205, "dur": 3, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "close", "args": {"fd": 19}, "pathname": "/dev/shm/job1-16326-OMPI_COLL_IBM-0-collshm-comm5-master0", "return": 0},
+{"ts": 1630450147466127, "dur": 536, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "open", "args": {"pathname": "input_file/.bpversion", "flags": 0, "mode": 511}, "return": 19},
+{"ts": 1630450147466705, "dur": 5, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "lseek", "args": {"fd": 19, "offset": 0, "whence": 0}, "pathname": "input_file/.bpversion", "return": 0},
+{"ts": 1630450147466713, "dur": 38, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "read", "args": {"fd": 19, "buf": 0x7fffc3a88740, "count": 1}, "pathname": "input_file/.bpversion", "return": 1},
+{"ts": 1630450147466754, "dur": 11, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "close", "args": {"fd": 19}, "pathname": "input_file/.bpversion", "return": 0},
+{"ts": 1630450147466840, "dur": 577, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "open", "args": {"pathname": "input_file/md.idx", "flags": 0, "mode": 511}, "return": 19},
+{"ts": 1630450147467436, "dur": 565, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "open", "args": {"pathname": "input_file/md.0", "flags": 0, "mode": 511}, "return": 20},
+{"ts": 1630450147468080, "dur": 4, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "lseek", "args": {"fd": 19, "offset": 0, "whence": 0}, "pathname": "input_file/md.idx", "return": 0},
+{"ts": 1630450147468087, "dur": 33, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "read", "args": {"fd": 19, "buf": 0x10a70790, "count": 128}, "pathname": "input_file/md.idx", "return": 128},
+{"ts": 1630450147468125, "dur": 3, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "lseek", "args": {"fd": 20, "offset": 0, "whence": 0}, "pathname": "input_file/md.0", "return": 0},
+{"ts": 1630450147468131, "dur": 21, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "read", "args": {"fd": 20, "buf": 0x10df6e90, "count": 227}, "pathname": "input_file/md.0", "return": 227},
+{"ts": 1630450147470208, "dur": 10, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "close", "args": {"fd": 20}, "pathname": "input_file/md.0", "return": 0},
+{"ts": 1630450147470439, "dur": 8, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "close", "args": {"fd": 19}, "pathname": "input_file/md.idx", "return": 0},
+{"ts": 1630450147470494, "dur": 1, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "TAU", "name": "program exit"}
+]
