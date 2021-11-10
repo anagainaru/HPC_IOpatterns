@@ -1,0 +1,11 @@
+export NWCHEM_TOP=/gpfs/alpine/csc143/proj-shared/againaru/nwchem/code_with_adios
+export NWCHEM_TARGET=LINUX64
+export NWCHEM_MODULES=md
+export USE_INTERNALBLAS=y
+export USE_MPI=y
+export USE_ADIOS2=y
+export ADIOS2_DIR=/ccs/home/xinliang/codes/pca3d/R/adios/ADIOS2/install
+
+make nwchem_config
+
+echo "Now run make..."

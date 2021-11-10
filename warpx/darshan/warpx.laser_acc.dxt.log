@@ -1,0 +1,571 @@
+# darshan log version: 3.10
+# compression method: ZLIB
+# exe: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/build/bin/warpx.3d.MPI.CUDA.DP.OPMD /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/Examples/Physics_applications/laser_acceleration/inputs_3d
+# uid: 16326
+# jobid: 446247
+# start_time: 1603904022
+# start_time_asci: Wed Oct 28 12:53:42 2020
+# end_time: 1603904038
+# end_time_asci: Wed Oct 28 12:53:58 2020
+# nprocs: 12
+# run time: 17
+# metadata: lib_ver = 3.1.7
+# metadata: h = romio_no_indep_rw=true;cb_nodes=4
+
+# log file regions
+# -------------------------------------------------------
+# header: 360 bytes (uncompressed)
+# job data: 318 bytes (compressed)
+# record table: 2260 bytes (compressed)
+# POSIX module: 6261 bytes (compressed), ver=4
+# STDIO module: 3607 bytes (compressed), ver=2
+# DXT_POSIX module: 5105 bytes (compressed), ver=1
+
+# mounted file systems (mount point and fs type)
+# -------------------------------------------------------
+# mount entry:	/proc/sys/fs/binfmt_misc	autofs
+# mount entry:	/autofs/nccs-svm1_home1	nfs
+# mount entry:	/autofs/nccs-svm1_home	nfs
+# mount entry:	/autofs/nccs-svm1_sw	nfs
+# mount entry:	/sys/kernel/config	configfs
+# mount entry:	/var/cache/fscache	xfs
+# mount entry:	/sys/fs/pstore	pstore
+# mount entry:	/gpfs/alpine	gpfs
+# mount entry:	/dev/mqueue	mqueue
+# mount entry:	/autofs	autofs
+# mount entry:	/dev	devtmpfs
+
+# ***************************************************
+# DXT_POSIX module data
+# ***************************************************
+
+# DXT, file_id: 16031246499352468645, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/Examples/Physics_applications/laser_acceleration/inputs_3d
+# DXT, rank: 0, hostname: h35n04
+# DXT, write_count: 0, read_count: 1
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       0   read        0               0            2913      0.0200      0.0200
+
+# DXT, file_id: 6893660511934806131, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/Level_0/Cell_D_00000
+# DXT, rank: 0, hostname: h35n04
+# DXT, write_count: 5, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       0  write        0               0              91      3.5187      3.5191
+ X_POSIX       0  write        1              91        10485760      3.5191      3.5214
+ X_POSIX       0  write        2        10485851              92      3.5214      3.5215
+ X_POSIX       0  write        3        10485943        10485760      3.5215      3.5798
+ X_POSIX       0  write        4        20971703              23      3.6670      3.6670
+
+# DXT, file_id: 3896614142588437040, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/Level_0/Cell_H
+# DXT, rank: 0, hostname: h35n04
+# DXT, write_count: 1, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       0  write        0               0            8376      3.6206      3.6207
+
+# DXT, file_id: 10179846906169733831, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/electrons/Level_0/Particle_H
+# DXT, rank: 0, hostname: h35n04
+# DXT, write_count: 1, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       0  write        0               0             512      3.6249      3.6250
+
+# DXT, file_id: 2049912291782219959, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/electrons/Header
+# DXT, rank: 0, hostname: h35n04
+# DXT, write_count: 1, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       0  write        0               0             195      3.6635      3.6636
+
+# DXT, file_id: 9971174684172009690, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/warpx_job_info
+# DXT, rank: 0, hostname: h35n04
+# DXT, write_count: 53, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       0  write        0               0            1529      3.6669      3.6670
+ X_POSIX       0  write        1            1529              23      3.6670      3.6670
+ X_POSIX       0  write        2            1552              25      3.6670      3.6670
+ X_POSIX       0  write        3            1577              23      3.6671      3.6671
+ X_POSIX       0  write        4            1600              29      3.6671      3.6671
+ X_POSIX       0  write        5            1629              43      3.6671      3.6671
+ X_POSIX       0  write        6            1672              40      3.6671      3.6671
+ X_POSIX       0  write        7            1712              18      3.6671      3.6671
+ X_POSIX       0  write        8            1730              22      3.6671      3.6671
+ X_POSIX       0  write        9            1752              22      3.6671      3.6671
+ X_POSIX       0  write       10            1774              22      3.6671      3.6671
+ X_POSIX       0  write       11            1796              18      3.6671      3.6672
+ X_POSIX       0  write       12            1814              27      3.6672      3.6672
+ X_POSIX       0  write       13            1841              21      3.6672      3.6672
+ X_POSIX       0  write       14            1862              15      3.6672      3.6672
+ X_POSIX       0  write       15            1877              17      3.6672      3.6672
+ X_POSIX       0  write       16            1894              27      3.6672      3.6672
+ X_POSIX       0  write       17            1921              28      3.6672      3.6672
+ X_POSIX       0  write       18            1949              28      3.6672      3.6672
+ X_POSIX       0  write       19            1977              36      3.6672      3.6672
+ X_POSIX       0  write       20            2013              24      3.6672      3.6672
+ X_POSIX       0  write       21            2037              21      3.6673      3.6673
+ X_POSIX       0  write       22            2058              44      3.6673      3.6673
+ X_POSIX       0  write       23            2102              50      3.6673      3.6673
+ X_POSIX       0  write       24            2152              25      3.6673      3.6673
+ X_POSIX       0  write       25            2177              24      3.6673      3.6673
+ X_POSIX       0  write       26            2201              25      3.6673      3.6673
+ X_POSIX       0  write       27            2226              24      3.6673      3.6673
+ X_POSIX       0  write       28            2250              24      3.6673      3.6673
+ X_POSIX       0  write       29            2274              29      3.6673      3.6673
+ X_POSIX       0  write       30            2303              26      3.6674      3.6674
+ X_POSIX       0  write       31            2329              48      3.6674      3.6674
+ X_POSIX       0  write       32            2377              38      3.6674      3.6674
+ X_POSIX       0  write       33            2415              22      3.6674      3.6674
+ X_POSIX       0  write       34            2437              26      3.6674      3.6674
+ X_POSIX       0  write       35            2463              30      3.6674      3.6674
+ X_POSIX       0  write       36            2493              28      3.6674      3.6674
+ X_POSIX       0  write       37            2521              31      3.6674      3.6674
+ X_POSIX       0  write       38            2552              22      3.6674      3.6674
+ X_POSIX       0  write       39            2574              29      3.6675      3.6675
+ X_POSIX       0  write       40            2603              34      3.6675      3.6675
+ X_POSIX       0  write       41            2637              32      3.6675      3.6675
+ X_POSIX       0  write       42            2669              40      3.6675      3.6675
+ X_POSIX       0  write       43            2709              27      3.6675      3.6675
+ X_POSIX       0  write       44            2736              32      3.6675      3.6675
+ X_POSIX       0  write       45            2768              20      3.6675      3.6675
+ X_POSIX       0  write       46            2788              23      3.6675      3.6675
+ X_POSIX       0  write       47            2811              54      3.6675      3.6675
+ X_POSIX       0  write       48            2865              37      3.6676      3.6676
+ X_POSIX       0  write       49            2902              24      3.6676      3.6676
+ X_POSIX       0  write       50            2926              25      3.6676      3.6676
+ X_POSIX       0  write       51            2951              34      3.6676      3.6676
+ X_POSIX       0  write       52            2985              22     15.6524     15.6524
+
+# DXT, file_id: 2831836278733676742, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/WarpXHeader
+# DXT, rank: 0, hostname: h35n04
+# DXT, write_count: 1, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       0  write        0               0             796      3.6679      3.6680
+
+# DXT, file_id: 2904897282979918568, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/Level_0/Cell_D_00000
+# DXT, rank: 0, hostname: h35n04
+# DXT, write_count: 4, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       0  write        0               0              91     15.4657     15.4668
+ X_POSIX       0  write        1              91        10485760     15.4668     15.4711
+ X_POSIX       0  write        2        10485851              92     15.4711     15.4711
+ X_POSIX       0  write        3        10485943        10485760     15.4711     15.5348
+
+# DXT, file_id: 8937442484457630133, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/Level_0/Cell_H
+# DXT, rank: 0, hostname: h35n04
+# DXT, write_count: 1, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       0  write        0               0            8535     15.5498     15.5499
+
+# DXT, file_id: 9544427096752483246, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/electrons/Level_0/Particle_H
+# DXT, rank: 0, hostname: h35n04
+# DXT, write_count: 1, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       0  write        0               0             512     15.5617     15.5617
+
+# DXT, file_id: 3318334937369519628, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/electrons/Level_0/DATA_00000
+# DXT, rank: 0, hostname: h35n04
+# DXT, write_count: 6, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       0  write        0               0          451728     15.5717     15.5720
+ X_POSIX       0  write        1          451728         2097152     15.5878     15.5897
+ X_POSIX       0  write        2         2548880         1064944     15.5898     15.5899
+ X_POSIX       0  write        3         3613824          449024     15.5954     15.5955
+ X_POSIX       0  write        4         4062848         2097152     15.6120     15.6122
+ X_POSIX       0  write        5         6160000         1046016     15.6122     15.6123
+
+# DXT, file_id: 11735962314235293216, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/electrons/Header
+# DXT, rank: 0, hostname: h35n04
+# DXT, write_count: 1, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       0  write        0               0             282     15.6474     15.6475
+
+# DXT, file_id: 13358837904122865121, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/warpx_job_info
+# DXT, rank: 0, hostname: h35n04
+# DXT, write_count: 52, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       0  write        0               0            1529     15.6519     15.6519
+ X_POSIX       0  write        1            1529              23     15.6519     15.6519
+ X_POSIX       0  write        2            1552              23     15.6519     15.6520
+ X_POSIX       0  write        3            1575              25     15.6520     15.6520
+ X_POSIX       0  write        4            1600              23     15.6520     15.6520
+ X_POSIX       0  write        5            1623              29     15.6520     15.6520
+ X_POSIX       0  write        6            1652              43     15.6520     15.6520
+ X_POSIX       0  write        7            1695              40     15.6520     15.6520
+ X_POSIX       0  write        8            1735              18     15.6520     15.6520
+ X_POSIX       0  write        9            1753              22     15.6520     15.6520
+ X_POSIX       0  write       10            1775              22     15.6520     15.6520
+ X_POSIX       0  write       11            1797              22     15.6520     15.6521
+ X_POSIX       0  write       12            1819              18     15.6521     15.6521
+ X_POSIX       0  write       13            1837              27     15.6521     15.6521
+ X_POSIX       0  write       14            1864              21     15.6521     15.6521
+ X_POSIX       0  write       15            1885              15     15.6521     15.6521
+ X_POSIX       0  write       16            1900              17     15.6521     15.6521
+ X_POSIX       0  write       17            1917              27     15.6521     15.6521
+ X_POSIX       0  write       18            1944              28     15.6521     15.6521
+ X_POSIX       0  write       19            1972              28     15.6521     15.6521
+ X_POSIX       0  write       20            2000              36     15.6521     15.6522
+ X_POSIX       0  write       21            2036              24     15.6522     15.6522
+ X_POSIX       0  write       22            2060              21     15.6522     15.6522
+ X_POSIX       0  write       23            2081              44     15.6522     15.6522
+ X_POSIX       0  write       24            2125              50     15.6522     15.6522
+ X_POSIX       0  write       25            2175              25     15.6522     15.6522
+ X_POSIX       0  write       26            2200              24     15.6522     15.6522
+ X_POSIX       0  write       27            2224              25     15.6522     15.6522
+ X_POSIX       0  write       28            2249              24     15.6522     15.6522
+ X_POSIX       0  write       29            2273              24     15.6522     15.6522
+ X_POSIX       0  write       30            2297              29     15.6523     15.6523
+ X_POSIX       0  write       31            2326              26     15.6523     15.6523
+ X_POSIX       0  write       32            2352              48     15.6523     15.6523
+ X_POSIX       0  write       33            2400              38     15.6523     15.6523
+ X_POSIX       0  write       34            2438              22     15.6523     15.6523
+ X_POSIX       0  write       35            2460              26     15.6523     15.6523
+ X_POSIX       0  write       36            2486              30     15.6523     15.6523
+ X_POSIX       0  write       37            2516              28     15.6523     15.6523
+ X_POSIX       0  write       38            2544              31     15.6523     15.6523
+ X_POSIX       0  write       39            2575              29     15.6524     15.6524
+ X_POSIX       0  write       40            2604              34     15.6524     15.6524
+ X_POSIX       0  write       41            2638              32     15.6524     15.6524
+ X_POSIX       0  write       42            2670              40     15.6524     15.6524
+ X_POSIX       0  write       43            2710              27     15.6524     15.6524
+ X_POSIX       0  write       44            2737              32     15.6524     15.6524
+ X_POSIX       0  write       45            2769              20     15.6524     15.6524
+ X_POSIX       0  write       46            2789              23     15.6524     15.6524
+ X_POSIX       0  write       47            2812              54     15.6524     15.6525
+ X_POSIX       0  write       48            2866              37     15.6525     15.6525
+ X_POSIX       0  write       49            2903              24     15.6525     15.6525
+ X_POSIX       0  write       50            2927              25     15.6525     15.6525
+ X_POSIX       0  write       51            2952              34     15.6525     15.6525
+
+# DXT, file_id: 2253587985157457972, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/WarpXHeader
+# DXT, rank: 0, hostname: h35n04
+# DXT, write_count: 1, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       0  write        0               0             833     15.6529     15.6530
+
+# DXT, file_id: 2461956221758754487, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/Level_0/Cell_D_00001
+# DXT, rank: 1, hostname: h35n04
+# DXT, write_count: 5, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       1  write        0               0              93      3.5193      3.5193
+ X_POSIX       1  write        1              93        10485760      3.5194      3.5224
+ X_POSIX       1  write        2        10485853              93      3.5224      3.5225
+ X_POSIX       1  write        3        10485946        10485760      3.5225      3.5879
+ X_POSIX       1  write        4        20971706        10485760     15.4655     15.4711
+
+# DXT, file_id: 11455308502133443023, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/Level_0/Cell_D_00001
+# DXT, rank: 1, hostname: h35n04
+# DXT, write_count: 3, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       1  write        0               0              93     15.4654     15.4655
+ X_POSIX       1  write        1              93              93     15.4711     15.4711
+ X_POSIX       1  write        2             186        10485760     15.4711     15.5400
+
+# DXT, file_id: 943218629461810437, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/electrons/Level_0/DATA_00001
+# DXT, rank: 1, hostname: h35n04
+# DXT, write_count: 6, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       1  write        0               0          445264     15.5713     15.5716
+ X_POSIX       1  write        1          445264         2097152     15.5875     15.5888
+ X_POSIX       1  write        2         2542416         1019696     15.5888     15.5890
+ X_POSIX       1  write        3         3562112          447840     15.5944     15.5945
+ X_POSIX       1  write        4         4009952         2097152     15.6094     15.6097
+ X_POSIX       1  write        5         6107104         1037728     15.6098     15.6099
+
+# DXT, file_id: 18100004091297394306, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/Level_0/Cell_D_00002
+# DXT, rank: 2, hostname: h35n04
+# DXT, write_count: 5, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       2  write        0               0              93      3.5195      3.5196
+ X_POSIX       2  write        1              93        10485760      3.5196      3.5221
+ X_POSIX       2  write        2        10485853              93      3.5221      3.5221
+ X_POSIX       2  write        3        10485946        10485760      3.5221      3.6109
+ X_POSIX       2  write        4        20971706        10485760     15.4661     15.4692
+
+# DXT, file_id: 15053147958161866479, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/Level_0/Cell_D_00002
+# DXT, rank: 2, hostname: h35n04
+# DXT, write_count: 3, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       2  write        0               0              93     15.4660     15.4661
+ X_POSIX       2  write        1              93              93     15.4692     15.4693
+ X_POSIX       2  write        2             186        10485760     15.4693     15.5378
+
+# DXT, file_id: 7432226657708203701, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/electrons/Level_0/DATA_00002
+# DXT, rank: 2, hostname: h35n04
+# DXT, write_count: 6, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       2  write        0               0          454272     15.5714     15.5717
+ X_POSIX       2  write        1          454272         2097152     15.5890     15.5905
+ X_POSIX       2  write        2         2551424         1082752     15.5906     15.5907
+ X_POSIX       2  write        3         3634176          454288     15.5963     15.5963
+ X_POSIX       2  write        4         4088464         2097152     15.6115     15.6117
+ X_POSIX       2  write        5         6185616         1082864     15.6117     15.6118
+
+# DXT, file_id: 11880328452128249383, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/Level_0/Cell_D_00003
+# DXT, rank: 3, hostname: h35n04
+# DXT, write_count: 4, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       3  write        0               0              93      3.5180      3.5181
+ X_POSIX       3  write        1              93        10485760      3.5181      3.5203
+ X_POSIX       3  write        2        10485853              93      3.5203      3.5203
+ X_POSIX       3  write        3        10485946        10485760      3.5203      3.5736
+
+# DXT, file_id: 7026580430994328996, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/electrons/Level_0/DATA_00003
+# DXT, rank: 3, hostname: h35n04
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       3  write        0               0          211680      3.6288      3.6290
+ X_POSIX       3  write        1          211680         1481760      3.6363      3.6375
+
+# DXT, file_id: 3227435284861077665, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/Level_0/Cell_D_00003
+# DXT, rank: 3, hostname: h35n04
+# DXT, write_count: 4, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       3  write        0               0              93     15.4659     15.4660
+ X_POSIX       3  write        1              93        10485760     15.4660     15.4682
+ X_POSIX       3  write        2        10485853              93     15.4683     15.4683
+ X_POSIX       3  write        3        10485946        10485760     15.4683     15.5273
+
+# DXT, file_id: 4941897424393945717, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/electrons/Level_0/DATA_00003
+# DXT, rank: 3, hostname: h35n04
+# DXT, write_count: 6, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       3  write        0               0          451840     15.5712     15.5715
+ X_POSIX       3  write        1          451840         2097152     15.5866     15.5890
+ X_POSIX       3  write        2         2548992         1065728     15.5890     15.5892
+ X_POSIX       3  write        3         3614720          437472     15.5946     15.5946
+ X_POSIX       3  write        4         4052192         2097152     15.6089     15.6091
+ X_POSIX       3  write        5         6149344          965152     15.6092     15.6093
+
+# DXT, file_id: 5585547412960387660, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/Level_0/Cell_D_00004
+# DXT, rank: 4, hostname: h35n04
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       4  write        0               0              90      3.5177      3.5177
+ X_POSIX       4  write        1              90        10485760      3.5178      3.5200
+
+# DXT, file_id: 8824111664466138331, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/Level_0/Cell_D_00004
+# DXT, rank: 4, hostname: h35n04
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       4  write        0               0              90     15.4651     15.4653
+ X_POSIX       4  write        1              90        10485760     15.4653     15.4686
+
+# DXT, file_id: 2321989023180012118, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/electrons/Level_0/DATA_00004
+# DXT, rank: 4, hostname: h35n04
+# DXT, write_count: 3, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       4  write        0               0          457808     15.5692     15.5695
+ X_POSIX       4  write        1          457808         2097152     15.5865     15.5878
+ X_POSIX       4  write        2         2554960         1107504     15.5878     15.5879
+
+# DXT, file_id: 11359950106276397705, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/Level_0/Cell_D_00005
+# DXT, rank: 5, hostname: h35n04
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       5  write        0               0              91      3.5178      3.5178
+ X_POSIX       5  write        1              91        10485760      3.5178      3.5711
+
+# DXT, file_id: 16684390822090871316, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/Level_0/Cell_D_00005
+# DXT, rank: 5, hostname: h35n04
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       5  write        0               0              91     15.4653     15.4653
+ X_POSIX       5  write        1              91        10485760     15.4654     15.4685
+
+# DXT, file_id: 13083837463310811702, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/electrons/Level_0/DATA_00005
+# DXT, rank: 5, hostname: h35n04
+# DXT, write_count: 3, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       5  write        0               0          455792     15.5695     15.5698
+ X_POSIX       5  write        1          455792         2097152     15.5862     15.5874
+ X_POSIX       5  write        2         2552944         1093392     15.5875     15.5876
+
+# DXT, file_id: 9859445470426585672, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/Level_0/Cell_D_00006
+# DXT, rank: 6, hostname: h35n09
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       6  write        0               0              93      3.5340      3.5341
+ X_POSIX       6  write        1              93        10485760      3.5342      3.5367
+
+# DXT, file_id: 7852502193497256664, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/Level_0/Cell_D_00006
+# DXT, rank: 6, hostname: h35n09
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       6  write        0               0              93     15.4884     15.4887
+ X_POSIX       6  write        1              93        10485760     15.4887     15.4914
+
+# DXT, file_id: 10921744578739634393, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/electrons/Level_0/DATA_00006
+# DXT, rank: 6, hostname: h35n09
+# DXT, write_count: 3, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       6  write        0               0          447152     15.5750     15.5753
+ X_POSIX       6  write        1          447152         2097152     15.5913     15.5926
+ X_POSIX       6  write        2         2544304         1032912     15.5926     15.5927
+
+# DXT, file_id: 6957950445594637508, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/Level_0/Cell_D_00007
+# DXT, rank: 7, hostname: h35n09
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       7  write        0               0              93      3.5338      3.5339
+ X_POSIX       7  write        1              93        10485760      3.5340      3.5362
+
+# DXT, file_id: 370949380477641713, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/Level_0/Cell_D_00007
+# DXT, rank: 7, hostname: h35n09
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       7  write        0               0              93     15.4884     15.4887
+ X_POSIX       7  write        1              93        10485760     15.4887     15.4909
+
+# DXT, file_id: 10900988154486208579, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/electrons/Level_0/DATA_00007
+# DXT, rank: 7, hostname: h35n09
+# DXT, write_count: 3, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       7  write        0               0          443744     15.5754     15.5756
+ X_POSIX       7  write        1          443744         2097152     15.5928     15.5953
+ X_POSIX       7  write        2         2540896         1009056     15.5954     15.5954
+
+# DXT, file_id: 2356161601506714926, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/Level_0/Cell_D_00008
+# DXT, rank: 8, hostname: h35n09
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       8  write        0               0              93      3.5343      3.5347
+ X_POSIX       8  write        1              93        10485760      3.5347      3.5384
+
+# DXT, file_id: 5314152986074339849, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/Level_0/Cell_D_00008
+# DXT, rank: 8, hostname: h35n09
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       8  write        0               0              93     15.4888     15.4889
+ X_POSIX       8  write        1              93        10485760     15.4889     15.4919
+
+# DXT, file_id: 33784513623167464, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/electrons/Level_0/DATA_00008
+# DXT, rank: 8, hostname: h35n09
+# DXT, write_count: 3, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       8  write        0               0          448768     15.5761     15.5764
+ X_POSIX       8  write        1          448768         2097152     15.5919     15.5935
+ X_POSIX       8  write        2         2545920         1044224     15.5936     15.5937
+
+# DXT, file_id: 15417868801727844974, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/Level_0/Cell_D_00009
+# DXT, rank: 9, hostname: h35n09
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       9  write        0               0              93      3.5342      3.5343
+ X_POSIX       9  write        1              93        10485760      3.5343      3.5386
+
+# DXT, file_id: 4552734779214187263, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/Level_0/Cell_D_00009
+# DXT, rank: 9, hostname: h35n09
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       9  write        0               0              93     15.4870     15.4871
+ X_POSIX       9  write        1              93        10485760     15.4871     15.4896
+
+# DXT, file_id: 17212447886238792618, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/electrons/Level_0/DATA_00009
+# DXT, rank: 9, hostname: h35n09
+# DXT, write_count: 3, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX       9  write        0               0          451856     15.5754     15.5756
+ X_POSIX       9  write        1          451856         2097152     15.5927     15.5949
+ X_POSIX       9  write        2         2549008         1065840     15.5949     15.5950
+
+# DXT, file_id: 18023704629138173303, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/Level_0/Cell_D_00010
+# DXT, rank: 10, hostname: h35n09
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX      10  write        0               0              93      3.5354      3.5355
+ X_POSIX      10  write        1              93        10485760      3.5355      3.5377
+
+# DXT, file_id: 17028835080981001877, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/Level_0/Cell_D_00010
+# DXT, rank: 10, hostname: h35n09
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX      10  write        0               0              93     15.4872     15.4873
+ X_POSIX      10  write        1              93        10485760     15.4873     15.4897
+
+# DXT, file_id: 930366825308718159, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/electrons/Level_0/DATA_00010
+# DXT, rank: 10, hostname: h35n09
+# DXT, write_count: 3, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX      10  write        0               0          456768     15.5754     15.5757
+ X_POSIX      10  write        1          456768         2097152     15.5918     15.5931
+ X_POSIX      10  write        2         2553920         1100224     15.5932     15.5933
+
+# DXT, file_id: 10499828238927457369, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/Header
+# DXT, rank: 11, hostname: h35n09
+# DXT, write_count: 1, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX      11  write        0               0            2552      3.5339      3.5339
+
+# DXT, file_id: 14171849540240240441, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag100000/Level_0/Cell_D_00011
+# DXT, rank: 11, hostname: h35n09
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX      11  write        0               0              93      3.5355      3.5356
+ X_POSIX      11  write        1              93        10485760      3.5356      3.5390
+
+# DXT, file_id: 10831860265062240004, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/Header
+# DXT, rank: 11, hostname: h35n09
+# DXT, write_count: 1, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX      11  write        0               0            2612     15.4834     15.4836
+
+# DXT, file_id: 2111340424704286281, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/Level_0/Cell_D_00011
+# DXT, rank: 11, hostname: h35n09
+# DXT, write_count: 2, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX      11  write        0               0              93     15.4890     15.4896
+ X_POSIX      11  write        1              93        10485760     15.4896     15.4922
+
+# DXT, file_id: 17262727669237386347, file_name: /gpfs/alpine/csc143/proj-shared/againaru/warpx/warpx/submit_summit/diags/diag101000/electrons/Level_0/DATA_00011
+# DXT, rank: 11, hostname: h35n09
+# DXT, write_count: 3, read_count: 0
+# DXT, mnt_pt: /gpfs/alpine, fs_type: gpfs
+# Module    Rank  Wt/Rd  Segment          Offset       Length    Start(s)      End(s)
+ X_POSIX      11  write        0               0          456640     15.5750     15.5752
+ X_POSIX      11  write        1          456640         2097152     15.5923     15.5949
+ X_POSIX      11  write        2         2553792         1099328     15.5950     15.5951
