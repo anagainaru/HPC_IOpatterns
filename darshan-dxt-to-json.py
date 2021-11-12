@@ -1,6 +1,4 @@
-import sys
-import json
-import numpy as np
+#  Created on: Nov 12, 2021 (tested on current Darshan DXT logs)
 
 # Code to convert a darhan DXT log (generated with darshan-dxt-parser)
 # into JSON format similar to what TAU is generating
@@ -8,6 +6,10 @@ import numpy as np
     # "tid": 0, "pid": 0, "step": 0, "cat": "POSIX", "name": "write",
     # "args": {"fd": 14, "buf": "0x7ffe02634c44", "count": 4 },
     # "pathname": "pipe", "return": 4},
+
+import sys
+import json
+import numpy as np
 
 # Parse metadata lines and populate additional information 
 # Example lines:
@@ -92,6 +94,9 @@ def main():
             log.append(json_format(current))
             metadata = {}
     inf.close()
+    if len(log) == 0:
+        print("Darshan DXT log invalid ! JSON file has not been generated")
+        return
     print("[")
     for i in range(len(log)):
         print("%s," %(json.dumps(log[i])))
