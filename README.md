@@ -1,3 +1,5 @@
+<img src="logo.png" align="right" alt="Logo" width="350"/>
+
 # Benchmark for large-scale I/O patterns
 
 Code and scripts are stored on Summit in `/gpfs/alpine/csc143/proj-shared/againaru/olcf`.
@@ -26,7 +28,7 @@ Example log
 ]
 ```
 
-More details on building and running TAU on Summit/Andes: [here]("./TAU/README.md")
+More details on building and running TAU on Summit/Andes: [here](./applications/README.md)
 
 ## Darshan
 
@@ -53,7 +55,19 @@ after which the ascii file can be generated using
  darshan-dxt-parser <trace_file>.darshan > <file>.dxt.log
 ```
 
-Script to convert the dxt output into JSON format that can be visualized with `chrome://tracing` and more details on building and running Darshan on Summit/Andes: [here]("./Darshan/README.md")
+The `darshan-dxt-to-json.py` script can be used to convert the dxt output into JSON format that can be visualized with `chrome://tracing` 
+```
+$ python darshan-dxt-to-json.py lammps/darshan/lammps.dxt.log
+[
+{"ts": 41200, "cat": "X_POSIX", "dur": 1, "tid": 0, "ph": "X", "name": "read", "pid": 0, "args": {"Segment": "0", "Offset": "0", "mnt_pt:": "/gpfs/alpine,", "fs_type:": "gpfs", "rank:": "0,", "hostname:": "h50n18", "file_name:": "/gpfs/alpine/csc143/proj-shared/againaru/lammps/adios2_config.xml", "Length": "1436", "file_id:": "17123874527013665068,"}},
+{"ts": 41200, "cat": "X_POSIX", "dur": 1, "tid": 0, "ph": "X", "name": "read", "pid": 0, "args": {"Segment": "1", "Offset": "1436", "Length": "0"}},
+{"ts": 132200, "cat": "X_POSIX", "dur": 1, "tid": 0, "ph": "X", "name": "write", "pid": 0, "args": {"Segment": "0", "Offset": "0", "mnt_pt:": "/gpfs/alpine,", "fs_type:": "gpfs", "rank:": "0,", "hostname:": "h50n18", "file_name:": "/gpfs/alpine/csc143/proj-shared/againaru/lammps/lj_adios_output.bp/data.0", "Length": "3585374", "file_id:": "7146724260063322621,"}},
+{"ts": 2468000, "cat": "X_POSIX", "dur": 1, "tid": 0, "ph": "X", "name": "write", "pid": 0, "args": {"Segment": "1", "Offset": "3585374", "Length": "3584815"}},
+{"ts": 4828600, "cat": "X_POSIX", "dur": 1, "tid": 0, "ph": "X", "name": "write", "pid": 0, "args": {"Segment": "2", "Offset": "7170189", "Length": "3584815"}}
+]
+```
+
+More details on building and running Darshan on Summit/Andes: [here](./applications/README.md)
 
 ## Aggregated patterns
 
