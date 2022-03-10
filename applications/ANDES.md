@@ -14,6 +14,8 @@ make install
 export PATH=/gpfs/alpine/csc143/proj-shared/againaru/tau2/ibm64linux/bin:$PATH
 ```
 
+**Later EDIT** New version of Github latest branch TAU is installed in `/gpfs/alpine/csc143/proj-shared/againaru/tau_github/ibm64linux/bin` 
+
 TAU in installed in the folder `/ccs/home/againaru/util/tau2`
 To use it you need to include the path to the tau_exec executable in the PATH variable.
 ```
