@@ -56,6 +56,10 @@ List of all the features and explanation of what each represents can be dound in
 
 The output file is a CSV file containing one entry for each darshan log.
 
+There are 13 applications whose behavior on Summit 2020 was extracted into a separate csv file:
+Castro (1.3k runs), RiemannProblem (100), cp2k (200), dirac (200), gronor (800), gtc (10k), meshfem3D (150), namd (3.5k),
+nwchem (200), qmcpack (3k), stemdl (100), vasp (16.5k), xgc (800). Details about their runs can be found in: [Summit application behavior](https://github.com/anagainaru/HPC_IOpatterns/tree/main/aggregated-patterns/summit)
+
 ## Create clusters of similar data
 
 Scripts available in folder `clustering`.
@@ -63,8 +67,21 @@ Scripts available in folder `clustering`.
 Applications are clustered based on their features (except the app name and user name features) using hdbscan.HDBSCAN ([Link](https://hdbscan.readthedocs.io/)).
 HDBSCAN is a clustering algorithm that extends DBSCAN by converting it into a hierarchical clustering algorithm, and then using a technique to extract a flat clustering based in the stability of clusters. A detailed explanation of how clustered are being formed can be found [here](https://hdbscan.readthedocs.io/en/latest/how_hdbscan_works.html).
 
-Example results for the clustering method for the list of application runs (and darshan logs) from this repo.
+```bash
+$ python extract_clusters.py filename.csv
+Before filter: 121
+After filter: 2
+Total columns 198, clustering columns 159
+Optimal number of clusters: 0
+Number of noisy points: 2
+Start classification from 2.0
+Clusters successfully saved in folder todel.clusters/
+$ cat filename.clusters/cluster.0.000.csv | rev | cut -d',' -f 1 | rev | sort -u
+-1
+```
+The previous example shows the output for an application that has consistent behavior throughout all its runs.
 
+Example results for the clustering method for the list of application runs (and darshan logs) from this repo in: [Summit application behavior](https://github.com/anagainaru/HPC_IOpatterns/tree/main/aggregated-patterns/summit).
 
 ![Hierarchical clustering](docs/cluster_tree.png)
 
