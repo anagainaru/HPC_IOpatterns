@@ -82,13 +82,44 @@ def find_clusters(events_time):
     print("Total clusters", max(best_clusters[1]))
     return best_clusters[1]
 
-# Extract all the event patterns describing patterns and their frequency
-def find_patterns(labels, events_type, events_time):
-    patterns = {}
-    cluster_edges = [0] + [i for i in range(len(labels) - 1) if labels[i] != labels[i+1]]
-    print({cluster_edges[i] : events_time[cluster_edges[i]:cluster_edges[i+1]] for i in range(1, len(cluster_edges))})
-    for i in range(1, len(cluster_edges)):
+# unorder and only count (not file information)
+def get_count_pattern(cluster_edges, events_type, pattern_list):
+    optype_cluster = [events_type[cluster_edges[i-1]:cluster_edges[i]]
+                      for i in range(1, len(cluster_edges))]
+    count_pattern = [{optype : cluster.count(optype) for optype in set(cluster)} for cluster in optype_cluster]
+    # example count pattern [{'fprintf': 7, 'fwrite': 12}, {'fprintf': 10, 'fwrite': 14}]
+    log = []
+    cnt = len(pattern_list.keys())
+    for pattern in count_pattern:
+        # patterns have {operation: count}
+        pattern_string = [key+":"+str(pattern[key]) for key in pattern]
+        pattern_string.sort()
+        pattern_string = "-".join(pattern_string)
+        # update the list of all existing patterns 
+        if pattern_string not in pattern_list:
+            pattern_list[pattern_string] = cnt
+            cnt += 1
+        log.append(pattern_list[pattern_string])
+    return pattern_list, log
 
+def add_file_information():
+    return 0
+
+# Extract all the event patterns describing patterns and their frequency
+def find_patterns(labels, events_type, events_time, pattern_list):
+    patterns = {}
+    cluster_edges = [0] + [i+1 for i in range(len(labels) - 1)
+                           if labels[i] != labels[i+1]] + [len(labels) + 1]
+    time_clusters = {cluster_edges[i-1] : events_time[cluster_edges[i-1]:cluster_edges[i]]
+                     for i in range(1, len(cluster_edges))}
+    print({i: (min(time_clusters[i]), max(time_clusters[i])) for i in time_clusters})
+    pattern_list, log = get_count_pattern(cluster_edges, events_type, pattern_list)
+    print("Total patterns:", len(pattern_list.keys()), pattern_list.keys())
+    print("The current TAU log:",log)
+
+    # add information on what file is being accessed
+    add_file_information()
+    return pattern_list, log
 
 # Extract the start clusters based on patterns across all the ranks
 def extract_start_clusters(labels):
@@ -106,11 +137,13 @@ if __name__ == '__main__':
     labels = {}
     # read the json TAU file
     events_time, events_type = read_json_data(sys.argv[1])
+    pattern_list = {}
+    log = {}
     for rank in events_time:
         print("Extract clusters for rank", rank)
         labels[rank] = find_clusters(np.array(events_time[rank]))
-        find_patterns(labels[rank], events_type[rank], events_time[rank])
-        break
+        pattern_list, log[rank] = find_patterns(labels[rank], events_type[rank],
+                                          events_time[rank], pattern_list)
     extract_start_clusters(labels)
     extract_end_clusters(labels)
 
