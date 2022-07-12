@@ -1,3 +1,4 @@
+import argparse
 from difflib import SequenceMatcher
 from itertools import cycle
 from itertools import islice
@@ -9,8 +10,16 @@ import sys
 
 # Parse the JSON log and extract patterns
 # Usage: 
-#    python extract_patterns_json.py json_file
+#    python extract_patterns_json.py json_file requested_ranks
+#                                    requested_execution_time [options]
+#    Options: -o output file (default: output.json)
+#             -v verbose on (default: False)
+#             -i individual patterns on (defaut: False) 
+# The individual patterns options allows to repeat patterns that occur only
+# once (for which interpolation will fail).
 
+individual_patterns = False
+verbose = False
 
 def string_distance(a, b):
     return SequenceMatcher(None, a, b).ratio()
@@ -99,14 +108,17 @@ def find_clusters(events_time):
                          if labels[i]==labels[i+1]])
         split_index = next(i for i in range(len(events_delay))
                        if events_delay[i]==max_delay)
-        print("[dbg] Split between timestamp", events_time[split_index],
+        if verbose:
+            print("[dbg] Split between timestamp", events_time[split_index],
               events_time[split_index+1])
         # if the clusters start computing the silhouette, update the value for
         # the current selection (unless this is the first split)
         if max_delay <= 60 and best_clusters[0] == 0 and max(labels) > 0:
             silhouette_avg = silhouette_score(events_time.reshape(-1, 1), labels)
             best_clusters = [silhouette_avg, labels[:]]
-            print("[dbg] Store current cluster with a score of", silhouette_avg)
+            if verbose:
+                print("[dbg] Store current cluster with a score of",
+                      silhouette_avg)
         labels = create_labels(labels, split_index)
 
         # Compute the silhouette score which gives a score for the density and
@@ -115,15 +127,18 @@ def find_clusters(events_time):
         silhouette_avg = 0
         if max_delay <= 60:
             silhouette_avg = silhouette_score(events_time.reshape(-1, 1), labels)
-        print("[dbg] Clustering score", silhouette_avg)
+        if verbose:
+            print("[dbg] Clustering score", silhouette_avg)
         if max_delay <= 60 and silhouette_avg > best_clusters[0]:
-            print("[dbg] BEST cluster", best_clusters[0], silhouette_avg)
+            if verbose:
+                print("[dbg] BEST cluster", best_clusters[0], silhouette_avg)
             best_clusters = [silhouette_avg, labels[:]]
         if cannot_split_clusters(labels, max_delay):
             break
     if best_clusters[0] == 0:
             best_clusters = [silhouette_avg, labels[:]]
-    print("[dbg] Total clusters", max(best_clusters[1]) + 1)
+    if verbose:
+        print("[dbg] Total clusters", max(best_clusters[1]) + 1)
     return best_clusters[1]
 
 # unorder and only count (not file information)
@@ -157,8 +172,10 @@ def find_patterns(labels, events_type, events_time, pattern_list, rank):
     pattern_list, log = get_count_pattern(cluster_edges, events_type, pattern_list)
     # Add timing information over the log: (pattern_id, time_start, time_end)
     log = [(log[i], time_log[i][0], time_log[i][1], rank) for i in range(len(log))]
-    print("[dbg] Total patterns:", len(pattern_list.keys()), pattern_list)
-    print("[dbg] The current TAU log:",log)
+    if verbose:
+        print("[dbg] Total patterns:", len(pattern_list.keys()), pattern_list)
+        print("[dbg] The current TAU log:", [(i[1],i[2]) for i in log])
+        print("[dbg] List of patterns:", [i[0] for i in log])
     return pattern_list, log
 
 # Extract the start clusters based on patterns across all the ranks
@@ -208,8 +225,9 @@ def interpolate_comp_pattern(log, total_exec, req_exec, rank):
         ts_series_end = [i[2] for i in log if i[0]==pattern]
         try:
             #The use of 1 signifies a linear fit.
-            fit = np.polyfit(range(len(ts_series)), ts_series, 2)
-            print("[dbg] Fit for cluster pattern", pattern, fit)
+            fit = np.polyfit(range(len(ts_series)), ts_series, 1)
+            if verbose:
+                print("[dbg] Fit for cluster pattern", pattern, fit)
             line = np.poly1d(fit)
             cnt = len(ts_series)
             while True:
@@ -221,17 +239,19 @@ def interpolate_comp_pattern(log, total_exec, req_exec, rank):
                 cnt += 1
         except:
             # we cannot use interpolation so we just repeat the pattern
-            print("[dbg] Repeat for cluster pattern", pattern, total_exec)
-            cnt = 1
-            while True:
-                # add entries total_exec apart
-                ts = [i + cnt * total_exec for i in ts_series]
-                log += [(pattern, ts_series[cnt % len(ts_series)],
-                         ts_series_end[cnt % len(ts_series)], rank, i)
-                        for i in ts if i <= req_exec]
-                if max(ts) > req_exec:
-                    break
-                cnt += 1
+            if individual_patterns:
+                if verbose:
+                    print("[dbg] Repeat for cluster pattern", pattern, total_exec)
+                cnt = 1
+                while True:
+                    # add entries total_exec apart
+                    ts = [i + cnt * total_exec for i in ts_series]
+                    log += [(pattern, ts_series[cnt % len(ts_series)],
+                             ts_series_end[cnt % len(ts_series)], rank, i)
+                            for i in ts if i <= req_exec]
+                    if max(ts) > req_exec:
+                        break
+                    cnt += 1
     return log
 
 # Decrease or increase the total execution time of the log
@@ -239,12 +259,14 @@ def update_exec_pattern(log, start_ts, end_ts, req_exec):
     req_log = {rank:[] for rank in log}
     total_exec = int(max([max([i[2] for i in log[rank]]) for rank in log]))
     shift = req_exec - total_exec
-    print("[dbg] Shift by:", shift)
+    if verbose:
+        print("[dbg] Shift by:", shift)
     for rank in log:
         # keep the start pattern
         req_log[rank] += [i for i in log[rank] if i[2] <= start_ts]
         # interpolate the middle pattern
-        print("[dbg] Generate extended log for rank", rank)
+        if verbose:
+            print("[dbg] Generate extended log for rank", rank)
         req_log[rank] += interpolate_comp_pattern(
                 [i for i in log[rank] if i[2] > start_ts and i[2] < end_ts],
                 end_ts, req_exec - (total_exec - end_ts), rank)
@@ -292,7 +314,8 @@ def update_rank_pattern(log, total_ranks, req_ranks):
     if req_ranks < total_ranks:
         # delete the extra ranks from the log
         for rank in range(req_ranks, total_ranks):
-            print("Delete", rank)
+            if verbose:
+                print("[dbg] Delete", rank)
             del log[rank]
     else:
         # find clusters of ranks with the same bahavior: [[0], [1, 2], [3]]
@@ -305,8 +328,9 @@ def update_rank_pattern(log, total_ranks, req_ranks):
         # add rank behavior in order based on the patterns found
         cnt = 0
         for rank in range(total_ranks, req_ranks):
-            print("[dbg] Rank %d will have the same pattern as rank %d" %(
-                rank, rank_pattern[rank % len(rank_pattern)]))
+            if verbose:
+                print("[dbg] Rank %d will have the same pattern as rank %d" %(
+                    rank, rank_pattern[rank % len(rank_pattern)]))
             log[rank] = log[rank_pattern[rank % len(rank_pattern)]][:]
     return log
 
@@ -327,26 +351,30 @@ def read_time_to_string(file_name):
 # Create a JSON file from the log based on the input JSON
 # log is a dict {rank: [(pattern_id, ts_start, ts_end, initial_rank)]}
 def from_pattern_create_log(log, input_file, output_file):
-    max_exec = max(max([i[2] for i in log[rank]]) for rank in log)
-    print("Creating a TAU log file with %s ranks and %s execution time" %(
-        len(log.keys()), max_exec))
+    max_exec = 0
     time_to_string = read_time_to_string(input_file)
     data = []
     for rank in log:
-        print("[dbg] Writing log for rank %d to the output file" %(rank))
+        if verbose:
+            print("[dbg] Writing log for rank %d to the output file" %(rank))
         for pattern in log[rank]:
             # get all the entries occuring between the timestamps
             create_events = [i for i in time_to_string[pattern[3]]
                              if i <= pattern[2] and i >= pattern[1]]
             delay = 0
             if len(pattern)>4:
+                max_exec = max(max_exec, pattern[4])
                 delay = pattern[4] - pattern[1]
+            else:
+                max_exec = max(max_exec, pattern[2])
             event_list = [time_to_string[pattern[3]][i] for i in create_events]
             for event in event_list:
                 temp_event = {i:event[i] for i in event}
                 temp_event["pid"] = rank
                 temp_event["ts"] = int(temp_event["ts"] + delay * 1000000)
                 data.append(temp_event)
+    print("Creating a TAU log file with %s ranks and %s execution time" %(
+        len(log.keys()), max_exec))
     with open(output_file, 'w') as f:
         f.write(
         '[' +
@@ -355,23 +383,38 @@ def from_pattern_create_log(log, input_file, output_file):
     print("DONE. Output json file stored in", output_file)
     return 0
 
+def parse_input_argument():
+    global individual_patterns, verbose
+    parser = argparse.ArgumentParser()
+    parser.add_argument('infile', help='Input TAU json file')
+    parser.add_argument('req_ranks', type=int, help='Number of requested ranks')
+    parser.add_argument('req_exec', type=int,
+                        help='Requested execution time in seconds')
+    parser.add_argument("-v", "--verbose", action='store_true',
+                        help="Print debug information")
+    parser.add_argument("-i", "--interpolate", action='store_true',
+                        help="Repeat only log patterns that can be interpolated")
+    parser.add_argument("-o", "--output", default="output.json",
+                        help='Output file to store the new JSON log')
+    args = parser.parse_args()
+    if args.interpolate:
+        individual_patterns = True
+    if args.verbose:
+        verbose = True
+    return args
+
 if __name__ == '__main__':
-    if len(sys.argv) < 4:
-        print("Usage: python %s log_file num_ranks exec_time [output_file]" %(sys.argv[0]))
-        exit()
-    
-    req_ranks = int(sys.argv[2])
-    req_exec = int(sys.argv[3])
-    output_file = "output.json"
-    if len(sys.argv) > 4:
-        output_file = sys.argv[4]
+    args = parse_input_argument()
+    req_ranks = args.req_ranks
+    req_exec = args.req_exec
     labels = {}
     # read the json TAU file
-    events_time, events_type = read_json_data(sys.argv[1])
+    events_time, events_type = read_json_data(args.infile)
     pattern_list = {}
     log = {}
     for rank in events_time:
-        print("[dbg] Extract clusters for rank", rank)
+        if verbose:
+            print("[dbg] Extract clusters for rank", rank)
         labels[rank] = find_clusters(np.array(events_time[rank]))
         pattern_list, log[rank] = find_patterns(labels[rank], events_type[rank],
                                           events_time[rank], pattern_list, rank)
@@ -381,12 +424,13 @@ if __name__ == '__main__':
     print("Execution time %d seconds" %(max_ts - min_ts))
     start_ts = extract_start_clusters(log, min_ts, max_ts)
     end_ts = extract_end_clusters(log, min_ts, max_ts)
-    print("[dbg] Start position", start_ts)
-    print("[dbg] End position", end_ts)
+    if verbose:
+        print("[dbg] Start position", start_ts)
+        print("[dbg] End position", end_ts)
     
     if (max_ts - min_ts) != req_exec:
         log = update_exec_pattern(log, start_ts, end_ts, req_exec)
     if len(events_time.keys()) != req_ranks:
         log = update_rank_pattern(log, len(events_time.keys()), req_ranks)
 
-    from_pattern_create_log(log, sys.argv[1], output_file)
+    from_pattern_create_log(log, args.infile, args.output)
