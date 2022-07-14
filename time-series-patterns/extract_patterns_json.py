@@ -332,18 +332,20 @@ def update_rank_pattern(log, total_ranks, req_ranks, variability=0):
                 print("[dbg] Rank %d will have the same pattern as rank %d" %(
                     rank, rank_pattern[rank % len(rank_pattern)]))
                 if variability > 0:
-                    print("[dbg]  - With adding variability (avg %2.1f0" %(
-                        variability))
+                    print("[dbg]  - added variability between (-%2.1f and %2.1f)" %(
+                        variability, variability))
             log[rank] = log[rank_pattern[rank % len(rank_pattern)]][:]
             if variability > 0:
-                noise = np.random.uniform(0, variability, len(log[rank]))
+                # add noise to the timestamp of the pattern, either to the original 
+                # timestamp or the interpolated value
+                noise = np.random.uniform(-variability, variability, len(log[rank]))
+                noise = [log[rank][i][1]+noise[i] if len(log[rank][i])==4
+                         else log[rank][i][4]+noise[i]
+                         for i in range(len(log[rank]))]
+                # add the updated value to the new log
                 log[rank] = [(log[rank][i][0], log[rank][i][1], log[rank][i][2],
-                              log[rank][i][3], log[rank][i][1]+noise[i])
-                              if len(log[rank][i])==4
-                              else (log[rank][i][0], log[rank][i][1],
-                                    log[rank][i][2], log[rank][i][3],
-                                    log[rank][i][4]+noise[i])
-                              for i in range(len(log[rank]))]
+                              log[rank][i][3], max(0, noise[i]))
+                             for i in range(len(log[rank]))]
     return log
 
 # Read the json file and keep a dictionary with strings
@@ -361,7 +363,8 @@ def read_time_to_string(file_name):
     return time_to_string
 
 # Create a JSON file from the log based on the input JSON
-# log is a dict {rank: [(pattern_id, ts_start, ts_end, initial_rank)]}
+# log is a dict {rank: [(pattern_id, initial_ts_start, initial_ts_end, initial_rank)]}
+# with the possibility of having another element at the end with the new timestamp
 def from_pattern_create_log(log, input_file, output_file):
     max_exec = 0
     time_to_string = read_time_to_string(input_file)
@@ -412,8 +415,8 @@ def parse_input_argument():
                         help='Interpolation polynomial degree. Default: linear')
     parser.add_argument("-r", "--rankvar", type=int, default=0,
                         help='Variability among rank duplication. Adds a random noise' \
-                              ' with a random distribution between 0 and the provided' \
-                              ' value (in seconds). Default: 0 (no variability)')
+                              ' with a random distribution with a center of 0 and' \
+                              ' length of value (in seconds). Default: 0 (no variability)')
     parser.add_argument("-s", "--stats", action='store_true',
                         help='Only show stats about the TAU log, do not create' \
                              ' a new one. The requested time and ranks will be ignored')
