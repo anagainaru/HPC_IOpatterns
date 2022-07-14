@@ -310,7 +310,7 @@ def get_rank_pattern(log):
     return rank_clusters
 
 # decreate or increase the number of ranks in the log
-def update_rank_pattern(log, total_ranks, req_ranks):
+def update_rank_pattern(log, total_ranks, req_ranks, variability=0):
     if req_ranks < total_ranks:
         # delete the extra ranks from the log
         for rank in range(req_ranks, total_ranks):
@@ -331,7 +331,19 @@ def update_rank_pattern(log, total_ranks, req_ranks):
             if verbose:
                 print("[dbg] Rank %d will have the same pattern as rank %d" %(
                     rank, rank_pattern[rank % len(rank_pattern)]))
+                if variability > 0:
+                    print("[dbg]  - With adding variability (avg %2.1f0" %(
+                        variability))
             log[rank] = log[rank_pattern[rank % len(rank_pattern)]][:]
+            if variability > 0:
+                noise = np.random.uniform(0, variability, len(log[rank]))
+                log[rank] = [(log[rank][i][0], log[rank][i][1], log[rank][i][2],
+                              log[rank][i][3], log[rank][i][1]+noise[i])
+                              if len(log[rank][i])==4
+                              else (log[rank][i][0], log[rank][i][1],
+                                    log[rank][i][2], log[rank][i][3],
+                                    log[rank][i][4]+noise[i])
+                              for i in range(len(log[rank]))]
     return log
 
 # Read the json file and keep a dictionary with strings
@@ -444,6 +456,7 @@ if __name__ == '__main__':
         log = update_exec_pattern(log, start_ts, end_ts, req_exec,
                                   degree=args.degree)
     if len(events_time.keys()) != req_ranks:
-        log = update_rank_pattern(log, len(events_time.keys()), req_ranks)
+        log = update_rank_pattern(log, len(events_time.keys()), req_ranks,
+                                  variability=args.rankvar)
 
     from_pattern_create_log(log, args.infile, args.output)
