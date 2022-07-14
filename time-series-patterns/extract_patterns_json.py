@@ -214,7 +214,7 @@ def extract_end_clusters(log, min_ts, max_ts):
         end_idx = min(end_idx, log[rank][idx][2])
     return end_idx
 
-def interpolate_comp_pattern(log, total_exec, req_exec, rank):
+def interpolate_comp_pattern(log, total_exec, req_exec, rank, degree=1):
     if total_exec > req_exec:
         # cut all the events that exceed the requested execution time
         return [i for i in log if i[2] < req_exec]
@@ -225,7 +225,7 @@ def interpolate_comp_pattern(log, total_exec, req_exec, rank):
         ts_series_end = [i[2] for i in log if i[0]==pattern]
         try:
             #The use of 1 signifies a linear fit.
-            fit = np.polyfit(range(len(ts_series)), ts_series, 1)
+            fit = np.polyfit(range(len(ts_series)), ts_series, degree)
             if verbose:
                 print("[dbg] Fit for cluster pattern", pattern, fit)
             line = np.poly1d(fit)
@@ -255,7 +255,7 @@ def interpolate_comp_pattern(log, total_exec, req_exec, rank):
     return log
 
 # Decrease or increase the total execution time of the log
-def update_exec_pattern(log, start_ts, end_ts, req_exec):
+def update_exec_pattern(log, start_ts, end_ts, req_exec, degree=1):
     req_log = {rank:[] for rank in log}
     total_exec = int(max([max([i[2] for i in log[rank]]) for rank in log]))
     shift = req_exec - total_exec
@@ -269,7 +269,7 @@ def update_exec_pattern(log, start_ts, end_ts, req_exec):
             print("[dbg] Generate extended log for rank", rank)
         req_log[rank] += interpolate_comp_pattern(
                 [i for i in log[rank] if i[2] > start_ts and i[2] < end_ts],
-                end_ts, req_exec - (total_exec - end_ts), rank)
+                end_ts, req_exec - (total_exec - end_ts), rank, degree=degree)
         # shift the end pattern to the end of the request time
         req_log[rank] += [(i[0], i[1], i[2], rank, i[1]+shift)
                           for i in log[rank] if i[2] >= end_ts]
@@ -441,7 +441,8 @@ if __name__ == '__main__':
         print("[dbg] End position", end_ts)
     
     if (max_ts - min_ts) != req_exec:
-        log = update_exec_pattern(log, start_ts, end_ts, req_exec)
+        log = update_exec_pattern(log, start_ts, end_ts, req_exec,
+                                  degree=args.degree)
     if len(events_time.keys()) != req_ranks:
         log = update_rank_pattern(log, len(events_time.keys()), req_ranks)
 
