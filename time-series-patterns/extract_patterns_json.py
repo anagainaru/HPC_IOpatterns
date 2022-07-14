@@ -214,7 +214,7 @@ def extract_end_clusters(log, min_ts, max_ts):
         end_idx = min(end_idx, log[rank][idx][2])
     return end_idx
 
-def interpolate_comp_pattern(log, total_exec, req_exec, rank):
+def interpolate_comp_pattern(log, total_exec, req_exec, rank, degree=1):
     if total_exec > req_exec:
         # cut all the events that exceed the requested execution time
         return [i for i in log if i[2] < req_exec]
@@ -225,7 +225,7 @@ def interpolate_comp_pattern(log, total_exec, req_exec, rank):
         ts_series_end = [i[2] for i in log if i[0]==pattern]
         try:
             #The use of 1 signifies a linear fit.
-            fit = np.polyfit(range(len(ts_series)), ts_series, 1)
+            fit = np.polyfit(range(len(ts_series)), ts_series, degree)
             if verbose:
                 print("[dbg] Fit for cluster pattern", pattern, fit)
             line = np.poly1d(fit)
@@ -255,7 +255,7 @@ def interpolate_comp_pattern(log, total_exec, req_exec, rank):
     return log
 
 # Decrease or increase the total execution time of the log
-def update_exec_pattern(log, start_ts, end_ts, req_exec):
+def update_exec_pattern(log, start_ts, end_ts, req_exec, degree=1):
     req_log = {rank:[] for rank in log}
     total_exec = int(max([max([i[2] for i in log[rank]]) for rank in log]))
     shift = req_exec - total_exec
@@ -269,7 +269,7 @@ def update_exec_pattern(log, start_ts, end_ts, req_exec):
             print("[dbg] Generate extended log for rank", rank)
         req_log[rank] += interpolate_comp_pattern(
                 [i for i in log[rank] if i[2] > start_ts and i[2] < end_ts],
-                end_ts, req_exec - (total_exec - end_ts), rank)
+                end_ts, req_exec - (total_exec - end_ts), rank, degree=degree)
         # shift the end pattern to the end of the request time
         req_log[rank] += [(i[0], i[1], i[2], rank, i[1]+shift)
                           for i in log[rank] if i[2] >= end_ts]
@@ -310,7 +310,7 @@ def get_rank_pattern(log):
     return rank_clusters
 
 # decreate or increase the number of ranks in the log
-def update_rank_pattern(log, total_ranks, req_ranks):
+def update_rank_pattern(log, total_ranks, req_ranks, variability=0):
     if req_ranks < total_ranks:
         # delete the extra ranks from the log
         for rank in range(req_ranks, total_ranks):
@@ -331,7 +331,21 @@ def update_rank_pattern(log, total_ranks, req_ranks):
             if verbose:
                 print("[dbg] Rank %d will have the same pattern as rank %d" %(
                     rank, rank_pattern[rank % len(rank_pattern)]))
+                if variability > 0:
+                    print("[dbg]  - added variability between (-%2.1f and %2.1f)" %(
+                        variability, variability))
             log[rank] = log[rank_pattern[rank % len(rank_pattern)]][:]
+            if variability > 0:
+                # add noise to the timestamp of the pattern, either to the original 
+                # timestamp or the interpolated value
+                noise = np.random.uniform(-variability, variability, len(log[rank]))
+                noise = [log[rank][i][1]+noise[i] if len(log[rank][i])==4
+                         else log[rank][i][4]+noise[i]
+                         for i in range(len(log[rank]))]
+                # add the updated value to the new log
+                log[rank] = [(log[rank][i][0], log[rank][i][1], log[rank][i][2],
+                              log[rank][i][3], max(0, noise[i]))
+                             for i in range(len(log[rank]))]
     return log
 
 # Read the json file and keep a dictionary with strings
@@ -349,7 +363,8 @@ def read_time_to_string(file_name):
     return time_to_string
 
 # Create a JSON file from the log based on the input JSON
-# log is a dict {rank: [(pattern_id, ts_start, ts_end, initial_rank)]}
+# log is a dict {rank: [(pattern_id, initial_ts_start, initial_ts_end, initial_rank)]}
+# with the possibility of having another element at the end with the new timestamp
 def from_pattern_create_log(log, input_file, output_file):
     max_exec = 0
     time_to_string = read_time_to_string(input_file)
@@ -396,6 +411,15 @@ def parse_input_argument():
                         help="Repeat only log patterns that can be interpolated")
     parser.add_argument("-o", "--output", default="output.json",
                         help='Output file to store the new JSON log')
+    parser.add_argument("-d", "--degree", type=int, default=1,
+                        help='Interpolation polynomial degree. Default: linear')
+    parser.add_argument("-r", "--rankvar", type=int, default=0,
+                        help='Variability among rank duplication. Adds a random noise' \
+                              ' with a random distribution with a center of 0 and' \
+                              ' length of value (in seconds). Default: 0 (no variability)')
+    parser.add_argument("-s", "--stats", action='store_true',
+                        help='Only show stats about the TAU log, do not create' \
+                             ' a new one. The requested time and ranks will be ignored')
     args = parser.parse_args()
     if args.interpolate:
         individual_patterns = True
@@ -422,6 +446,9 @@ if __name__ == '__main__':
     max_ts = max([max(events_time[rank]) for rank in events_time])
     print("Number of ranks %d" %(len(events_time.keys())))
     print("Execution time %d seconds" %(max_ts - min_ts))
+    if args.stats:
+        print("The -stats flag was provided, exiting without creating the output log")
+        exit()
     start_ts = extract_start_clusters(log, min_ts, max_ts)
     end_ts = extract_end_clusters(log, min_ts, max_ts)
     if verbose:
@@ -429,8 +456,10 @@ if __name__ == '__main__':
         print("[dbg] End position", end_ts)
     
     if (max_ts - min_ts) != req_exec:
-        log = update_exec_pattern(log, start_ts, end_ts, req_exec)
+        log = update_exec_pattern(log, start_ts, end_ts, req_exec,
+                                  degree=args.degree)
     if len(events_time.keys()) != req_ranks:
-        log = update_rank_pattern(log, len(events_time.keys()), req_ranks)
+        log = update_rank_pattern(log, len(events_time.keys()), req_ranks,
+                                  variability=args.rankvar)
 
     from_pattern_create_log(log, args.infile, args.output)
