@@ -396,6 +396,15 @@ def parse_input_argument():
                         help="Repeat only log patterns that can be interpolated")
     parser.add_argument("-o", "--output", default="output.json",
                         help='Output file to store the new JSON log')
+    parser.add_argument("-d", "--degree", type=int, default=1,
+                        help='Interpolation polynomial degree. Default: linear')
+    parser.add_argument("-r", "--rankvar", type=int, default=0,
+                        help='Variability among rank duplication. Adds a random noise' \
+                              ' with a random distribution between 0 and the provided' \
+                              ' value (in seconds). Default: 0 (no variability)')
+    parser.add_argument("-s", "--stats", action='store_true',
+                        help='Only show stats about the TAU log, do not create' \
+                             ' a new one. The requested time and ranks will be ignored')
     args = parser.parse_args()
     if args.interpolate:
         individual_patterns = True
@@ -422,6 +431,9 @@ if __name__ == '__main__':
     max_ts = max([max(events_time[rank]) for rank in events_time])
     print("Number of ranks %d" %(len(events_time.keys())))
     print("Execution time %d seconds" %(max_ts - min_ts))
+    if args.stats:
+        print("The -stats flag was provided, exiting without creating the output log")
+        exit()
     start_ts = extract_start_clusters(log, min_ts, max_ts)
     end_ts = extract_end_clusters(log, min_ts, max_ts)
     if verbose:
