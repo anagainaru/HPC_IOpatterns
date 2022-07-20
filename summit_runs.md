@@ -41,6 +41,8 @@ $ ls logs/hybrid
 all.trace.json 
 ```
 
+<img width="688" alt="Screen Shot 2022-07-20 at 11 37 07 AM" src="https://user-images.githubusercontent.com/16229479/180024123-eb3be708-2728-441b-b46e-8d4fc148f693.png">
+
 **2. Modify existing logs to fit the simulation parameters**
 
 **3. Combine multiple applications to create new patterns across the entire execution**
