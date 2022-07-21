@@ -31,7 +31,10 @@ if __name__ == '__main__':
         exit(1)
 
     output_file = sys.argv[1]
-    os.remove(output_file)
+    try:
+        os.remove(output_file)
+    except:
+        print("Output file", output_file)
     outf = open(output_file, 'a')
     outf.write('[\n')
     base_ts = [0, 0]
