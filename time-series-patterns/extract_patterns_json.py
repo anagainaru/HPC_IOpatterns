@@ -184,16 +184,22 @@ def extract_start_clusters(log, min_ts, max_ts):
     start_idx = min_ts
     for rank in log:
         log_patterns = [i[0] for i in log[rank]]
-        # if not all patterns are occuring only once
+        # if there are patterns occuring more than once
         if len(log_patterns) > len(set(log_patterns)):
             # find the first pattern that occurs more than once
             idx = next(i for i in range(1, len(log_patterns))
                        if log_patterns.count(log_patterns[i]) > 1)
             idx -= 1
-        else: # otherwise take all events that are closer to beginning
-            idx = next(i for i in range(len(log_patterns))
-                       if log[rank][i][0] - min_ts < max_ts - log[rank][i][1])
-        start_idx = max(start_idx, log[rank][idx][2])
+        else:
+            # otherwise take all events that are closer to beginning if any
+            idx = [i for i in range(len(log_patterns))
+                   if log[rank][i][0] - min_ts < max_ts - log[rank][i][1]]
+            if len(idx) > 0:
+                idx = idx[0]
+            else:
+                idx = -1
+        if idx >= 0:
+            start_idx = max(start_idx, log[rank][idx][2])
     return start_idx
 
 # Extract the end clusters based on patterns across all the ranks
@@ -208,10 +214,15 @@ def extract_end_clusters(log, min_ts, max_ts):
             idx = next(i for i in reversed(range(1, len(log_patterns)))
                        if log_patterns.count(log_patterns[i]) > 1)
             idx += 1
-        else: # otherwise take all events that are closer to the end
-            idx = next(i for i in range(len(log_patterns))
-                       if log[rank][i][0] - min_ts > max_ts - log[rank][i][1])
-        end_idx = min(end_idx, log[rank][idx][2])
+        else: # otherwise take all events that are closer to the end if any
+            idx = [i for i in range(len(log_patterns))
+                   if log[rank][i][0] - min_ts > max_ts - log[rank][i][1]]
+            if len(idx) > 0:
+                idx = idx[0]
+            else:
+                idx = -1
+        if idx >= 0:
+            end_idx = min(end_idx, log[rank][idx][1])
     return end_idx
 
 def interpolate_comp_pattern(log, total_exec, req_exec, rank, degree=1):
@@ -268,11 +279,11 @@ def update_exec_pattern(log, start_ts, end_ts, req_exec, degree=1):
         if verbose:
             print("[dbg] Generate extended log for rank", rank)
         req_log[rank] += interpolate_comp_pattern(
-                [i for i in log[rank] if i[2] > start_ts and i[2] < end_ts],
-                end_ts, req_exec - (total_exec - end_ts), rank, degree=degree)
+                [i for i in log[rank] if i[2] > start_ts and i[1] < end_ts],
+                end_ts - start_ts, req_exec - (total_exec - end_ts), rank, degree=degree)
         # shift the end pattern to the end of the request time
         req_log[rank] += [(i[0], i[1], i[2], rank, i[1]+shift)
-                          for i in log[rank] if i[2] >= end_ts]
+                          for i in log[rank] if i[1] >= end_ts]
     return req_log
 
 # extract clusters of ranks that have the exact same behavior
@@ -434,6 +445,13 @@ if __name__ == '__main__':
     labels = {}
     # read the json TAU file
     events_time, events_type = read_json_data(args.infile)
+    min_ts = min([min(events_time[rank]) for rank in events_time])
+    max_ts = max([max(events_time[rank]) for rank in events_time])
+    print("Number of ranks %d" %(len(events_time.keys())))
+    print("Execution time %d seconds" %(max_ts - min_ts))
+    if args.stats:
+        print("The -stats flag was provided, exiting without creating the output log")
+        exit()
     pattern_list = {}
     log = {}
     for rank in events_time:
@@ -442,13 +460,6 @@ if __name__ == '__main__':
         labels[rank] = find_clusters(np.array(events_time[rank]))
         pattern_list, log[rank] = find_patterns(labels[rank], events_type[rank],
                                           events_time[rank], pattern_list, rank)
-    min_ts = min([min(events_time[rank]) for rank in events_time])
-    max_ts = max([max(events_time[rank]) for rank in events_time])
-    print("Number of ranks %d" %(len(events_time.keys())))
-    print("Execution time %d seconds" %(max_ts - min_ts))
-    if args.stats:
-        print("The -stats flag was provided, exiting without creating the output log")
-        exit()
     start_ts = extract_start_clusters(log, min_ts, max_ts)
     end_ts = extract_end_clusters(log, min_ts, max_ts)
     if verbose:
