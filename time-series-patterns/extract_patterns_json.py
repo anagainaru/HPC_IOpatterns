@@ -69,11 +69,13 @@ def read_json_data(file_name):
     events_type = {}
     json_data = json.load(inf)
     for entry in json_data:
-        if entry["pid"] not in events_time:
-            events_time[entry["pid"]] = []
-            events_type[entry["pid"]] = []
-        events_time[entry["pid"]].append(entry["ts"])
-        events_type[entry["pid"]].append(entry["name"])
+        if entry["name"][0] == ".":
+            continue
+        if (entry["pid"], entry["tid"]) not in events_time:
+            events_time[(entry["pid"], entry["tid"])] = []
+            events_type[(entry["pid"], entry["tid"])] = []
+        events_time[(entry["pid"], entry["tid"])].append(entry["ts"])
+        events_type[(entry["pid"], entry["tid"])].append(entry["name"])
     inf.close()
     return add_edges(events_time, events_type)
 
@@ -322,12 +324,16 @@ def get_rank_pattern(log):
 
 # decreate or increase the number of ranks in the log
 def update_rank_pattern(log, total_ranks, req_ranks, variability=0):
+    total_ranks = len(set(i[0] for i in log))
     if req_ranks < total_ranks:
         # delete the extra ranks from the log
         for rank in range(req_ranks, total_ranks):
             if verbose:
                 print("[dbg] Delete", rank)
-            del log[rank]
+            # delete all entries (tids) with pid = rank
+            del_list = [i for i in log if i[0]==rank]
+            for i in del_list:
+                del log[rank]
     else:
         # find clusters of ranks with the same bahavior: [[0], [1, 2], [3]]
         rank_cluster = get_rank_pattern(log)
@@ -341,22 +347,29 @@ def update_rank_pattern(log, total_ranks, req_ranks, variability=0):
         for rank in range(total_ranks, req_ranks):
             if verbose:
                 print("[dbg] Rank %d will have the same pattern as rank %d" %(
-                    rank, rank_pattern[rank % len(rank_pattern)]))
+                    rank[0], rank_pattern[rank % len(rank_pattern)]))
                 if variability > 0:
                     print("[dbg]  - added variability between (-%2.1f and %2.1f)" %(
                         variability, variability))
-            log[rank] = log[rank_pattern[rank % len(rank_pattern)]][:]
-            if variability > 0:
-                # add noise to the timestamp of the pattern, either to the original 
-                # timestamp or the interpolated value
-                noise = np.random.uniform(-variability, variability, len(log[rank]))
-                noise = [log[rank][i][1]+noise[i] if len(log[rank][i])==4
-                         else log[rank][i][4]+noise[i]
-                         for i in range(len(log[rank]))]
-                # add the updated value to the new log
-                log[rank] = [(log[rank][i][0], log[rank][i][1], log[rank][i][2],
-                              log[rank][i][3], max(0, noise[i]))
-                             for i in range(len(log[rank]))]
+            # the log needs to contain all the threads for the chosen rank
+            target_rank = rank_pattern[rank % len(rank_pattern)]
+            tid_list = [i[1] for i in log if i[0]==target_rank]
+            for tid in tid_list:
+                log[(rank, tid)] = log[(target_rank, tid)][:]
+                if variability > 0:
+                    # add noise to the timestamp of the pattern, either to the original 
+                    # timestamp or the interpolated value
+                    noise = np.random.uniform(-variability, variability,
+                                              len(log[(rank, tid)]))
+                    noise = [log[(rank, tid)][i][1]+noise[i]
+                             if len(log[(rank, tid)][i])==4
+                             else log[(rank, tid)][i][4]+noise[i]
+                             for i in range(len(log[(rank, tid)]))]
+                    # add the updated value to the new log
+                    log[(rank, tid)] = [(log[(rank, tid)][i][0], log[(rank, tid)][i][1],
+                                         log[(rank, tid)][i][2], log[(rank, tid)][i][3],
+                                         max(0, noise[i]))
+                                 for i in range(len(log[(rank, tid)]))]
     return log
 
 # Read the json file and keep a dictionary with strings
@@ -367,9 +380,9 @@ def read_time_to_string(file_name):
     json_data = json.load(inf)
     min_ts = min([entry["ts"] for entry in json_data])
     for entry in json_data:
-        if entry["pid"] not in time_to_string:
-            time_to_string[entry["pid"]] = {}
-        time_to_string[entry["pid"]][(entry["ts"]-min_ts)/1000000] = entry
+        if (entry["pid"], entry["tid"]) not in time_to_string:
+            time_to_string[(entry["pid"], entry["tid"])] = {}
+        time_to_string[(entry["pid"], entry["tid"])][(entry["ts"]-min_ts)/1000000] = entry
     inf.close()
     return time_to_string
 
@@ -382,7 +395,7 @@ def from_pattern_create_log(log, input_file, output_file):
     data = []
     for rank in log:
         if verbose:
-            print("[dbg] Writing log for rank %d to the output file" %(rank))
+            print("[dbg] Writing log for rank %s to the output file" %(rank[0]))
         for pattern in log[rank]:
             # get all the entries occuring between the timestamps
             create_events = [i for i in time_to_string[pattern[3]]
@@ -396,7 +409,8 @@ def from_pattern_create_log(log, input_file, output_file):
             event_list = [time_to_string[pattern[3]][i] for i in create_events]
             for event in event_list:
                 temp_event = {i:event[i] for i in event}
-                temp_event["pid"] = rank
+                temp_event["pid"] = rank[0]
+                temp_event["tid"] = rank[1]
                 temp_event["ts"] = int(temp_event["ts"] + delay * 1000000)
                 data.append(temp_event)
     print("Creating a TAU log file with %s ranks and %s execution time" %(
@@ -447,7 +461,7 @@ if __name__ == '__main__':
     events_time, events_type = read_json_data(args.infile)
     min_ts = min([min(events_time[rank]) for rank in events_time])
     max_ts = max([max(events_time[rank]) for rank in events_time])
-    print("Number of ranks %d" %(len(events_time.keys())))
+    print("Number of ranks %d" %(len(set([i[0] for i in events_time.keys()]))))
     print("Execution time %d seconds" %(max_ts - min_ts))
     if args.stats:
         print("The -stats flag was provided, exiting without creating the output log")
