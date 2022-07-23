@@ -3,12 +3,14 @@ import numpy as np
 import sys
 import os
 
+from split_log_in_multiple import split_log
+
 def update_range(value, base, current):
     scale = (base[1] - base[0]) / (current[1] - current[0])
     return int((value - current[0]) * scale + base[0])
 
 # Read the json file and update timestamp
-def read_json_data(file_name, base_ts, current_pidi, outf):
+def read_json_data(file_name, base_ts, current_pid, outf):
     inf = open(file_name, "r")
     json_data = json.load(inf)
     min_ts = min(entry["ts"] for entry in json_data)
@@ -49,3 +51,7 @@ if __name__ == '__main__':
         print(file_name)
     outf.write(']\n')
     outf.close()
+    # create the individual logs for each rank
+    # in the same folder as the output file
+    idx = output_file.rfind("/")
+    split_log(output_file, output_file[:idx])
