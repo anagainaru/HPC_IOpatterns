@@ -92,15 +92,20 @@ def create_labels(labels, split_index):
 # Criterias to terminate the clustering before reaching individual
 # events. Currently, the max delay between events needs to be over 3 seconds
 def cannot_split_clusters(labels, max_delay):
+    if len(labels) == max(labels) - 1:
+        return False
     if max_delay > 3:
         return False
     return True
 
 # Hierarchical clustering for the events series 
-def find_clusters(events_time):
+def find_clusters(events_time, end_marker=False):
     events_delay = [(events_time[i] - events_time[i-1])
                     for i in range(1,len(events_time))]
     labels = [0] * len(events_time)
+    # if end marker exists
+    if end_marker: # the first split is to seprate the end event from the rest
+        labels[-1] = 1
     best_clusters = [0, labels]
     if len(labels) == 1:
         return labels
@@ -122,6 +127,8 @@ def find_clusters(events_time):
                 print("[dbg] Store current cluster with a score of",
                       silhouette_avg)
         labels = create_labels(labels, split_index)
+        if cannot_split_clusters(labels, max_delay):
+            break
 
         # Compute the silhouette score which gives a score for the density and
         # separation of the formed clusters (only if the delay between events
@@ -135,8 +142,6 @@ def find_clusters(events_time):
             if verbose:
                 print("[dbg] BEST cluster", best_clusters[0], silhouette_avg)
             best_clusters = [silhouette_avg, labels[:]]
-        if cannot_split_clusters(labels, max_delay):
-            break
     if best_clusters[0] == 0:
             best_clusters = [silhouette_avg, labels[:]]
     if verbose:
@@ -195,18 +200,24 @@ def extract_start_clusters(log, min_ts, max_ts):
         else:
             # otherwise take all events that are closer to beginning if any
             idx = [i for i in range(len(log_patterns))
-                   if log[rank][i][0] - min_ts < max_ts - log[rank][i][1]]
+                   if log[rank][i][2] - min_ts < max_ts - log[rank][i][2]]
             if len(idx) > 0:
                 idx = idx[0]
             else:
                 idx = -1
         if idx >= 0:
-            start_idx = max(start_idx, log[rank][idx][2])
+            # make sure the begin section does not exceed 1/3 of execution
+            limit = min_ts + (max_ts - min_ts) * 0.3
+            idx = [i for i in range(0, idx + 1) if log[rank][i][2] < limit]
+            if len(idx) > 0:
+                idx = max(idx)
+                start_idx = max(start_idx, log[rank][idx][2])
     return start_idx
 
 # Extract the end clusters based on patterns across all the ranks
 # The log contains a list of (pattern_id, time_start, time_end)
 def extract_end_clusters(log, min_ts, max_ts):
+    # the end section will always include the "program end" entry
     end_idx = max_ts
     for rank in log:
         log_patterns = [i[0] for i in log[rank]]
@@ -236,35 +247,28 @@ def interpolate_comp_pattern(log, total_exec, req_exec, rank, degree=1):
     for pattern in pattern_ids:
         ts_series = [i[1] for i in log if i[0]==pattern]
         ts_series_end = [i[2] for i in log if i[0]==pattern]
-        try:
-            #The use of 1 signifies a linear fit.
-            fit = np.polyfit(range(len(ts_series)), ts_series, degree)
-            if verbose:
-                print("[dbg] Fit for cluster pattern", pattern, fit)
-            line = np.poly1d(fit)
-            cnt = len(ts_series)
-            while True:
-                ts = line(cnt)
-                if ts > req_exec:
-                    break
-                log += [(pattern, ts_series[cnt % len(ts_series)],
-                         ts_series_end[cnt % len(ts_series)], rank, ts)]
-                cnt += 1
-        except:
-            # we cannot use interpolation so we just repeat the pattern
-            if individual_patterns:
+        if len(ts_series) < 5:
+            log += repeat_comp_pattern(pattern, total_exec, req_exec,
+                                       ts_series, ts_series_end, rank)
+        else:
+            try:
+                #The use of degree=1 signifies a linear fit.
+                fit = np.polyfit(range(len(ts_series)), ts_series, degree)
                 if verbose:
-                    print("[dbg] Repeat for cluster pattern", pattern, total_exec)
-                cnt = 1
+                    print("[dbg] Fit for cluster pattern", pattern, fit)
+                np.seterr(invalid='ignore')
+                line = np.poly1d(fit)
+                cnt = len(ts_series)
                 while True:
-                    # add entries total_exec apart
-                    ts = [i + cnt * total_exec for i in ts_series]
-                    log += [(pattern, ts_series[cnt % len(ts_series)],
-                             ts_series_end[cnt % len(ts_series)], rank, i)
-                            for i in ts if i <= req_exec]
-                    if max(ts) > req_exec:
+                    ts = line(cnt)
+                    if ts > req_exec:
                         break
+                    log += [(pattern, ts_series[cnt % len(ts_series)],
+                             ts_series_end[cnt % len(ts_series)], rank, ts)]
                     cnt += 1
+            except:
+                log += repeat_comp_pattern(pattern, total_exec, req_exec,
+                                           ts_series, ts_series_end, rank)
     return log
 
 # Decrease or increase the total execution time of the log
@@ -308,7 +312,10 @@ def get_rank_pattern(log):
         model = KMeans(n_clusters=true_k, init='k-means++',
                        max_iter=100, n_init=1)
         cluster = model.fit(words)
-        silhouette_avg = silhouette_score(words, cluster.labels_)
+        if len(cluster.labels_)==1 or len(cluster.labels_)==len(words):
+            silhouette_avg = 0
+        else:
+            silhouette_avg = silhouette_score(words, cluster.labels_)
         if silhouette_avg > best_clusters[0]:
             best_clusters = (silhouette_avg, cluster.labels_)
     # parse the clusters and create groups of rank ids
@@ -471,7 +478,9 @@ if __name__ == '__main__':
     for rank in events_time:
         if verbose:
             print("[dbg] Extract clusters for rank", rank)
-        labels[rank] = find_clusters(np.array(events_time[rank]))
+        labels[rank] = find_clusters(
+                np.array(events_time[rank]),
+                end_marker=(events_type[rank][-1]=="program exit"))
         pattern_list, log[rank] = find_patterns(labels[rank], events_type[rank],
                                           events_time[rank], pattern_list, rank)
     start_ts = extract_start_clusters(log, min_ts, max_ts)
