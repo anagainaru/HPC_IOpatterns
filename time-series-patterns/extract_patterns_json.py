@@ -69,11 +69,13 @@ def read_json_data(file_name):
     events_type = {}
     json_data = json.load(inf)
     for entry in json_data:
-        if entry["pid"] not in events_time:
-            events_time[entry["pid"]] = []
-            events_type[entry["pid"]] = []
-        events_time[entry["pid"]].append(entry["ts"])
-        events_type[entry["pid"]].append(entry["name"])
+        if entry["name"][0] == ".":
+            continue
+        if (entry["pid"], entry["tid"]) not in events_time:
+            events_time[(entry["pid"], entry["tid"])] = []
+            events_type[(entry["pid"], entry["tid"])] = []
+        events_time[(entry["pid"], entry["tid"])].append(entry["ts"])
+        events_type[(entry["pid"], entry["tid"])].append(entry["name"])
     inf.close()
     return add_edges(events_time, events_type)
 
@@ -90,15 +92,20 @@ def create_labels(labels, split_index):
 # Criterias to terminate the clustering before reaching individual
 # events. Currently, the max delay between events needs to be over 3 seconds
 def cannot_split_clusters(labels, max_delay):
+    if len(labels) == max(labels) - 1:
+        return False
     if max_delay > 3:
         return False
     return True
 
 # Hierarchical clustering for the events series 
-def find_clusters(events_time):
+def find_clusters(events_time, end_marker=False):
     events_delay = [(events_time[i] - events_time[i-1])
                     for i in range(1,len(events_time))]
     labels = [0] * len(events_time)
+    # if end marker exists
+    if end_marker: # the first split is to seprate the end event from the rest
+        labels[-1] = 1
     best_clusters = [0, labels]
     if len(labels) == 1:
         return labels
@@ -120,6 +127,8 @@ def find_clusters(events_time):
                 print("[dbg] Store current cluster with a score of",
                       silhouette_avg)
         labels = create_labels(labels, split_index)
+        if cannot_split_clusters(labels, max_delay):
+            break
 
         # Compute the silhouette score which gives a score for the density and
         # separation of the formed clusters (only if the delay between events
@@ -133,8 +142,6 @@ def find_clusters(events_time):
             if verbose:
                 print("[dbg] BEST cluster", best_clusters[0], silhouette_avg)
             best_clusters = [silhouette_avg, labels[:]]
-        if cannot_split_clusters(labels, max_delay):
-            break
     if best_clusters[0] == 0:
             best_clusters = [silhouette_avg, labels[:]]
     if verbose:
@@ -184,21 +191,33 @@ def extract_start_clusters(log, min_ts, max_ts):
     start_idx = min_ts
     for rank in log:
         log_patterns = [i[0] for i in log[rank]]
-        # if not all patterns are occuring only once
+        # if there are patterns occuring more than once
         if len(log_patterns) > len(set(log_patterns)):
             # find the first pattern that occurs more than once
             idx = next(i for i in range(1, len(log_patterns))
                        if log_patterns.count(log_patterns[i]) > 1)
             idx -= 1
-        else: # otherwise take all events that are closer to beginning
-            idx = next(i for i in range(len(log_patterns))
-                       if log[rank][i][0] - min_ts < max_ts - log[rank][i][1])
-        start_idx = max(start_idx, log[rank][idx][2])
+        else:
+            # otherwise take all events that are closer to beginning if any
+            idx = [i for i in range(len(log_patterns))
+                   if log[rank][i][2] - min_ts < max_ts - log[rank][i][2]]
+            if len(idx) > 0:
+                idx = idx[0]
+            else:
+                idx = -1
+        if idx >= 0:
+            # make sure the begin section does not exceed 1/3 of execution
+            limit = min_ts + (max_ts - min_ts) * 0.3
+            idx = [i for i in range(0, idx + 1) if log[rank][i][2] < limit]
+            if len(idx) > 0:
+                idx = max(idx)
+                start_idx = max(start_idx, log[rank][idx][2])
     return start_idx
 
 # Extract the end clusters based on patterns across all the ranks
 # The log contains a list of (pattern_id, time_start, time_end)
 def extract_end_clusters(log, min_ts, max_ts):
+    # the end section will always include the "program end" entry
     end_idx = max_ts
     for rank in log:
         log_patterns = [i[0] for i in log[rank]]
@@ -208,11 +227,40 @@ def extract_end_clusters(log, min_ts, max_ts):
             idx = next(i for i in reversed(range(1, len(log_patterns)))
                        if log_patterns.count(log_patterns[i]) > 1)
             idx += 1
-        else: # otherwise take all events that are closer to the end
-            idx = next(i for i in range(len(log_patterns))
-                       if log[rank][i][0] - min_ts > max_ts - log[rank][i][1])
-        end_idx = min(end_idx, log[rank][idx][2])
+        else: # otherwise take all events that are closer to the end if any
+            idx = [i for i in range(len(log_patterns))
+                   if log[rank][i][1] - min_ts > max_ts - log[rank][i][1]]
+            if len(idx) > 0:
+                idx = idx[0]
+            else:
+                idx = -1
+        if idx >= 0 and idx <len(log[rank]):
+            # make sure the end section does not exceed 1/3 of execution
+            limit = max_ts - (max_ts - min_ts) * 0.3
+            idx = [i for i in range(idx, len(log_patterns)) if log[rank][i][1] > limit]
+            if len(idx) > 0:
+                idx = min(idx)
+                end_idx = min(end_idx, log[rank][idx][1])
     return end_idx
+
+def repeat_comp_pattern(pattern, total_exec, req_exec,
+                        ts_series, ts_series_end, rank):
+    log = []
+    # we cannot use interpolation so we just repeat the pattern
+    if individual_patterns:
+        if verbose:
+            print("[dbg] Repeat for cluster pattern", pattern, total_exec)
+        cnt = 1
+        while True:
+            # add entries total_exec apart
+            ts = [i + cnt * total_exec for i in ts_series]
+            log += [(pattern, ts_series[cnt % len(ts_series)],
+                     ts_series_end[cnt % len(ts_series)], rank, i)
+                    for i in ts if i <= req_exec]
+            if max(ts) > req_exec:
+                break
+            cnt += 1
+    return log
 
 def interpolate_comp_pattern(log, total_exec, req_exec, rank, degree=1):
     if total_exec > req_exec:
@@ -223,35 +271,28 @@ def interpolate_comp_pattern(log, total_exec, req_exec, rank, degree=1):
     for pattern in pattern_ids:
         ts_series = [i[1] for i in log if i[0]==pattern]
         ts_series_end = [i[2] for i in log if i[0]==pattern]
-        try:
-            #The use of 1 signifies a linear fit.
-            fit = np.polyfit(range(len(ts_series)), ts_series, degree)
-            if verbose:
-                print("[dbg] Fit for cluster pattern", pattern, fit)
-            line = np.poly1d(fit)
-            cnt = len(ts_series)
-            while True:
-                ts = line(cnt)
-                if ts > req_exec:
-                    break
-                log += [(pattern, ts_series[cnt % len(ts_series)],
-                         ts_series_end[cnt % len(ts_series)], rank, ts)]
-                cnt += 1
-        except:
-            # we cannot use interpolation so we just repeat the pattern
-            if individual_patterns:
+        if len(ts_series) < 5:
+            log += repeat_comp_pattern(pattern, total_exec, req_exec,
+                                       ts_series, ts_series_end, rank)
+        else:
+            try:
+                #The use of degree=1 signifies a linear fit.
+                fit = np.polyfit(range(len(ts_series)), ts_series, degree)
                 if verbose:
-                    print("[dbg] Repeat for cluster pattern", pattern, total_exec)
-                cnt = 1
+                    print("[dbg] Fit for cluster pattern", pattern, fit)
+                np.seterr(invalid='ignore')
+                line = np.poly1d(fit)
+                cnt = len(ts_series)
                 while True:
-                    # add entries total_exec apart
-                    ts = [i + cnt * total_exec for i in ts_series]
-                    log += [(pattern, ts_series[cnt % len(ts_series)],
-                             ts_series_end[cnt % len(ts_series)], rank, i)
-                            for i in ts if i <= req_exec]
-                    if max(ts) > req_exec:
+                    ts = line(cnt)
+                    if ts > req_exec:
                         break
+                    log += [(pattern, ts_series[cnt % len(ts_series)],
+                             ts_series_end[cnt % len(ts_series)], rank, ts)]
                     cnt += 1
+            except:
+                log += repeat_comp_pattern(pattern, total_exec, req_exec,
+                                           ts_series, ts_series_end, rank)
     return log
 
 # Decrease or increase the total execution time of the log
@@ -268,11 +309,11 @@ def update_exec_pattern(log, start_ts, end_ts, req_exec, degree=1):
         if verbose:
             print("[dbg] Generate extended log for rank", rank)
         req_log[rank] += interpolate_comp_pattern(
-                [i for i in log[rank] if i[2] > start_ts and i[2] < end_ts],
-                end_ts, req_exec - (total_exec - end_ts), rank, degree=degree)
+                [i for i in log[rank] if i[2] > start_ts and i[1] < end_ts],
+                end_ts - start_ts, req_exec - (total_exec - end_ts), rank, degree=degree)
         # shift the end pattern to the end of the request time
         req_log[rank] += [(i[0], i[1], i[2], rank, i[1]+shift)
-                          for i in log[rank] if i[2] >= end_ts]
+                          for i in log[rank] if i[1] >= end_ts]
     return req_log
 
 # extract clusters of ranks that have the exact same behavior
@@ -295,7 +336,10 @@ def get_rank_pattern(log):
         model = KMeans(n_clusters=true_k, init='k-means++',
                        max_iter=100, n_init=1)
         cluster = model.fit(words)
-        silhouette_avg = silhouette_score(words, cluster.labels_)
+        if len(cluster.labels_)==1 or len(cluster.labels_)==len(words):
+            silhouette_avg = 0
+        else:
+            silhouette_avg = silhouette_score(words, cluster.labels_)
         if silhouette_avg > best_clusters[0]:
             best_clusters = (silhouette_avg, cluster.labels_)
     # parse the clusters and create groups of rank ids
@@ -311,12 +355,16 @@ def get_rank_pattern(log):
 
 # decreate or increase the number of ranks in the log
 def update_rank_pattern(log, total_ranks, req_ranks, variability=0):
+    total_ranks = len(set(i[0] for i in log))
     if req_ranks < total_ranks:
         # delete the extra ranks from the log
         for rank in range(req_ranks, total_ranks):
             if verbose:
                 print("[dbg] Delete", rank)
-            del log[rank]
+            # delete all entries (tids) with pid = rank
+            del_list = [i for i in log if i[0]==rank]
+            for i in del_list:
+                del log[rank]
     else:
         # find clusters of ranks with the same bahavior: [[0], [1, 2], [3]]
         rank_cluster = get_rank_pattern(log)
@@ -330,22 +378,29 @@ def update_rank_pattern(log, total_ranks, req_ranks, variability=0):
         for rank in range(total_ranks, req_ranks):
             if verbose:
                 print("[dbg] Rank %d will have the same pattern as rank %d" %(
-                    rank, rank_pattern[rank % len(rank_pattern)]))
+                    rank[0], rank_pattern[rank % len(rank_pattern)]))
                 if variability > 0:
                     print("[dbg]  - added variability between (-%2.1f and %2.1f)" %(
                         variability, variability))
-            log[rank] = log[rank_pattern[rank % len(rank_pattern)]][:]
-            if variability > 0:
-                # add noise to the timestamp of the pattern, either to the original 
-                # timestamp or the interpolated value
-                noise = np.random.uniform(-variability, variability, len(log[rank]))
-                noise = [log[rank][i][1]+noise[i] if len(log[rank][i])==4
-                         else log[rank][i][4]+noise[i]
-                         for i in range(len(log[rank]))]
-                # add the updated value to the new log
-                log[rank] = [(log[rank][i][0], log[rank][i][1], log[rank][i][2],
-                              log[rank][i][3], max(0, noise[i]))
-                             for i in range(len(log[rank]))]
+            # the log needs to contain all the threads for the chosen rank
+            target_rank = rank_pattern[rank % len(rank_pattern)]
+            tid_list = [i[1] for i in log if i[0]==target_rank]
+            for tid in tid_list:
+                log[(rank, tid)] = log[(target_rank, tid)][:]
+                if variability > 0:
+                    # add noise to the timestamp of the pattern, either to the original 
+                    # timestamp or the interpolated value
+                    noise = np.random.uniform(-variability, variability,
+                                              len(log[(rank, tid)]))
+                    noise = [log[(rank, tid)][i][1]+noise[i]
+                             if len(log[(rank, tid)][i])==4
+                             else log[(rank, tid)][i][4]+noise[i]
+                             for i in range(len(log[(rank, tid)]))]
+                    # add the updated value to the new log
+                    log[(rank, tid)] = [(log[(rank, tid)][i][0], log[(rank, tid)][i][1],
+                                         log[(rank, tid)][i][2], log[(rank, tid)][i][3],
+                                         max(0, noise[i]))
+                                 for i in range(len(log[(rank, tid)]))]
     return log
 
 # Read the json file and keep a dictionary with strings
@@ -356,9 +411,9 @@ def read_time_to_string(file_name):
     json_data = json.load(inf)
     min_ts = min([entry["ts"] for entry in json_data])
     for entry in json_data:
-        if entry["pid"] not in time_to_string:
-            time_to_string[entry["pid"]] = {}
-        time_to_string[entry["pid"]][(entry["ts"]-min_ts)/1000000] = entry
+        if (entry["pid"], entry["tid"]) not in time_to_string:
+            time_to_string[(entry["pid"], entry["tid"])] = {}
+        time_to_string[(entry["pid"], entry["tid"])][(entry["ts"]-min_ts)/1000000] = entry
     inf.close()
     return time_to_string
 
@@ -371,7 +426,7 @@ def from_pattern_create_log(log, input_file, output_file):
     data = []
     for rank in log:
         if verbose:
-            print("[dbg] Writing log for rank %d to the output file" %(rank))
+            print("[dbg] Writing log for rank %s to the output file" %(rank[0]))
         for pattern in log[rank]:
             # get all the entries occuring between the timestamps
             create_events = [i for i in time_to_string[pattern[3]]
@@ -385,7 +440,8 @@ def from_pattern_create_log(log, input_file, output_file):
             event_list = [time_to_string[pattern[3]][i] for i in create_events]
             for event in event_list:
                 temp_event = {i:event[i] for i in event}
-                temp_event["pid"] = rank
+                temp_event["pid"] = rank[0]
+                temp_event["tid"] = rank[1]
                 temp_event["ts"] = int(temp_event["ts"] + delay * 1000000)
                 data.append(temp_event)
     print("Creating a TAU log file with %s ranks and %s execution time" %(
@@ -407,7 +463,7 @@ def parse_input_argument():
                         help='Requested execution time in seconds')
     parser.add_argument("-v", "--verbose", action='store_true',
                         help="Print debug information")
-    parser.add_argument("-i", "--interpolate", action='store_true',
+    parser.add_argument("-i", "--interpolate", action='store_false',
                         help="Repeat only log patterns that can be interpolated")
     parser.add_argument("-o", "--output", default="output.json",
                         help='Output file to store the new JSON log')
@@ -434,21 +490,23 @@ if __name__ == '__main__':
     labels = {}
     # read the json TAU file
     events_time, events_type = read_json_data(args.infile)
+    min_ts = min([min(events_time[rank]) for rank in events_time])
+    max_ts = max([max(events_time[rank]) for rank in events_time])
+    print("Number of ranks %d" %(len(set([i[0] for i in events_time.keys()]))))
+    print("Execution time %d seconds" %(max_ts - min_ts))
+    if args.stats:
+        print("The -stats flag was provided, exiting without creating the output log")
+        exit()
     pattern_list = {}
     log = {}
     for rank in events_time:
         if verbose:
             print("[dbg] Extract clusters for rank", rank)
-        labels[rank] = find_clusters(np.array(events_time[rank]))
+        labels[rank] = find_clusters(
+                np.array(events_time[rank]),
+                end_marker=(events_type[rank][-1]=="program exit"))
         pattern_list, log[rank] = find_patterns(labels[rank], events_type[rank],
                                           events_time[rank], pattern_list, rank)
-    min_ts = min([min(events_time[rank]) for rank in events_time])
-    max_ts = max([max(events_time[rank]) for rank in events_time])
-    print("Number of ranks %d" %(len(events_time.keys())))
-    print("Execution time %d seconds" %(max_ts - min_ts))
-    if args.stats:
-        print("The -stats flag was provided, exiting without creating the output log")
-        exit()
     start_ts = extract_start_clusters(log, min_ts, max_ts)
     end_ts = extract_end_clusters(log, min_ts, max_ts)
     if verbose:
