@@ -229,14 +229,38 @@ def extract_end_clusters(log, min_ts, max_ts):
             idx += 1
         else: # otherwise take all events that are closer to the end if any
             idx = [i for i in range(len(log_patterns))
-                   if log[rank][i][0] - min_ts > max_ts - log[rank][i][1]]
+                   if log[rank][i][1] - min_ts > max_ts - log[rank][i][1]]
             if len(idx) > 0:
                 idx = idx[0]
             else:
                 idx = -1
-        if idx >= 0:
-            end_idx = min(end_idx, log[rank][idx][1])
+        if idx >= 0 and idx <len(log[rank]):
+            # make sure the end section does not exceed 1/3 of execution
+            limit = max_ts - (max_ts - min_ts) * 0.3
+            idx = [i for i in range(idx, len(log_patterns)) if log[rank][i][1] > limit]
+            if len(idx) > 0:
+                idx = min(idx)
+                end_idx = min(end_idx, log[rank][idx][1])
     return end_idx
+
+def repeat_comp_pattern(pattern, total_exec, req_exec,
+                        ts_series, ts_series_end, rank):
+    log = []
+    # we cannot use interpolation so we just repeat the pattern
+    if individual_patterns:
+        if verbose:
+            print("[dbg] Repeat for cluster pattern", pattern, total_exec)
+        cnt = 1
+        while True:
+            # add entries total_exec apart
+            ts = [i + cnt * total_exec for i in ts_series]
+            log += [(pattern, ts_series[cnt % len(ts_series)],
+                     ts_series_end[cnt % len(ts_series)], rank, i)
+                    for i in ts if i <= req_exec]
+            if max(ts) > req_exec:
+                break
+            cnt += 1
+    return log
 
 def interpolate_comp_pattern(log, total_exec, req_exec, rank, degree=1):
     if total_exec > req_exec:
@@ -439,7 +463,7 @@ def parse_input_argument():
                         help='Requested execution time in seconds')
     parser.add_argument("-v", "--verbose", action='store_true',
                         help="Print debug information")
-    parser.add_argument("-i", "--interpolate", action='store_true',
+    parser.add_argument("-i", "--interpolate", action='store_false',
                         help="Repeat only log patterns that can be interpolated")
     parser.add_argument("-o", "--output", default="output.json",
                         help='Output file to store the new JSON log')
