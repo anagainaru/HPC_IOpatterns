@@ -105,7 +105,7 @@ def dangling_open_violations(current_open, remove):
     return remove
 
 # Write the existing log to an output file
-def write_log_to_json(json_data, out_file):
+def write_log_to_json(json_data, out_file, move=[]):
     outf = open(out_file, 'w')
     outf.write('[\n')
     outf.write(',\n'.join(json.dumps(i) for i in json_data))
@@ -116,7 +116,7 @@ def write_log_to_json(json_data, out_file):
 # I/O operations
 def delete_violations(json_data, out_file=""):
     remove = []
-    current_open = {}
+    current_open = {} # for each path: [index list] of open and all following R/W
     for i in range(len(json_data)):
         entry = json_data[i]
         op_type, path = detect_path_and_optype(entry)
@@ -146,11 +146,49 @@ def delete_violations(json_data, out_file=""):
         write_log_to_json(json_data, out_file)
     return json_data
 
+# There are R/W/close operations for which the file has been closed
+# Fix the violation by removing the last close operation
+def no_open_access_fix(path, op_type, last_close,
+                              check, entry):
+    remove = -1
+    # if a violation has occured, remove the last close
+    # unless it has already been removed by a previous violation
+    # e.g. O C W R C only the first W will remove the second C
+    if check == 1 and last_close[1] != -1:
+        remove = last_close[1]
+        last_close[2] = last_close[1]
+        last_close[1] = -1
+    # if the current operation is a close
+    # keep track of the latest pair of open - close operations
+    if op_type == "close":
+        last_close[2] = entry
+        last_close[1] = entry
+    return remove, last_close
+
+# Fix violations for files opened but not closed
+# by moving an exisitng close at the end of the log
+def dangling_open_fix(current_open, last_close):
+    global sanity
+    remove = []
+    add = []
+    if len(current_open) == 0:
+        return remove, add
+    # remaining entries are opens that were not closed
+    for path in current_open:
+        print("Warning ! %s was opened but not closed" %(path))
+        sanity += 1
+        if path in last_close and last_close[path][2] != -1:
+            add.append(last_close[path][2])
+        else:
+            for idx in current_open[path]:
+                remove.append(idx)
+    return remove, add
+
 # Attempt to correct the violations
 def correct_violations(json_data, out_file=""):
     remove = []
-    current_open = {}
-    last_close = {}
+    current_open = {} # for each path: [index list] of open and all following R/W
+    last_close = {}   # for each path: (open, close index, last deleted close index)
     for i in range(len(json_data)):
         entry = json_data[i]
         # illegal paths will be removed
@@ -167,24 +205,41 @@ def correct_violations(json_data, out_file=""):
                     path, current_open, i)
             if check == 1: # violation for double open
                 remove.append(i)
+            else:
+                # save the last open for each file
+                last_close[path] = [i, -1, -1]
             continue
 
-        # R/W/close will be removed if there is no intitial open
-        # TODO - needs update
         current_open, check = no_open_access_violation(
                 op_type, current_open, path, i)
-        if check == 1 and path not in current_open: 
+        # R/W/close will be removed if there is no intitial open
+        if check == 1 and path not in last_close: 
             remove.append(i)
-    # otherwise delete the close that made the open inactive
-        # for this keep track of open[path] = [list of idx] open[0] is the entry that did open; all sequentent entires are R/W on the same path
-        # when close happens, keep the last close[path] = (open, close index)
-        # when a RWC violation occurs if path in close, remove the last close and update either close (if entry = close) to the latest close index or update the open list with [open index] if the entry is read or write
-
+            continue
+        # otherwise delete the close that made the open inactive
+        remove_entry, last_close[path] = no_open_access_fix(
+                path, op_type, last_close[path], check, i)
+        if remove_entry != -1:
+            remove.append(remove_entry)
+            current_open[path] = [last_close[path][0]]
     # open without close will aim to find a previous close and copy it
     # with a timestamp of the last entry in the open list + 1
     # if dangling violation, if path not in close, we remove all the entries in the open list
     # if path is in close, we add an entry from the close index and update the timestamp
-    return 0
+    remove_entry, add_entry = dangling_open_fix(current_open, last_close)
+    remove += remove_entry
+    remove = list(set(remove) - set(add_entry))
+    print(remove_entry, add_entry)
+    print("Remove list", remove)
+    print("Current open list", current_open)
+    print("Last close", last_close)
+    remove.sort(reverse=True)
+    print("%d violations found. Removing %d entries." %(sanity, len(remove)))
+    for i in remove:
+        del json_data[i]
+    if out_file != "":
+        write_log_to_json(json_data, out_file, move=add_entry)
+    return json_data
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
@@ -194,5 +249,6 @@ if __name__ == '__main__':
     json_file = sys.argv[1]
     inf = open(json_file, "r")
     json_data = json.load(inf)
-    delete_violations(json_data, "test/clean.json")
+    #delete_violations(json_data, "test/clean.json")
+    correct_violations(json_data, "test/clean.json")
     inf.close()
