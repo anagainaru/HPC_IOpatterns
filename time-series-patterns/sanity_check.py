@@ -5,6 +5,7 @@ import os
 
 op_list = ["open", "close", "read", "write", "seek"]
 sanity = 0
+close_entry_example = {}
 
 # Detect the file that is being used by the I/O operation
 def detect_path(entry):
@@ -105,7 +106,7 @@ def dangling_open_violations(current_open, remove):
     return remove
 
 # Write the existing log to an output file
-def write_log_to_json(json_data, out_file, move=[]):
+def write_log_to_json(json_data, out_file):
     outf = open(out_file, 'w')
     outf.write('[\n')
     outf.write(',\n'.join(json.dumps(i) for i in json_data))
@@ -148,27 +149,27 @@ def delete_violations(json_data, out_file=""):
 
 # There are R/W/close operations for which the file has been closed
 # Fix the violation by removing the last close operation
-def no_open_access_fix(path, op_type, last_close,
-                              check, entry):
+def no_open_access_fix(path, op_type, last_close, check, entry):
+    global close_entry_example
     remove = -1
     # if a violation has occured, remove the last close
     # unless it has already been removed by a previous violation
     # e.g. O C W R C only the first W will remove the second C
     if check == 1 and last_close[1] != -1:
         remove = last_close[1]
-        last_close[2] = last_close[1]
+        close_entry_example[path] = last_close[1]
         last_close[1] = -1
     # if the current operation is a close
     # keep track of the latest pair of open - close operations
     if op_type == "close":
-        last_close[2] = entry
+        close_entry_example[path] = entry
         last_close[1] = entry
     return remove, last_close
 
 # Fix violations for files opened but not closed
 # by moving an exisitng close at the end of the log
 def dangling_open_fix(current_open, last_close):
-    global sanity
+    global sanity, close_entry_example
     remove = []
     add = []
     if len(current_open) == 0:
@@ -177,15 +178,34 @@ def dangling_open_fix(current_open, last_close):
     for path in current_open:
         print("Warning ! %s was opened but not closed" %(path))
         sanity += 1
-        if path in last_close and last_close[path][2] != -1:
-            add.append(last_close[path][2])
+        if path in close_entry_example:
+            add.append(close_entry_example[path])
         else:
             for idx in current_open[path]:
                 remove.append(idx)
     return remove, add
 
+# Remove the entries from the log file from a given list
+# and update the index for the entries that need to be added
+def remove_tau_entries(json_data, remove, add_list):
+    if len(add_list) > 0:
+        max_ts = max([entry["ts"] for entry in json_data])
+        delay = 10
+        for i in add_list:
+            entry = json_data[i].copy()
+            entry["ts"] = max_ts + delay
+            json_data.append(entry)
+            delay += 10
+        print("%d entries added to fix dangling violations." %(len(add_list)))
+    remove.sort(reverse=True)
+    print("%d violations found. Removing %d entries." %(sanity, len(remove)))
+    for i in remove:
+        del json_data[i]
+    return json_data
+
 # Attempt to correct the violations
 def correct_violations(json_data, out_file=""):
+    global close_entry_example
     remove = []
     current_open = {} # for each path: [index list] of open and all following R/W
     last_close = {}   # for each path: (open, close index, last deleted close index)
@@ -207,13 +227,15 @@ def correct_violations(json_data, out_file=""):
                 remove.append(i)
             else:
                 # save the last open for each file
-                last_close[path] = [i, -1, -1]
+                last_close[path] = [i, -1]
             continue
+        if op_type == "close":
+            close_entry_example[path] = i
 
         current_open, check = no_open_access_violation(
                 op_type, current_open, path, i)
         # R/W/close will be removed if there is no intitial open
-        if check == 1 and path not in last_close: 
+        if check == 1 and (path not in last_close or op_type=="close"):
             remove.append(i)
             continue
         # otherwise delete the close that made the open inactive
@@ -222,33 +244,38 @@ def correct_violations(json_data, out_file=""):
         if remove_entry != -1:
             remove.append(remove_entry)
             current_open[path] = [last_close[path][0]]
-    # open without close will aim to find a previous close and copy it
-    # with a timestamp of the last entry in the open list + 1
-    # if dangling violation, if path not in close, we remove all the entries in the open list
-    # if path is in close, we add an entry from the close index and update the timestamp
+    # dangling opens require a previous close to be moved at the end
+    # if there is no close operation for a file, remove all violations
     remove_entry, add_entry = dangling_open_fix(current_open, last_close)
     remove += remove_entry
-    remove = list(set(remove) - set(add_entry))
-    print(remove_entry, add_entry)
-    print("Remove list", remove)
-    print("Current open list", current_open)
-    print("Last close", last_close)
-    remove.sort(reverse=True)
-    print("%d violations found. Removing %d entries." %(sanity, len(remove)))
-    for i in remove:
-        del json_data[i]
+    #print(remove_entry, add_entry)
+    #print("Remove list", remove)
+    #print("Current open list", current_open)
+    #print("Last close", last_close)
+    json_data = remove_tau_entries(json_data, remove, add_entry)
     if out_file != "":
-        write_log_to_json(json_data, out_file, move=add_entry)
+        write_log_to_json(json_data, out_file)
     return json_data
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print("Usage: %s input_json" %(
+    if len(sys.argv) < 3:
+        print("Usage: %s input_json output_json [remove/correct]" %(
             sys.argv[0]))
         exit(1)
     json_file = sys.argv[1]
+    output_file = sys.argv[2]
+    mode = "remove"
+    if len(sys.argv) > 3:
+        if sys.argv[3] != "remove" and sys.argv[3] != "correct":
+            print("Invalid parameter. Fallback to default mode: remove")
+            print("Received: %s. Possible options: remove or correct" %(
+                sys.argv[3]))
+        else:
+            mode = sys.argv[3]
     inf = open(json_file, "r")
     json_data = json.load(inf)
-    #delete_violations(json_data, "test/clean.json")
-    correct_violations(json_data, "test/clean.json")
+    if mode == "remove":
+        delete_violations(json_data, output_file)
+    if mode == "correct":
+        correct_violations(json_data, output_file)
     inf.close()
