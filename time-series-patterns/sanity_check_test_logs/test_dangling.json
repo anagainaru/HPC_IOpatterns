@@ -1,0 +1,15 @@
+[
+{"ts": 1636302902315078, "dur": 3255, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "scenario-1", "name": "fclose", "args": {"path": "file-1", "mode": "w"}, "return": "0x27214d0", "canfix": 1},
+{"ts": 1636302902342580, "dur": 1545, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "scenario-1", "name": "fopen", "args": {"path": "file-1", "mode": "r"}, "return": "0x28ac460", "canfix": 1},
+{"ts": 1636302902328157, "dur": 32, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "scenario-1", "name": "fwrite", "args": {"stream": "0x27214d0"}, "pathname": "file-1", "return": 20, "canfix": 1},
+{"ts": 1636302902342580, "dur": 1545, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "scenario-1", "name": "fopen", "args": {"path": "file-1", "mode": "r"}, "return": "0x28ac460", "canfix": 0},
+{"ts": 1636302902328157, "dur": 32, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "scenario-1", "name": "fread", "args": {"stream": "0x27214d0"}, "pathname": "file-1", "return": 20, "canfix": 1},
+{"ts": 1636302902342580, "dur": 1545, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "scenario-2", "name": "fopen", "args": {"path": "file-2", "mode": "r"}, "return": "0x28ac460", "canfix": 0},
+{"ts": 1636302902328157, "dur": 32, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "scenario-2", "name": "fwrite", "args": {"stream": "0x27214d0"}, "pathname": "file-2", "return": 20, "canfix": 0},
+{"ts": 1636302902342580, "dur": 1545, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "scenario-2", "name": "fopen", "args": {"path": "file-2", "mode": "r"}, "return": "0x28ac460", "canfix": 0},
+{"ts": 1636302902328157, "dur": 32, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "scenario-2", "name": "fread", "args": {"stream": "0x27214d0"}, "pathname": "file-2", "return": 20, "canfix": 0},
+{"ts": 1636302902315078, "dur": 3255, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "scenaro-3", "name": "fopen", "args": {"path": "file-3", "mode": "w"}, "return": "0x27214d0", "canfix": 1},
+{"ts": 1636302902315078, "dur": 3255, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "scenario-3", "name": "fclose", "args": {"path": "file-3", "mode": "w"}, "return": "0x27214d0", "canfix": 1},
+{"ts": 1636302902342580, "dur": 1545, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "scenario-3", "name": "fopen", "args": {"path": "./file-3", "mode": "r"}, "return": "0x28ac460", "canfix": 1},
+{"ts": 1636302902328157, "dur": 32, "ph": "X", "tid": 0, "pid": 0, "step": 0, "cat": "scenario-3", "name": "fwrite", "args": {"stream": "0x27214d0"}, "pathname": "file-3", "return": 20, "canfix": 1}
+]
