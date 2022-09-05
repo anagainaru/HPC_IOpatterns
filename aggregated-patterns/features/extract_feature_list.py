@@ -94,7 +94,12 @@ if __name__ == "__main__":
         save_name = sys.argv[3]
 
     darshan_file = "%s" %(sys.argv[1])
-    system_procs = int(sys.argv[2])
+    try:
+        system_procs = int(sys.argv[2])
+    except:
+        print("Usage: python %s darshan_file system_procs [save_name]" %(
+            sys.argv[0]))
+        exit()
 
     # extract the features from the metadata information
     feature_list = create_empty_dict()

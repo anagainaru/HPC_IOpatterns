@@ -27,7 +27,10 @@ def detect_path(entry):
 
 # Detect the type of operation from the list of possible operations
 def detect_type_operation(entry):
-    name = entry["name"]
+    try:
+        name = entry["name"]
+    except:
+        return "none"
     path = ""
     if "args" in entry and "pathname" in entry["args"]:
         path = entry["args"]["pathname"]
