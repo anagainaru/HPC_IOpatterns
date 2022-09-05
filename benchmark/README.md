@@ -2,6 +2,14 @@
 
 ![benchmark design](./docs/benchmark.png)
 
+Running using Docker file:
+
+```
+docker build .
+docker images
+docker run -it --mount type=bind,source="/Users/95j/work/olcf_darshan/skel-io",target="/home/skel-io" --name skel-io [image_id] bin/bash
+```
+
 ## Workflow generator
 
 Darshan logs are used to create clusters
