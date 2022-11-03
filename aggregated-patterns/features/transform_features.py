@@ -5,6 +5,8 @@ import seaborn as sns; sns.set()
 import matplotlib.pyplot as plt
 import os, glob
 
+type_of_features = "bin" # or continuous
+
 # applications using storage options: ALPINE, BB
 def conditions_storage(df):
     if (df.is_ALPINE == 1) & (df.is_BB == 1):
@@ -46,15 +48,24 @@ def conditions_open(df):
 
 def extract_metadata(df, out_df):
     df["Metadata_perc"] = df.Metadata_runtime / df.IO_runtime
-    out_df.loc[df.Metadata_perc < 0.25, "metadata"] = 0
-    out_df.loc[df.Metadata_perc >= 0.25, "metadata"] = 1
+    if type_of_features == "bin":
+        out_df.loc[df.Metadata_perc < 0.25, "metadata"] = 0
+        out_df.loc[df.Metadata_perc >= 0.25, "metadata"] = 1
+    else:
+        out_df["metadata"] = np.minimum(1,df["Metadata_perc"])
     df["IO_intensive"] = df.IO_runtime / df.Total_runtime
-    out_df.loc[df.IO_intensive < 0.25, "IO_intensive"] = 0
-    out_df.loc[df.IO_intensive >= 0.25, "IO_intensive"] = 1
+    if type_of_features == "bin":
+        out_df.loc[df.IO_intensive < 0.25, "IO_intensive"] = 0
+        out_df.loc[df.IO_intensive >= 0.25, "IO_intensive"] = 1
+    else:
+        out_df["IO_intensive"] = np.minimum(1,df["IO_intensive"])
     df["Total_opens"] = (df["POSIX_opens_per_file"] + df["MPIIO_opens_per_file"] + df["HDF5_opens_per_file"]) *\
                         (df["POSIX_IO_total_files"] + df["MPIIO_IO_total_files"] + df["HDF5_IO_total_files"])
     df["Total_accesses"] = df["POSIX_IO_total_accesses"]+df["MPIIO_IO_total_accesses"]+df["HDF5_IO_total_accesses"]
-    out_df = out_df.assign(open_access = df.apply(conditions_open, axis=1))
+    if type_of_features == "bin":
+        out_df = out_df.assign(open_access = df.apply(conditions_open, axis=1))
+    else:
+        out_df["open_access"] = np.minimum(1,df["Total_opens"]/df["Total_accesses"])
     return out_df
 
 # transform the features related to the amount of IO performed
@@ -67,13 +78,19 @@ def conditions_intensive_IO(df):
 
 def extract_amount_IO(df, out_df):
     df["RW_coef"] = (df.Total_bytes_READ - df.Total_bytes_WRITTEN) / (df.Total_bytes_READ + df.Total_bytes_WRITTEN)
-    out_df = out_df.assign(RW_intensive=df.apply(conditions_intensive_IO, axis=1))
+    if type_of_features == "bin":
+        out_df = out_df.assign(RW_intensive=df.apply(conditions_intensive_IO, axis=1))
+    else:
+        out_df["RW_intensive"] = np.maximum(-1, np.minimum(1,df["RW_coef"]))
     return out_df
 
 # transform features related to write/read accesses
 def conditions_access(df, column, new_field, out_df):
     out_df.loc[df[column] < 0.25, new_field] = 0
-    out_df.loc[df[column] > 0.75, new_field] = 2
+    if type_of_features == "bin":
+        out_df.loc[df[column] > 0.75, new_field] = 2
+    else:
+        out_df.loc[df[column] > 0.75, new_field] = -1
     out_df.loc[(df[column] >= 0.25) & (df[column] <= 0.75), new_field] = 1
     return out_df
 
@@ -144,8 +161,14 @@ def extract_WR_access_patterns(df, out_df):
                or '100k_1M' in i or '1M_4M' in i or '4M_10M' in i or '10M_100M' in i or '100M_1G' in i) and
                'WRITE' in i]
     df["Total_small_WRITES"] = df[columns].sum(axis = 1)
-    out_df = out_df.assign(read_access_size = df.apply(conditions_read_size, axis=1))
-    out_df = out_df.assign(write_access_size = df.apply(conditions_write_size, axis=1))
+    if type_of_features == "bin":
+        out_df = out_df.assign(read_access_size = df.apply(conditions_read_size, axis=1))
+        out_df = out_df.assign(write_access_size = df.apply(conditions_write_size, axis=1))
+    else:
+        out_df["read_access_size"] = (df.Total_large_READS - df.Total_small_READS) /\
+                (df.Total_large_READS + df.Total_small_READS)
+        out_df["write_access_size"] = (df.Total_large_WRITES - df.Total_small_WRITES) /\
+                (df.Total_large_WRITES + df.Total_small_WRITES)
 
     # amount of bytes that are both read and written compared to read/write only
     df["Total_read_write_bytes"] = df.filter(like='read_write_bytes').sum(axis = 1)
@@ -155,7 +178,11 @@ def extract_WR_access_patterns(df, out_df):
     df["Total_read_write_bytes"] /= df["Total_bytes"]
     df["Total_read_only_bytes"] /= df["Total_bytes"]
     df["Total_write_only_bytes"] /= df["Total_bytes"]
-    out_df = out_df.assign(access_type = df.apply(conditions_access_type, axis=1))
+    if type_of_features == "bin":
+        out_df = out_df.assign(access_type = df.apply(conditions_access_type, axis=1))
+    else:
+        out_df["read_only"] = df["Total_read_only_bytes"]
+        out_df["write_only"] = df["Total_write_only_bytes"]
     return out_df
 
 # transform features related to file accesses
@@ -194,7 +221,11 @@ def extract_file_access(df, out_df):
     df["Total_read_write_files"] /= df["Total_files"]
     df["Total_read_only_files"] /= df["Total_files"]
     df["Total_write_only_files"] /= df["Total_files"]
-    out_df = out_df.assign(file_access_type = df.apply(conditions_access_file, axis=1))
+    if type_of_features == "bin":
+        out_df = out_df.assign(file_access_type = df.apply(conditions_access_file, axis=1))
+    else:
+        out_df["file_read_only"] = df["Total_read_only_files"]
+        out_df["file_write_only"] = df["Total_write_only_files"]
 
     # unique/shared files
     df["unique_files"] = df["POSIX_unique_files"]+df["MPIIO_unique_files"]+df["HDF5_unique_files"]
@@ -202,12 +233,15 @@ def extract_file_access(df, out_df):
     df["total_files"] = df["unique_files"] + df["shared_files"]
     df["unique_files"] /= df["total_files"]
     df["shared_files"] /= df["total_files"]
-    out_df = out_df.assign(file_type = df.apply(conditions_file_type, axis=1))
+    if type_of_features == "bin":
+        out_df = out_df.assign(file_type = df.apply(conditions_file_type, axis=1))
+    else:
+        out_df["file_type"] = (df["unique_files"] - df["shared_files"])/(df["unique_files"] + df["shared_files"])
     return out_df
 
 # transform features related to IO accesses across ranks
 def conditions_ranks(df):
-     if (df.Total_IO_ranks == 1) & (df.Total_procs > 1):
+    if (df.Total_IO_ranks == 1) & (df.Total_procs > 1):
         return 0 # only one rank is doing I/O
     if (df.IO_ranks == 1): # all ranks are doing I/O
         return 1
@@ -233,8 +267,12 @@ def extract_rank_access(df, out_df):
     df["Total_IO_ranks"] = df["IO_ranks"] * df["Total_procs"]
     df["Total_read_ranks"] /= df["Total_IO_ranks"]
     df["Total_write_ranks"] /= df["Total_IO_ranks"]
-    out_df = out_df.assign(ranks_IO = df.apply(conditions_ranks, axis=1))
-    out_df = out_df.assign(ranks_RW = df.apply(conditions_WR_ranks, axis=1))
+    if type_of_features == "bin":
+        out_df = out_df.assign(ranks_IO = df.apply(conditions_ranks, axis=1))
+        out_df = out_df.assign(ranks_RW = df.apply(conditions_WR_ranks, axis=1))
+    else:
+        out_df["ranks_IO"] = df["IO_ranks"]
+        out_df["ranks_RW"] = df["IO_ranks"]
     # variance
     df["max_variance"] = df[["POSIX_F_VARIANCE_RANK_BYTES", "MPIIO_F_VARIANCE_RANK_BYTES", "HDF5_F_VARIANCE_RANK_BYTES"]].max(axis = 1)
     out_df.loc[df["max_variance"] == 0, "ranks_variance"] = 0
@@ -242,11 +280,19 @@ def extract_rank_access(df, out_df):
     return out_df
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3:
-        print("Usage: python %s csv_files_pattern header_file [save_name]" %(
+    if len(sys.argv) < 4:
+        print("Usage: python %s csv_file header_file bin/continuous [save_name]" %(
             sys.argv[0]))
         exit()
 
+    if sys.argv[3]!="bin" and sys.argv[3]!="continuous":
+        print("Invalid option for the third argument. Expected bin or continuous")
+        print("Received:", sys.argv[3])
+        exit()
+
+    type_of_features = sys.argv[3]
+
+    # read the header file
     header = set()
     inf = open(sys.argv[2], "r")
     for line in inf:
@@ -270,4 +316,10 @@ if __name__ == "__main__":
     out_df = extract_WR_access_patterns(df, out_df)
     out_df = extract_file_access(df, out_df)
     out_df = extract_rank_access(df, out_df)
-    print(out_df)
+    print(out_df[["metadata", "open_access", "IO_intensive"]])
+
+    outfile = "output_bins.cvs"
+    if len(sys.argv)>4:
+        outfile = sys.argv[4]
+    out_df.to_csv(outfile, index=False)
+    print("Output written in", outfile)
