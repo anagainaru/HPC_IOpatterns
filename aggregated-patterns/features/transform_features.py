@@ -86,12 +86,12 @@ def extract_amount_IO(df, out_df):
 
 # transform features related to write/read accesses
 def conditions_access(df, column, new_field, out_df):
-    out_df.loc[df[column] < 0.25, new_field] = 0
+    out_df.loc[df[column] < 0.25, new_field] = 1
     if type_of_features == "bin":
         out_df.loc[df[column] > 0.75, new_field] = 2
     else:
         out_df.loc[df[column] > 0.75, new_field] = -1
-    out_df.loc[(df[column] >= 0.25) & (df[column] <= 0.75), new_field] = 1
+    out_df.loc[(df[column] >= 0.25) & (df[column] <= 0.75), new_field] = 0
     return out_df
 
 def conditions_write_size(df):
@@ -265,18 +265,22 @@ def conditions_WR_ranks(df):
 def extract_rank_access(df, out_df):
     # rank access pattern
     df["Total_IO_ranks"] = df["IO_ranks"] * df["Total_procs"]
-    df["Total_read_ranks"] /= df["Total_IO_ranks"]
-    df["Total_write_ranks"] /= df["Total_IO_ranks"]
     if type_of_features == "bin":
+        df["Total_read_ranks"] /= df["Total_IO_ranks"]
+        df["Total_write_ranks"] /= df["Total_IO_ranks"]
         out_df = out_df.assign(ranks_IO = df.apply(conditions_ranks, axis=1))
         out_df = out_df.assign(ranks_RW = df.apply(conditions_WR_ranks, axis=1))
     else:
         out_df["ranks_IO"] = df["IO_ranks"]
-        out_df["ranks_RW"] = df["IO_ranks"]
+        out_df["ranks_RW"] = (df["Total_read_ranks"]-df["Total_write_ranks"]) /\
+                (df["Total_read_ranks"] + df["Total_write_ranks"])
+        print(df[df["Total_read_ranks"] + df["Total_write_ranks"]==0][["Total_read_ranks", "Total_write_ranks", "Total_IO_ranks", "Total_procs"]])
+
     # variance
     df["max_variance"] = df[["POSIX_F_VARIANCE_RANK_BYTES", "MPIIO_F_VARIANCE_RANK_BYTES", "HDF5_F_VARIANCE_RANK_BYTES"]].max(axis = 1)
-    out_df.loc[df["max_variance"] == 0, "ranks_variance"] = 0
-    out_df.loc[df["max_variance"] > 0, "ranks_variance"] = 1
+    out_df.loc[df["max_variance"] == 0, "ranks_variance"] = -1
+    out_df.loc[(df["max_variance"] >0) & (df["max_variance"]<0.2), "ranks_variance"] = 0
+    out_df.loc[df["max_variance"] >= 0.25, "ranks_variance"] = 1
     return out_df
 
 if __name__ == "__main__":
