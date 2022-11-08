@@ -60,6 +60,9 @@ There are 13 applications whose behavior on Summit 2020 was extracted into a sep
 Castro (1.3k runs), RiemannProblem (100), cp2k (200), dirac (200), gronor (800), gtc (10k), meshfem3D (150), namd (3.5k),
 nwchem (200), qmcpack (3k), stemdl (100), vasp (16.5k), xgc (800). Details about their runs can be found in: [Summit application behavior](https://github.com/anagainaru/HPC_IOpatterns/tree/main/aggregated-patterns/summit)
 
+![feature_correlation](https://user-images.githubusercontent.com/16229479/200451969-016cd903-8ee2-42e3-ab52-193b8eb44495.png)
+
+
 ## Create clusters of similar data
 
 Scripts available in folder `clustering`.
@@ -86,7 +89,7 @@ Example results for the clustering method for the list of application runs (and 
 ![Hierarchical clustering](docs/cluster_tree.png)
 
 
-### 1. Exstract the list of applications in each clusters
+### 1. Extract the list of applications in each clusters
 
 The script in `extract_clusters.py` creates the figure on the left. It uses hdbscan to create the cluster hierarchy then it identifies each entry in the features file that corresponds to each cluster and saves it in a file. The script saves the main clusters from the level with the stable clusters from the condensed tree (dashed line in the figure) in `*.0.csv`. The file contains one line for each entry in the features file with an additional column (`Cluster`) with labels from 0 to n-1, where n is the number of identified clusters.
 
