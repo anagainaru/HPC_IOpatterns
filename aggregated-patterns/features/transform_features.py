@@ -47,13 +47,13 @@ def conditions_open(df):
     return 2 # Heavy on opens
 
 def extract_metadata(df, out_df):
-    df["Metadata_perc"] = df.Metadata_runtime / df.IO_runtime
+    df["Metadata_perc"] = df.Metadata_runtime / (df.IO_runtime + df.Metadata_runtime)
     if type_of_features == "bin":
         out_df.loc[df.Metadata_perc < 0.25, "metadata"] = 0
         out_df.loc[df.Metadata_perc >= 0.25, "metadata"] = 1
     else:
         out_df["metadata"] = np.minimum(1,df["Metadata_perc"])
-    df["IO_intensive"] = df.IO_runtime / df.Total_runtime
+    df["IO_intensive"] = df.IO_runtime / (df.Total_runtime + df.IO_runtime)
     if type_of_features == "bin":
         out_df.loc[df.IO_intensive < 0.25, "IO_intensive"] = 0
         out_df.loc[df.IO_intensive >= 0.25, "IO_intensive"] = 1
@@ -62,6 +62,9 @@ def extract_metadata(df, out_df):
     df["Total_opens"] = (df["POSIX_opens_per_file"] + df["MPIIO_opens_per_file"] + df["HDF5_opens_per_file"]) *\
                         (df["POSIX_IO_total_files"] + df["MPIIO_IO_total_files"] + df["HDF5_IO_total_files"])
     df["Total_accesses"] = df["POSIX_IO_total_accesses"]+df["MPIIO_IO_total_accesses"]+df["HDF5_IO_total_accesses"]
+    df["Total_accesses"] += df["Total_opens"]
+    df = df[df.Total_accesses > 0]
+
     if type_of_features == "bin":
         out_df = out_df.assign(open_access = df.apply(conditions_open, axis=1))
     else:
@@ -274,7 +277,6 @@ def extract_rank_access(df, out_df):
         out_df["ranks_IO"] = df["IO_ranks"]
         out_df["ranks_RW"] = (df["Total_read_ranks"]-df["Total_write_ranks"]) /\
                 (df["Total_read_ranks"] + df["Total_write_ranks"])
-        print(df[df["Total_read_ranks"] + df["Total_write_ranks"]==0][["Total_read_ranks", "Total_write_ranks", "Total_IO_ranks", "Total_procs"]])
 
     # variance
     df["max_variance"] = df[["POSIX_F_VARIANCE_RANK_BYTES", "MPIIO_F_VARIANCE_RANK_BYTES", "HDF5_F_VARIANCE_RANK_BYTES"]].max(axis = 1)
@@ -308,6 +310,8 @@ if __name__ == "__main__":
         df = pd.concat([df, data])
         print("Add file:", filename)
 
+    # filter all entries that execute for less than 5 minutes
+    df = df[df.Total_runtime > 300]
     # Filter all applications that do not perform any I/O
     df["Total_bytes_READ"] = df.POSIX_BYTES_READ + df.HDF5_BYTES_READ + df.MPIIO_BYTES_READ
     df["Total_bytes_WRITTEN"] = df.POSIX_BYTES_WRITTEN + df.HDF5_BYTES_WRITTEN + df.MPIIO_BYTES_WRITTEN
@@ -322,6 +326,7 @@ if __name__ == "__main__":
     out_df = extract_rank_access(df, out_df)
     print(out_df[["metadata", "open_access", "IO_intensive"]])
 
+    out_df = out_df.fillna(0)
     outfile = "output_bins.cvs"
     if len(sys.argv)>4:
         outfile = sys.argv[4]
